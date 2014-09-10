@@ -1,0 +1,4 @@
+C:\Users\user_stefanini\Desktop\Distribuidas\SistemaClinicaOdontologica\CapaPresentacion\bin\CapaPresentacion.dll
+C:\Users\user_stefanini\Desktop\Distribuidas\SistemaClinicaOdontologica\CapaPresentacion\bin\CapaPresentacion.pdb
+C:\Users\user_stefanini\Desktop\Distribuidas\SistemaClinicaOdontologica\CapaPresentacion\obj\Debug\CapaPresentacion.dll
+C:\Users\user_stefanini\Desktop\Distribuidas\SistemaClinicaOdontologica\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
