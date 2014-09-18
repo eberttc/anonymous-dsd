@@ -8,7 +8,7 @@
     <script src="<%= ResolveClientUrl("~/Scripts/General/jquery.autocomplete.min.js") %>" type="text/javascript"></script>
     <script src="<%= ResolveClientUrl("~/Scripts/Dental/DentalEspecialidades.js") %>" type="text/javascript"></script>   
         <form action="<%= ResolveClientUrl("~/m_MobileSolutions/ExportarEdit.aspx") %>" method="post">
-
+        Especialidades
     <input type="hidden" name="hdnTitulo" id="hdnTitulo" runat="server" />
     </form>
 </asp:Content>
