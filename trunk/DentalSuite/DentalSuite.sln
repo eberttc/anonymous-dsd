@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal", "{9C82D878-F086-49F1-BB57-E7BD347B0A49}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal\", "{9C82D878-F086-49F1-BB57-E7BD347B0A49}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = "SAK"
 		SccAuxPath = "SAK"
@@ -27,30 +27,15 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal", "{
 		VWDDynamicPort = "false"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServices", "SOAPServices\SOAPServices.csproj", "{4707D748-FAAD-4A25-8107-E05C5CDA9136}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{5A080222-D583-48BC-B17D-0CBD228572C8}"
+	ProjectSection(SolutionItems) = preProject
+		Librerias\Iesi.Collections.dll = Librerias\Iesi.Collections.dll
+		Librerias\NHibernate.dll = Librerias\NHibernate.dll
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://172.17.200.124:9090/tfs/moso_websuite
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Common\\Common.csproj
-		SccProjectName1 = Common
-		SccLocalPath1 = Common
-		SccProjectUniqueName2 = DataAccess\\DataAccess.csproj
-		SccProjectName2 = DataAccess
-		SccLocalPath2 = DataAccess
-		SccProjectUniqueName3 = BusinessEntities\\BusinessEntities.csproj
-		SccProjectName3 = BusinessEntities
-		SccLocalPath3 = BusinessEntities
-		SccProjectUniqueName4 = BusinessLogic\\BusinessLogic.csproj
-		SccProjectName4 = BusinessLogic
-		SccLocalPath4 = BusinessLogic
-		SccWebProject5 = true
-		SccProjectUniqueName5 = WebPortal
-		SccProjectName5 = WebPortal
-		SccLocalPath5 = WebPortal
-		SccProjectEnlistmentChoice5 = 2
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -60,6 +45,10 @@ Global
 		{9C82D878-F086-49F1-BB57-E7BD347B0A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C82D878-F086-49F1-BB57-E7BD347B0A49}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C82D878-F086-49F1-BB57-E7BD347B0A49}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
