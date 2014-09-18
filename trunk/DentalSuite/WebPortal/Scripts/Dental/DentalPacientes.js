@@ -19,13 +19,13 @@ $(document).ready(function () {
     $("input:button", "#divCancelar").button();
     $("input:button", "#divCancelar").click(function () { alert("se cancela registro"); });
 
-        CargarTipoDocumento();
+    CargarTipoDocumento();
 
     $("#caja").slideToggle();
 })
 //#endregion
 
-//#region Cargar Contenido Idioma
+//#region CargarTipoDocumento
 function CargarTipoDocumento() {
     data = "[{ value: '1', text: 'DNI'},{ value: '2', text: 'Carnet de extranjeria'}]";
     $("#txtTipoDocumento").autocomplete(eval(data), {
