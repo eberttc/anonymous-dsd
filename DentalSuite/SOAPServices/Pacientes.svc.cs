@@ -6,11 +6,11 @@ using System.ServiceModel;
 using System.Text;
 using SOAPServices.Dominio;
 using SOAPServices.Persistencia;
-using System.Text.RegularExpressions;
+using SOAPServices.Reutilizables;
 
 namespace SOAPServices
 { 
-    public class Pacientes : IPacientes , IUtilitarios
+    public class Pacientes : IPacientes
     {
         private PacienteDAO pacienteDAO = null;
         private PacienteDAO PacienteDAO
@@ -23,12 +23,15 @@ namespace SOAPServices
             }
         }
 
+        private Utilitario util = null;
+        
+
         
         public Dominio.Mensaje registrarPaciente(Dominio.Paciente paciente)
         {
             try
             {
-                string codigoGenerado = generarCodigo(paciente);
+                string codigoGenerado = util.generarCodigo(paciente);
 
                 Paciente pacienteACrear = new Paciente()
                 {
@@ -45,11 +48,12 @@ namespace SOAPServices
                 };
                 //Validaciones
                 //1) Validar complejidad de la clave
-                bool condicion = validarClave(paciente.Contrasena);
+                //bool condicion = validarClave(paciente.Contrasena);
+                bool condicion = util.validarClave(paciente.Contrasena);
                 if (condicion == false)
                 {
                     //Creamos mensaje de ERROR para enviar
-                    return crearMensaje("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
+                    return util.crearMensaje("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
                                           "Advertencia",
                                           "Registro de Paciente",
                                           "IPaciente");
@@ -57,7 +61,7 @@ namespace SOAPServices
                 //2) Validar paciente no exista
                 if (PacienteDAO.Obtener(codigoGenerado) != null)
                 {
-                    return crearMensaje("El paciente que esta intentando crear ya existe",
+                    return util.crearMensaje("El paciente que esta intentando crear ya existe",
                                          "Advertencia",
                                          "Registro de Paciente",
                                          "IPaciente");
@@ -67,14 +71,14 @@ namespace SOAPServices
                 PacienteDAO.Crear(pacienteACrear);
 
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
-                return crearMensaje("Paciente creado correctamente. Codigo generado:" + codigoGenerado,
+                return util.crearMensaje("Paciente creado correctamente. Codigo generado:" + codigoGenerado,
                                     "Satisfactorio",
                                     "Registro de Paciente",
                                     "IPaciente");
             }
             catch (Exception ex)
             {
-                return crearMensaje("Error de Sitema :" + ex.ToString(),
+                return util.crearMensaje("Error de Sitema :" + ex.ToString(),
                                     "Error",
                                     "Registro de Paciente",
                                     "IPaciente");
@@ -84,41 +88,6 @@ namespace SOAPServices
         public List<Dominio.Paciente> listarPacientes()
         {
             return PacienteDAO.ListarTodos().ToList();
-        }
-
-        public string generarCodigo(object clase)
-        {
-            if (clase.GetType() == typeof(Paciente))
-            {
-                
-                Paciente clasePaciente = (Paciente)clase;
-                string nombres = clasePaciente.Nombres.Replace ( " ", "" );
-                return "p" + nombres + clasePaciente.ApePaterno;
-            }
-            else
-            {
-                Paciente clasePaciente = (Paciente)clase;
-                string nombres = clasePaciente.Nombres.Replace(" ", "");
-                return "o" + nombres + clasePaciente.ApePaterno;
-            }
-        }
-
-        public bool validarClave(string contrasena)
-        {
-            var r = new Regex(@"^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])\S{6,}$");
-            return r.Match(contrasena).Success ? true : false;
-        }
-
-        public Mensaje crearMensaje(string mensajeDescripcion, string tipoMensaje, string titulo, string origen)
-        {
-
-            Mensaje mensaje = new Mensaje();
-            mensaje.MensajeDescripcion = mensajeDescripcion;
-            mensaje.TipoMensaje = tipoMensaje;
-            mensaje.Titulo = titulo;
-            mensaje.ServicioOrigen = origen;
-
-            return mensaje;
         }
 
         public Mensaje modificarPaciente(Paciente paciente)
@@ -140,11 +109,11 @@ namespace SOAPServices
                 };
                 //Validaciones
                 //1) Validar complejidad de la clave
-                bool condicion = validarClave(paciente.Contrasena);
+                bool condicion = util.validarClave(paciente.Contrasena);
                 if (condicion == false)
                 {
                     //Creamos mensaje de ERROR para enviar
-                    return crearMensaje("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
+                    return util.crearMensaje("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
                                           "Advertencia",
                                           "Modificar Paciente",
                                           "IPaciente");
@@ -154,14 +123,14 @@ namespace SOAPServices
                 PacienteDAO.Modificar(pacienteAModificar);
 
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
-                return crearMensaje("Paciente modificado correctamente",
+                return util.crearMensaje("Paciente modificado correctamente",
                                     "Satisfactorio",
                                     "Modificar Paciente",
                                     "IPaciente");
             }
             catch (Exception ex)
             {
-                return crearMensaje("Error de Sitema :" + ex.ToString(),
+                return util.crearMensaje("Error de Sitema :" + ex.ToString(),
                                     "Error",
                                     "Modificar Paciente",
                                     "IPaciente");
