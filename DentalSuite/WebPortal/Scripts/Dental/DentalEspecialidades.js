@@ -12,10 +12,10 @@ $(document).ready(function () {
     //#endregion
 
     $("input:button", "#divRegistrarEspecialidad").button();
-    $("input:button", "#divRegistrarEspecialidad").click(function () { alert("se registra especialidad"); });
+    //$("input:button", "#divRegistrarEspecialidad").click(function () { alert("se registra especialidad"); });
 
     $("input:button", "#divCancelar").button();
-    $("input:button", "#divCancelar").click(function () { alert("se cancela registro"); });
+    //$("input:button", "#divCancelar").click(function () { alert("se cancela registro"); });
 
     $("#caja").slideToggle();
 });
