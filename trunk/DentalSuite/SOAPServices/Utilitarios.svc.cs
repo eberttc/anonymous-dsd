@@ -22,5 +22,11 @@ namespace SOAPServices
         {
             throw new NotImplementedException();
         }
+
+
+        public string generarCodigo(object clase)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
