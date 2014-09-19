@@ -8,8 +8,7 @@ using SOAPServices.Dominio;
 using SOAPServices.Persistencia;
 
 namespace SOAPServices
-{
-    
+{ 
     public class Pacientes : IPacientes
     {
         private PacienteDAO pacienteDAO = null;
