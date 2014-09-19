@@ -4,37 +4,30 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SOAPServicesTest
+namespace SOAPServicesTest.TestPaciente
 {
     [TestClass]
-    public class UnitTestPaciente
+    public class UnitTestPacienteModificar
     {
         [TestMethod]
-        public void TestGrabarPaciente()
+        public void TestGrabarModificar()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
 
             PacienteWS.Paciente objPaciente = new PacienteWS.Paciente();
+            objPaciente.Codigo = "pKarinValdivia";
             objPaciente.Nombres = "Karin";
             objPaciente.ApePaterno = "Valdivia";
             objPaciente.ApeMaterno = "Cornejo";
             objPaciente.Sexo = "F";
             objPaciente.TipoDocumento = "DNI";
             objPaciente.NumeroDocumento = "43128304";
-            objPaciente.Codigo = "lifesux.o.o@gmail.com";
-            objPaciente.Contrasena = "1234";
+            objPaciente.Contrasena = "123456Ab";
 
             //Registrando un nuevo paciente
-            pacienteWs.registrarPaciente(objPaciente);
+            PacienteWS.Mensaje mensaje = pacienteWs.modificarPaciente(objPaciente);
 
-            //Listado de Pacientes
-            List<PacienteWS.Paciente> listaPacientes =  pacienteWs.listarPacientes();
-
-            //Obtenemos el numero de pacientes actual
-            int contador = listaPacientes.Count();
-
-            Assert.AreEqual(2, contador);
-
+            Assert.AreEqual("Satisfactorio", mensaje.TipoMensaje);
 
         }
     }
