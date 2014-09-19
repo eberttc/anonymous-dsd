@@ -13,12 +13,16 @@ namespace SOAPServices
     public interface IPacientes
     {
         [OperationContract]
-        Paciente registrarPaciente(Paciente paciente);
+        Mensaje registrarPaciente(Paciente paciente);
 
         [OperationContract]
         List<Paciente> listarPacientes();
 
         [OperationContract]
         string generarCodigo(object clase);
+
+       
+
+       
     }
 }
