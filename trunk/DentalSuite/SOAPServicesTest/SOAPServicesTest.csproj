@@ -54,7 +54,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="UnitTestPaciente.cs" />
+    <Compile Include="TestPaciente\UnitTestPacienteGrabar.cs" />
+    <Compile Include="TestPaciente\UnitTestPacienteModificar.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -71,10 +72,14 @@
     <None Include="Service References\PacienteWS\Pacientes2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\PacienteWS\SOAPServicesTest.PacienteWS.Mensaje.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PacienteWS\SOAPServicesTest.PacienteWS.Paciente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\PacienteWS\" />
   </ItemGroup>

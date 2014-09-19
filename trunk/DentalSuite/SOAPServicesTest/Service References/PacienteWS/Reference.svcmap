@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b9e132f1-a1b9-438c-8502-3f5830e1c774" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dd0f2c80-b999-4f5d-b7d3-99ba22f77141" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -8,9 +8,7 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
-    </CollectionMappings>
+    <CollectionMappings />
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -20,14 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:7200/Pacientes.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:11056/Pacientes.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Pacientes.xsd" MetadataType="Schema" ID="0c8ebc73-6c60-4c04-9019-005042e7aa01" SourceId="1" SourceUrl="http://localhost:7200/Pacientes.svc?xsd=xsd0" />
-    <MetadataFile FileName="Pacientes1.xsd" MetadataType="Schema" ID="07a607ed-5ab4-484b-bc50-27cdd65fb58d" SourceId="1" SourceUrl="http://localhost:7200/Pacientes.svc?xsd=xsd1" />
-    <MetadataFile FileName="Pacientes.disco" MetadataType="Disco" ID="fc4800ae-d42f-4e7b-91e2-b69da5ddba03" SourceId="1" SourceUrl="http://localhost:7200/Pacientes.svc?disco" />
-    <MetadataFile FileName="Pacientes2.xsd" MetadataType="Schema" ID="c56a82a3-9307-46a6-a2cd-cafee17c034e" SourceId="1" SourceUrl="http://localhost:7200/Pacientes.svc?xsd=xsd2" />
-    <MetadataFile FileName="Pacientes.wsdl" MetadataType="Wsdl" ID="5a67d41e-61cd-4824-ad44-01ba9ba0b32a" SourceId="1" SourceUrl="http://localhost:7200/Pacientes.svc?wsdl" />
+    <MetadataFile FileName="Pacientes.xsd" MetadataType="Schema" ID="9cfdef93-a52c-4579-a0f7-2f4999f7eddb" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?xsd=xsd2" />
+    <MetadataFile FileName="Pacientes1.xsd" MetadataType="Schema" ID="8fbb5219-6746-4816-8ff9-9cec30a18da4" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?xsd=xsd0" />
+    <MetadataFile FileName="Pacientes2.xsd" MetadataType="Schema" ID="44a5b00e-b55e-4e05-a0a7-9d94ed1cdeb1" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?xsd=xsd1" />
+    <MetadataFile FileName="Pacientes.disco" MetadataType="Disco" ID="88086885-564c-4822-a9a7-fb93cbd300ad" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?disco" />
+    <MetadataFile FileName="Pacientes.wsdl" MetadataType="Wsdl" ID="d2e8c3c0-2ce5-4d41-84d7-3ea6c827be75" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -186,20 +186,111 @@ namespace SOAPServicesTest.PacienteWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Mensaje", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
+    [System.SerializableAttribute()]
+    public partial class Mensaje : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MensajeDescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServicioOrigenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoMensajeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TituloField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MensajeDescripcion {
+            get {
+                return this.MensajeDescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MensajeDescripcionField, value) != true)) {
+                    this.MensajeDescripcionField = value;
+                    this.RaisePropertyChanged("MensajeDescripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServicioOrigen {
+            get {
+                return this.ServicioOrigenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServicioOrigenField, value) != true)) {
+                    this.ServicioOrigenField = value;
+                    this.RaisePropertyChanged("ServicioOrigen");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoMensaje {
+            get {
+                return this.TipoMensajeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoMensajeField, value) != true)) {
+                    this.TipoMensajeField = value;
+                    this.RaisePropertyChanged("TipoMensaje");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Titulo {
+            get {
+                return this.TituloField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TituloField, value) != true)) {
+                    this.TituloField = value;
+                    this.RaisePropertyChanged("Titulo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PacienteWS.IPacientes")]
     public interface IPacientes {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/registrarPaciente", ReplyAction="http://tempuri.org/IPacientes/registrarPacienteResponse")]
-        SOAPServicesTest.PacienteWS.Paciente registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente);
+        SOAPServicesTest.PacienteWS.Mensaje registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/modificarPaciente", ReplyAction="http://tempuri.org/IPacientes/modificarPacienteResponse")]
+        SOAPServicesTest.PacienteWS.Mensaje modificarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/listarPacientes", ReplyAction="http://tempuri.org/IPacientes/listarPacientesResponse")]
-        System.Collections.Generic.List<SOAPServicesTest.PacienteWS.Paciente> listarPacientes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/generarCodigo", ReplyAction="http://tempuri.org/IPacientes/generarCodigoResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SOAPServicesTest.PacienteWS.Paciente))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<SOAPServicesTest.PacienteWS.Paciente>))]
-        string generarCodigo(object clase);
+        SOAPServicesTest.PacienteWS.Paciente[] listarPacientes();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -229,12 +320,69 @@ namespace SOAPServicesTest.PacienteWS {
                 base(binding, remoteAddress) {
         }
         
-        public SOAPServicesTest.PacienteWS.Paciente registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente) {
+        public SOAPServicesTest.PacienteWS.Mensaje registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente) {
             return base.Channel.registrarPaciente(paciente);
         }
         
-        public System.Collections.Generic.List<SOAPServicesTest.PacienteWS.Paciente> listarPacientes() {
+        public SOAPServicesTest.PacienteWS.Mensaje modificarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente) {
+            return base.Channel.modificarPaciente(paciente);
+        }
+        
+        public SOAPServicesTest.PacienteWS.Paciente[] listarPacientes() {
             return base.Channel.listarPacientes();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PacienteWS.IUtilitarios")]
+    public interface IUtilitarios {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilitarios/validarClave", ReplyAction="http://tempuri.org/IUtilitarios/validarClaveResponse")]
+        bool validarClave(string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilitarios/crearMensaje", ReplyAction="http://tempuri.org/IUtilitarios/crearMensajeResponse")]
+        SOAPServicesTest.PacienteWS.Mensaje crearMensaje(string mensajeDescripcion, string tipoMensaje, string titulo, string origen);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilitarios/generarCodigo", ReplyAction="http://tempuri.org/IUtilitarios/generarCodigoResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SOAPServicesTest.PacienteWS.Paciente))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SOAPServicesTest.PacienteWS.Mensaje))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SOAPServicesTest.PacienteWS.Paciente[]))]
+        string generarCodigo(object clase);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IUtilitariosChannel : SOAPServicesTest.PacienteWS.IUtilitarios, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UtilitariosClient : System.ServiceModel.ClientBase<SOAPServicesTest.PacienteWS.IUtilitarios>, SOAPServicesTest.PacienteWS.IUtilitarios {
+        
+        public UtilitariosClient() {
+        }
+        
+        public UtilitariosClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public UtilitariosClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public UtilitariosClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public UtilitariosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool validarClave(string contrasena) {
+            return base.Channel.validarClave(contrasena);
+        }
+        
+        public SOAPServicesTest.PacienteWS.Mensaje crearMensaje(string mensajeDescripcion, string tipoMensaje, string titulo, string origen) {
+            return base.Channel.crearMensaje(mensajeDescripcion, tipoMensaje, titulo, origen);
         }
         
         public string generarCodigo(object clase) {
