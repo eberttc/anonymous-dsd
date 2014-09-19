@@ -10,9 +10,6 @@ $(document).ready(function () {
     $('#divMasterTitle H1').html(titulo);
     //#endregion
 
-    $('input:radio[name=sex]')[0].checked = true;
-
-
     $("input:button", "#divRegistrarPaciente").button();
     $("input:button", "#divRegistrarPaciente").click(function () { alert("se registra paciente"); });
 
