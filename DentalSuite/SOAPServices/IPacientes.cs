@@ -15,11 +15,13 @@ namespace SOAPServices
         [OperationContract]
         Mensaje registrarPaciente(Paciente paciente);
 
+        
+
+
         [OperationContract]
         List<Paciente> listarPacientes();
 
-        [OperationContract]
-        string generarCodigo(object clase);
+       
 
        
 

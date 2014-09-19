@@ -17,5 +17,8 @@ namespace SOAPServices
 
         [OperationContract]
         Mensaje crearMensaje(string mensajeDescripcion,string tipoMensaje,string titulo,string origen);
+
+        [OperationContract]
+        string generarCodigo(object clase);
     }
 }

@@ -90,25 +90,24 @@ namespace SOAPServices
         {
             if (clase.GetType() == typeof(Paciente))
             {
+                
                 Paciente clasePaciente = (Paciente)clase;
-                return "p" + clasePaciente.NumeroDocumento;
+                string nombres = clasePaciente.Nombres.Replace ( " ", "" );
+                return "p" + nombres + clasePaciente.ApePaterno;
             }
             else
             {
-                Odontologo clasePaciente = (Odontologo)clase;
-                return "o" + clasePaciente.NumeroDocumento;
+                Paciente clasePaciente = (Paciente)clase;
+                string nombres = clasePaciente.Nombres.Replace(" ", "");
+                return "o" + nombres + clasePaciente.ApePaterno;
             }
         }
-
-
-
 
         public bool validarCorreo(string contrasena)
         {
             var r = new Regex(@"^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])\S{6,}$");
             return r.Match(contrasena).Success ? true : false;
         }
-
 
         public Mensaje crearMensaje(string mensajeDescripcion, string tipoMensaje, string titulo, string origen)
         {
@@ -121,5 +120,8 @@ namespace SOAPServices
 
             return mensaje;
         }
+
+
+        
     }
 }
