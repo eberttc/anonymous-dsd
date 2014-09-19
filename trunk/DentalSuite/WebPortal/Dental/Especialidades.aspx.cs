@@ -18,4 +18,9 @@ public partial class Dental_Especialidades : System.Web.UI.Page
             this.hdnTitulo.Value = string.Empty;
         }
     }
+
+    protected void AddButton_Click(Object sender, EventArgs e)
+    {
+        txtNombre.Value = "click en boton";
+    }
 }
