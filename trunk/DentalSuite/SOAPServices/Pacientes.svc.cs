@@ -45,14 +45,14 @@ namespace SOAPServices
                 };
                 //Validaciones
                 //1) Validar complejidad de la clave
-                bool condicion = validarCorreo(paciente.Contrasena);
+                bool condicion = validarClave(paciente.Contrasena);
                 if (condicion == false)
                 {
                     //Creamos mensaje de ERROR para enviar
                     return crearMensaje("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
                                           "Advertencia",
                                           "Registro de Paciente",
-                                          "Paciente");
+                                          "IPaciente");
                 }
                 //2) Validar paciente no exista
                 if (PacienteDAO.Obtener(codigoGenerado) != null)
@@ -60,7 +60,7 @@ namespace SOAPServices
                     return crearMensaje("El paciente que esta intentando crear ya existe",
                                          "Advertencia",
                                          "Registro de Paciente",
-                                         "Paciente");
+                                         "IPaciente");
                 }
 
                 // Grabamos Paciente
@@ -70,14 +70,14 @@ namespace SOAPServices
                 return crearMensaje("Paciente creado correctamente. Codigo generado:" + codigoGenerado,
                                     "Satisfactorio",
                                     "Registro de Paciente",
-                                    "Paciente");
+                                    "IPaciente");
             }
             catch (Exception ex)
             {
                 return crearMensaje("Error de Sitema :" + ex.ToString(),
                                     "Error",
                                     "Registro de Paciente",
-                                    "Paciente");
+                                    "IPaciente");
             }
         }
 
@@ -103,7 +103,7 @@ namespace SOAPServices
             }
         }
 
-        public bool validarCorreo(string contrasena)
+        public bool validarClave(string contrasena)
         {
             var r = new Regex(@"^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])\S{6,}$");
             return r.Match(contrasena).Success ? true : false;
@@ -121,7 +121,51 @@ namespace SOAPServices
             return mensaje;
         }
 
+        public Mensaje modificarPaciente(Paciente paciente)
+        {
+            try
+            {
+                Paciente pacienteAModificar = new Paciente()
+                {
+                    Codigo = paciente.Codigo,
+                    NumeroDocumento = paciente.NumeroDocumento,
+                    Nombres = paciente.Nombres,
+                    ApePaterno = paciente.ApePaterno,
+                    ApeMaterno = paciente.ApeMaterno,
+                    Correo = paciente.Correo,
+                    Sexo = paciente.Sexo,
+                    TipoDocumento = paciente.TipoDocumento,
+                    Contrasena = paciente.Contrasena,
 
-        
+                };
+                //Validaciones
+                //1) Validar complejidad de la clave
+                bool condicion = validarClave(paciente.Contrasena);
+                if (condicion == false)
+                {
+                    //Creamos mensaje de ERROR para enviar
+                    return crearMensaje("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
+                                          "Advertencia",
+                                          "Modificar Paciente",
+                                          "IPaciente");
+                }
+
+                // Grabamos Paciente
+                PacienteDAO.Modificar(pacienteAModificar);
+
+                //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
+                return crearMensaje("Paciente modificado correctamente",
+                                    "Satisfactorio",
+                                    "Modificar Paciente",
+                                    "IPaciente");
+            }
+            catch (Exception ex)
+            {
+                return crearMensaje("Error de Sitema :" + ex.ToString(),
+                                    "Error",
+                                    "Modificar Paciente",
+                                    "IPaciente");
+            }
+        }
     }
 }

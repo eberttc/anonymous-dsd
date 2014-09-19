@@ -13,7 +13,7 @@ namespace SOAPServices
     {
 
 
-        public bool validarCorreo(string contrasena)
+        public bool validarClave(string contrasena)
         {
             throw new NotImplementedException();
         }
