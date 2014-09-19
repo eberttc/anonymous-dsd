@@ -12,15 +12,10 @@ namespace SOAPServices.Persistencia
         {
             using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
-                try
-                {
                     sesion.Save(entidad);
                     sesion.Flush();
-                }
-                catch (Exception e) { 
-                
-}
             }
+              
             return entidad;
         }
         public Entidad Obtener(Id id)
