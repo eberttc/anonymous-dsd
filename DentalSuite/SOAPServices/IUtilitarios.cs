@@ -13,7 +13,7 @@ namespace SOAPServices
     public interface IUtilitarios
     {
         [OperationContract]
-        bool validarCorreo(string contrasena);
+        bool validarClave(string contrasena);
 
         [OperationContract]
         Mensaje crearMensaje(string mensajeDescripcion,string tipoMensaje,string titulo,string origen);

@@ -15,8 +15,8 @@ namespace SOAPServices
         [OperationContract]
         Mensaje registrarPaciente(Paciente paciente);
 
-        
-
+        [OperationContract]
+        Mensaje modificarPaciente(Paciente paciente);
 
         [OperationContract]
         List<Paciente> listarPacientes();
