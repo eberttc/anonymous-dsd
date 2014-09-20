@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal\", "{9C82D878-F086-49F1-BB57-E7BD347B0A49}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal", "{9C82D878-F086-49F1-BB57-E7BD347B0A49}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = "SAK"
 		SccAuxPath = "SAK"
@@ -25,6 +25,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal\", "
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "20000"
 		VWDDynamicPort = "false"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{4707D748-FAAD-4A25-8107-E05C5CDA9136} = {4707D748-FAAD-4A25-8107-E05C5CDA9136}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServices", "SOAPServices\SOAPServices.csproj", "{4707D748-FAAD-4A25-8107-E05C5CDA9136}"
