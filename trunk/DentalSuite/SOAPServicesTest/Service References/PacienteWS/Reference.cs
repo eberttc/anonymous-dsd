@@ -332,4 +332,61 @@ namespace SOAPServicesTest.PacienteWS {
             return base.Channel.listarPacientes();
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PacienteWS.IUtilitarios")]
+    public interface IUtilitarios {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilitarios/validarClave", ReplyAction="http://tempuri.org/IUtilitarios/validarClaveResponse")]
+        bool validarClave(string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilitarios/crearMensaje", ReplyAction="http://tempuri.org/IUtilitarios/crearMensajeResponse")]
+        SOAPServicesTest.PacienteWS.Mensaje crearMensaje(string mensajeDescripcion, string tipoMensaje, string titulo, string origen);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilitarios/generarCodigo", ReplyAction="http://tempuri.org/IUtilitarios/generarCodigoResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SOAPServicesTest.PacienteWS.Paciente))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SOAPServicesTest.PacienteWS.Mensaje))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SOAPServicesTest.PacienteWS.Paciente[]))]
+        string generarCodigo(object clase);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IUtilitariosChannel : SOAPServicesTest.PacienteWS.IUtilitarios, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UtilitariosClient : System.ServiceModel.ClientBase<SOAPServicesTest.PacienteWS.IUtilitarios>, SOAPServicesTest.PacienteWS.IUtilitarios {
+        
+        public UtilitariosClient() {
+        }
+        
+        public UtilitariosClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public UtilitariosClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public UtilitariosClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public UtilitariosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool validarClave(string contrasena) {
+            return base.Channel.validarClave(contrasena);
+        }
+        
+        public SOAPServicesTest.PacienteWS.Mensaje crearMensaje(string mensajeDescripcion, string tipoMensaje, string titulo, string origen) {
+            return base.Channel.crearMensaje(mensajeDescripcion, tipoMensaje, titulo, origen);
+        }
+        
+        public string generarCodigo(object clase) {
+            return base.Channel.generarCodigo(clase);
+        }
+    }
 }
