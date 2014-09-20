@@ -151,7 +151,7 @@
                                             <input id="Button1" type="button" value="Registrar Paciente"  OnServerClick="RegistrarPaciente_Click" runat="server"/>
                                         </div>
                                         <div id="divCancelar" style="width:120px;top:30px; left:200px; position: absolute">
-                                        <input id="Button2" type="button" value="Cancelar"  OnServerClick="Cancelar_Click" runat="server"/>
+                                        <input id="Button2" type="button" value="Cancelar" />
                                             </div>
                                     </div>
                                         
