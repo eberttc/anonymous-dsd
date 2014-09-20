@@ -32,7 +32,7 @@ public partial class Dental_Pacientes : System.Web.UI.Page
         objPaciente.Nombres = this.txtNombre.Value;
         objPaciente.ApePaterno = this.txtApellidoPaterno.Value;
         objPaciente.ApeMaterno = this.txtApellidoMaterno.Value;
-        objPaciente.Sexo = (this.m.Checked) ? "M" : ((this.f.Checked) ? "F" : string.Empty);
+        objPaciente.Sexo = (this.m.Checked) ? "M" : "F";
         objPaciente.TipoDocumento = this.txtTipoDocumento.Value;
         objPaciente.NumeroDocumento = this.txtNroDocumento.Value;
         objPaciente.Correo = (this.txtCorreo.Value == this.txtConfirmarCorreo.Value) ? this.txtCorreo.Value : "error";

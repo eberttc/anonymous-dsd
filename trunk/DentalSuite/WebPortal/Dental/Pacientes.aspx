@@ -39,9 +39,9 @@
                                         Sexo:</td>
                                     <td style="vertical-align: bottom" >
                                         M
-                                    <input type="radio" name="sex" id="m" value="20" runat="server"/>
+                                    <input type="radio" name="sex" id="m" value="1" runat="server"/>
                                         F
-                                    <input type="radio" name="sex" id="f" value="20" runat="server"/>
+                                    <input type="radio" name="sex" id="f" value="2" runat="server"/>
                                     </td>
                                 </tr>
                                 <tr>
