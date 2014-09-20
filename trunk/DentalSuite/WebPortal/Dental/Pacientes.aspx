@@ -57,6 +57,7 @@
                                         
                                         Numero de Documento</td>
                                     <td style="vertical-align: bottom" >
+
                                         
                                         <input type="text" id="txtNroDocumento"  /></td>
                                 </tr>
