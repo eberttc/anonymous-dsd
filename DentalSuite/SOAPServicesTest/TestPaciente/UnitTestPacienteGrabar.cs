@@ -16,7 +16,7 @@ namespace SOAPServicesTest
 
             PacienteWS.Paciente objPaciente = new PacienteWS.Paciente();
             objPaciente.Nombres = "Karin";
-            objPaciente.ApePaterno = "Valdivia";
+            objPaciente.ApePaterno = "Valdivias";
             objPaciente.ApeMaterno = "Cornejo";
             objPaciente.Sexo = "F";
             objPaciente.TipoDocumento = "DNI";

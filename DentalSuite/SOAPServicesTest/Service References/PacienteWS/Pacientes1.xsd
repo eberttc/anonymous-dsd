@@ -41,49 +41,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="validarClave">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="contrasena" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="validarClaveResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="validarClaveResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="crearMensaje">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="mensajeDescripcion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="tipoMensaje" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="titulo" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="crearMensajeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" minOccurs="0" name="crearMensajeResult" nillable="true" type="q6:Mensaje" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="generarCodigo">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="clase" nillable="true" type="xs:anyType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="generarCodigoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="generarCodigoResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
 </xs:schema>
