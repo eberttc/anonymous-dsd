@@ -13,6 +13,20 @@
                          <table style="width: 900px">
                                 <tr>
                                     <td width="200px" >
+                                        Codigo:</td>
+                                    <td width="100px" >
+                                        <input type="text" id="txtCodigo" runat="server" value="0" /></td>
+                                    <td width="50px"  style="vertical-align: bottom" >
+                                        
+                                        &nbsp;</td>
+                                    <td style="vertical-align: bottom" >
+                                        
+                                        &nbsp;</td>
+                                    <td style="vertical-align: bottom" >
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td width="200px" >
                                         Nombre :&nbsp;
                                     </td>
                                     <td width="100px" >
@@ -43,7 +57,7 @@
                                         Tipo de Documento</td>
                                     <td style="vertical-align: bottom" >
                                         
-                                        <input type="text" id="txtTipoDocumento" /></td>
+                                        <input type="text" id="txtTipoDocumento" runat="server" /></td>
                                 </tr>
                                 <tr>
                                     <td width="200px" >
@@ -123,7 +137,8 @@
                                 </tr>
                                 <tr>
                                     <td width="200px" colspan="5" >
-                                        <asp:Label ID="lblMensajeResultado" runat="server"></asp:Label>
+                                        <asp:Label ID="lblMensajeResultado" runat="server" Font-Bold="True" 
+                                            ForeColor="#FF3300"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
@@ -142,10 +157,43 @@
                                         
                                         </td>
                                 </tr>
+                                <tr>
+                                    <td valign="top" width="100px">
+                                        &nbsp;</td>
+                                    <td class="tblFiltroCeldaValor" colspan="4">
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100px" colspan="5">
+                                    <br />
+                                    <br />
+                                        <asp:GridView ID="GridView1" runat="server" AllowSorting="True" 
+                                            AutoGenerateColumns="False" EnableModelValidation="True" >
+                                            <AlternatingRowStyle BackColor="#999999" BorderColor="Black" 
+                                                BorderStyle="Double" ForeColor="White" />
+                                            <Columns>
+                                                <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
+                                                <asp:BoundField DataField="ApeMaterno" HeaderText="Materno" />
+                                                <asp:BoundField DataField="ApePaterno" HeaderText="Paterno" />
+                                                <asp:BoundField DataField="Nombres" HeaderText="Nombres" />
+                                                <asp:BoundField DataField="Correo" HeaderText="Correo" />
+                                                <asp:BoundField DataField="TipoDocumento" HeaderText="Documento" />
+                                                <asp:BoundField DataField="NumeroDocumento" HeaderText="Nro" />
+                                                <asp:BoundField DataField="Sexo" HeaderText="Sexo" />
+                                                <asp:TemplateField HeaderText="Editar">
+                                                    <ItemTemplate>
+                                                      <input type="button" onclick="EditarPaciente('<%# Eval("Codigo")%>','<%# Eval("ApePaterno")%>','<%# Eval("ApeMaterno")%>','<%# Eval("Nombres")%>','<%# Eval("Correo")%>','<%# Eval("Contrasena")%>','<%# Eval("Sexo")%>','<%# Eval("TipoDocumento")%>','<%# Eval("NumeroDocumento")%>')" value="Edit" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField DataField="Contrasenia" Visible="False" />
+                                            </Columns>
+                                            <HeaderStyle BackColor="#444751" BorderColor="White" ForeColor="White" />
+                                            <RowStyle BorderStyle="Solid" />
+                                        </asp:GridView>
+                                        </td>
+                                </tr>
                             </table>
             </div>
-
-
     <input type="hidden" name="hdnTitulo" id="hdnTitulo" runat="server" />
     <input type="text" id="txtTipoDocumentoHidden" runat="server" style="visibility: hidden" />
 
