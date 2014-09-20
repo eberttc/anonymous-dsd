@@ -34,14 +34,16 @@ namespace SOAPServices.Reutilizables
             {
 
                 Paciente clasePaciente = (Paciente)clase;
-                string nombres = clasePaciente.Nombres.Replace(" ", "");
-                return "p" + nombres + clasePaciente.ApePaterno;
+               // string nombres = clasePaciente.Nombres.Replace(" ", "");
+               // return "p" + nombres + clasePaciente.ApePaterno;
+                return "p" + clasePaciente.NumeroDocumento;
             }
             else
             {
                 Paciente clasePaciente = (Paciente)clase;
-                string nombres = clasePaciente.Nombres.Replace(" ", "");
-                return "o" + nombres + clasePaciente.ApePaterno;
+              //  string nombres = clasePaciente.Nombres.Replace(" ", "");
+              //  return "o" + nombres + clasePaciente.ApePaterno;
+                return "o" + clasePaciente.NumeroDocumento;
             }
         }
     }
