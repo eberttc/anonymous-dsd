@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dd0f2c80-b999-4f5d-b7d3-99ba22f77141" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d347a55-0dc1-4491-b1fb-0a9b289a4690" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,14 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:11056/Pacientes.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:20001/Pacientes.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Pacientes.xsd" MetadataType="Schema" ID="9cfdef93-a52c-4579-a0f7-2f4999f7eddb" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?xsd=xsd2" />
-    <MetadataFile FileName="Pacientes1.xsd" MetadataType="Schema" ID="8fbb5219-6746-4816-8ff9-9cec30a18da4" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?xsd=xsd0" />
-    <MetadataFile FileName="Pacientes2.xsd" MetadataType="Schema" ID="44a5b00e-b55e-4e05-a0a7-9d94ed1cdeb1" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?xsd=xsd1" />
-    <MetadataFile FileName="Pacientes.disco" MetadataType="Disco" ID="88086885-564c-4822-a9a7-fb93cbd300ad" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?disco" />
-    <MetadataFile FileName="Pacientes.wsdl" MetadataType="Wsdl" ID="d2e8c3c0-2ce5-4d41-84d7-3ea6c827be75" SourceId="1" SourceUrl="http://localhost:11056/Pacientes.svc?wsdl" />
+    <MetadataFile FileName="Pacientes.xsd" MetadataType="Schema" ID="27be43b9-8e5e-4dea-8a85-26d1c6917e79" SourceId="1" SourceUrl="http://localhost:20001/Pacientes.svc?xsd=xsd2" />
+    <MetadataFile FileName="Pacientes1.xsd" MetadataType="Schema" ID="5ab7ad6b-1098-422e-a16e-36fe64cdfc16" SourceId="1" SourceUrl="http://localhost:20001/Pacientes.svc?xsd=xsd0" />
+    <MetadataFile FileName="Pacientes.wsdl" MetadataType="Wsdl" ID="aa06a60b-9926-4e7d-990d-66e2bc66553e" SourceId="1" SourceUrl="http://localhost:20001/Pacientes.svc?wsdl" />
+    <MetadataFile FileName="Pacientes.disco" MetadataType="Disco" ID="87e8d8f0-57ef-4d33-b113-f3acc1e9f5d9" SourceId="1" SourceUrl="http://localhost:20001/Pacientes.svc?disco" />
+    <MetadataFile FileName="Pacientes2.xsd" MetadataType="Schema" ID="1a87a12a-0505-4fc8-a695-b8f6698d6894" SourceId="1" SourceUrl="http://localhost:20001/Pacientes.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
