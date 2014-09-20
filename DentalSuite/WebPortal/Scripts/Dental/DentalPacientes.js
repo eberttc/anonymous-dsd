@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     $("input:button", "#divCancelar").button();
     $("input:button", "#divCancelar").click(function () { limpiarCaja(); });
-    limpiarCaja();
+    //limpiarCaja();
     $("#caja").slideToggle();
 
 
@@ -65,13 +65,13 @@ function EditarPaciente(codigo, paterno, materno, nombres, correo, contrasenia, 
     $('input[id$=txtConfirmarContrasenia]').val(contrasenia);
     $('input[id$=txtTipoDocumento]').val(tipoDocumento);
     $('input[id$=txtNroDocumento]').val(nroDocumento);
-    if (sexo == 'm') {
+//    if (sexo == 'm') {
 
-        $('input:radio[[id$=name=sex}]')['m'].checked = true;
-    }
-    if (sexo == 'f') {
-        $('input:radio[name=sex]')['f'].checked = true;
-    }
+//        $('input:radio[[id$=name=sex}]')['m'].checked = true;
+//    }
+//    if (sexo == 'f') {
+//        $('input:radio[name=sex]')['f'].checked = true;
+//    }
 }
 //#endregion
 

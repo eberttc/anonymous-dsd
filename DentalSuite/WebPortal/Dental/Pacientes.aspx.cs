@@ -20,10 +20,11 @@ public partial class Dental_Pacientes : System.Web.UI.Page
         {
             this.hdnTitulo.Value = string.Empty;
         }
-        if (!Page.IsPostBack)
-        {
-            ListarPacientes();
-        }
+        //if (!Page.IsPostBack)
+        //{
+            
+        //}
+        ListarPacientes();
     }
 
 
@@ -32,34 +33,61 @@ public partial class Dental_Pacientes : System.Web.UI.Page
         objPaciente.Nombres = this.txtNombre.Value;
         objPaciente.ApePaterno = this.txtApellidoPaterno.Value;
         objPaciente.ApeMaterno = this.txtApellidoMaterno.Value;
-        objPaciente.Sexo = (this.m.Checked) ? "M" : "F";
+        objPaciente.Sexo = (RadioButtonList1.SelectedValue=="F") ? "F" : "M";
         objPaciente.TipoDocumento = this.txtTipoDocumento.Value;
         objPaciente.NumeroDocumento = this.txtNroDocumento.Value;
-        objPaciente.Correo = (this.txtCorreo.Value == this.txtConfirmarCorreo.Value) ? this.txtCorreo.Value : "error";
-        objPaciente.Contrasena = (this.txtContrasenia.Value == this.txtConfirmarContrasenia.Value) ? this.txtContrasenia.Value : "error";
+        objPaciente.Correo = (this.txtCorreo.Value == this.txtConfirmarCorreo.Value) ? this.txtCorreo.Value : string.Empty;
+        objPaciente.Contrasena = (this.txtContrasenia.Value == this.txtConfirmarContrasenia.Value) ? this.txtContrasenia.Value : string.Empty;
 
-        if (this.txtCodigo.Value == "0")
+        if (!string.IsNullOrEmpty(objPaciente.Correo) && !string.IsNullOrEmpty(objPaciente.Contrasena))
         {
-            //Registrando un nuevo paciente
-            PacienteWS.Mensaje mensaje = paciente.registrarPaciente(objPaciente);
-            lblMensajeResultado.Text = mensaje.MensajeDescripcion;
+            if (this.txtCodigo.Value == "0")
+            {
+                //Registrando un nuevo paciente
+                PacienteWS.Mensaje mensaje = paciente.registrarPaciente(objPaciente);
+                lblMensajeResultado.Text = mensaje.MensajeDescripcion;
+                //if (mensaje.TipoMensaje == "Satisfactorio")
+                //    Limpiar();
+            }
+            else
+            {
+
+                //Registrando un nuevo paciente
+                PacienteWS.Mensaje mensaje = paciente.modificarPaciente(objPaciente);
+                lblMensajeResultado.Text = mensaje.MensajeDescripcion;
+                //if (mensaje.TipoMensaje == "Satisfactorio")
+                //    Limpiar();
+            }
         }
         else {
-
-            //Registrando un nuevo paciente
-            PacienteWS.Mensaje mensaje = paciente.modificarPaciente(objPaciente);
-            lblMensajeResultado.Text = mensaje.MensajeDescripcion;
+            lblMensajeResultado.Text = "El correo o la contraeña no coinciden";
         }
+
         
         ListarPacientes();
 
     }
     private void ListarPacientes() {
-        PacienteWS.Paciente[] listaPacientes;
-        listaPacientes = paciente.listarPacientes();
-        GridView1.DataSource = listaPacientes;
-        GridView1.DataBind();
-        GridView1.Width = 950;
+
+            PacienteWS.Paciente[] listaPacientes;
+            listaPacientes = paciente.listarPacientes();
+            GridView1.DataSource = listaPacientes;
+            GridView1.DataBind();
+            GridView1.Width = 950;
+    }
+
+    private void Limpiar() {
+        this.txtCodigo.Value = "0";
+        this.txtCodigo.Disabled = true;
+        this.txtNombre.Value = "";
+        this.txtApellidoPaterno.Value = "";
+        this.txtApellidoMaterno.Value = "";
+        this.txtTipoDocumento.Value = "";
+        this.txtNroDocumento.Value = "";
+        this.txtCorreo.Value = "";
+        this.txtContrasenia.Value = "";
+        this.txtConfirmarCorreo.Value = "";
+        this.txtConfirmarContrasenia.Value = "";
     }
 
 }
