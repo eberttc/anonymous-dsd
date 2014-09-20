@@ -73,7 +73,7 @@ public partial class Seguridad_Login : System.Web.UI.Page
                 Session.Add("Usuario", this.txtUsuario.Text);
                 string rutaPreferente = string.Empty;
                 string ultimaPaginaVisitada = string.Empty;
-                //rutaPreferente = new wsSeguridad.Seguridad().NavegacionObtenerMenuPreferente(token);
+                rutaPreferente = "/Dental/Pacientes.aspx?Config=0&Titulo=Pacientes";
 
                 if (Request["var"] != null)
                 {

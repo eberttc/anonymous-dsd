@@ -14,10 +14,8 @@ $(document).ready(function () {
     //$("input:button", "#divRegistrarPaciente").click(function () { alert("se registra paciente"); });
 
     $("input:button", "#divCancelar").button();
-    //$("input:button", "#divCancelar").click(function () { alert("se cancela registro"); });
-
-    CargarTipoDocumento();
-
+    $("input:button", "#divCancelar").click(function () { limpiarCaja(); });
+    limpiarCaja();
     $("#caja").slideToggle();
 
 
@@ -27,7 +25,7 @@ $(document).ready(function () {
 //#region CargarTipoDocumento
 function CargarTipoDocumento() {
     data = "[{ value: '1', text: 'DNI'},{ value: '2', text: 'Carnet de extranjeria'}]";
-    $("#txtTipoDocumento").autocomplete(eval(data), {
+    $('input[id$=txtTipoDocumento]').autocomplete(eval(data), {
         minChars: 0,
         matchContains: true,
         autoFill: false,
@@ -35,7 +33,7 @@ function CargarTipoDocumento() {
             return item.text;
         }
     }).result(function (event, item) {
-        $('#txtTipoDocumentoHidden').val(item.value);
+        $('input[id$=txtTipoDocumentoHidden]').val(item.value);
     });
 }
 //#endregion
@@ -55,7 +53,7 @@ function AdicionarFilasAGrilla(data, grilla) {
 }
 //#endregion
 
-
+//#region Editar Pacientes
 function EditarPaciente(codigo, paterno, materno, nombres, correo, contrasenia, sexo, tipoDocumento, nroDocumento) {
     $('input[id$=txtCodigo]').val(codigo);
     $('input[id$=txtNombre]').val(nombres);
@@ -68,12 +66,35 @@ function EditarPaciente(codigo, paterno, materno, nombres, correo, contrasenia, 
     $('input[id$=txtTipoDocumento]').val(tipoDocumento);
     $('input[id$=txtNroDocumento]').val(nroDocumento);
     if (sexo == 'm') {
-        
-        $('input:radio[name=sex]')['m'].checked = true;
+
+        $('input:radio[[id$=name=sex}]')['m'].checked = true;
     }
     if (sexo == 'f') {
         $('input:radio[name=sex]')['f'].checked = true;
     }
 }
+//#endregion
+
+//#region LimpiarCaja
+function limpiarCaja() {
+
+    $('input[id$=txtCodigo]').val('0');
+    $('input[id$=txtNombre]').val('');
+    $('input[id$=txtApellidoPaterno]').val('');
+    $('input[id$=txtApellidoMaterno]').val('');
+    $('input[id$=txtCorreo]').val('');
+    $('input[id$=txtConfirmarCorreo]').val('');
+    $('input[id$=txtContrasenia]').val('');
+    $('input[id$=txtConfirmarContrasenia]').val('');
+    $('input[id$=txtTipoDocumento]').val('');
+    $('input[id$=txtNroDocumento]').val('');
+
+    $('input[id$=txtCodigo]').attr("readonly", "true");
+    $('input[id$=txtCodigo]').css({ 'background-color': 'gray' });
+    $('input[id$=txtCodigo]').css({ 'color': 'white' });
+    CargarTipoDocumento();
+}
+//#endregion
+
 
 

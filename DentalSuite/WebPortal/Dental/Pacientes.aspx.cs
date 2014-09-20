@@ -54,12 +54,6 @@ public partial class Dental_Pacientes : System.Web.UI.Page
         ListarPacientes();
 
     }
-
-    protected void Cancelar_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void ListarPacientes() {
         PacienteWS.Paciente[] listaPacientes;
         listaPacientes = paciente.listarPacientes();
