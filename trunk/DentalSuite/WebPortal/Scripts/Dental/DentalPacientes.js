@@ -19,6 +19,8 @@ $(document).ready(function () {
     CargarTipoDocumento();
 
     $("#caja").slideToggle();
+
+
 })
 //#endregion
 
@@ -38,9 +40,40 @@ function CargarTipoDocumento() {
 }
 //#endregion
 
+//#region Logica de Totales
+function AdicionarFilasAGrilla(data, grilla) {
+
+    tot_Ingresos = 0;
+    tot_IngresosUSD = 0;
+    if (data.length > 0) {
+        grilla.clearGridData();
+        grilla.setGridParam({ datatype: 'local' });
+        for (var i = 0; i < data.length; i++) {
+            grilla.addRowData(i, data[i]);
+        }
+    }
+}
 //#endregion
 
 
-
+function EditarPaciente(codigo, paterno, materno, nombres, correo, contrasenia, sexo, tipoDocumento, nroDocumento) {
+    $('input[id$=txtCodigo]').val(codigo);
+    $('input[id$=txtNombre]').val(nombres);
+    $('input[id$=txtApellidoPaterno]').val(paterno);
+    $('input[id$=txtApellidoMaterno]').val(materno);
+    $('input[id$=txtCorreo]').val(correo);
+    $('input[id$=txtConfirmarCorreo]').val(correo);
+    $('input[id$=txtContrasenia]').val(contrasenia);
+    $('input[id$=txtConfirmarContrasenia]').val(contrasenia);
+    $('input[id$=txtTipoDocumento]').val(tipoDocumento);
+    $('input[id$=txtNroDocumento]').val(nroDocumento);
+    if (sexo == 'm') {
+        
+        $('input:radio[name=sex]')['m'].checked = true;
+    }
+    if (sexo == 'f') {
+        $('input:radio[name=sex]')['f'].checked = true;
+    }
+}
 
 
