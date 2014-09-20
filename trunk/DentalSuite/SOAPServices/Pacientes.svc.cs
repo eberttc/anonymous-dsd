@@ -23,7 +23,7 @@ namespace SOAPServices
             }
         }
 
-        private Utilitario util = null;
+        private Utilitario util = new Utilitario();
         
 
         

@@ -79,7 +79,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\PacienteWS\" />
   </ItemGroup>
