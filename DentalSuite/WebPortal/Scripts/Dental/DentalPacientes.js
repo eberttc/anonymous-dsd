@@ -11,10 +11,10 @@ $(document).ready(function () {
     //#endregion
 
     $("input:button", "#divRegistrarPaciente").button();
-    $("input:button", "#divRegistrarPaciente").click(function () { alert("se registra paciente"); });
+    //$("input:button", "#divRegistrarPaciente").click(function () { alert("se registra paciente"); });
 
     $("input:button", "#divCancelar").button();
-    $("input:button", "#divCancelar").click(function () { alert("se cancela registro"); });
+    //$("input:button", "#divCancelar").click(function () { alert("se cancela registro"); });
 
     CargarTipoDocumento();
 
