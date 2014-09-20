@@ -29,12 +29,12 @@
 
      <script src="<%= ResolveClientUrl("~/Scripts/General/jquery.tipsy.js") %>" type="text/javascript"></script>
 </head>
-<body>
-    <div id="divMaster">
+<body >
+<div id="divMaster">
         <div id="divMasterHeader">
             <a href="http://www.dentalsolutions.pe/" style="float: left; margin-right: 10px;">
-                <img id="imgMasterLogo" src="<%= ResolveClientUrl("~/Resources/dental-logo.png") %>"
-                    alt="Dental Solutions" />
+<%--                <img id="imgMasterLogo" src="<%= ResolveClientUrl("~/Resources/dental-logo.png") %>"
+                    alt="Dental Solutions" />--%>
             </a>
         </div>
         <div id="divMasterMenu">
@@ -51,9 +51,10 @@
             </div>
         </div>
         <div id="divMasterBody">
+        <form id="form1" runat="server">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <form id="form1" runat="server">
+            
             <asp:HiddenField ID="hdfToken" runat="server" />
             <asp:HiddenField ID="hdfConfig" runat="server" />
             </form>
@@ -98,5 +99,6 @@
             </table>
         </div>
     </div>
+
 </body>
 </html>
