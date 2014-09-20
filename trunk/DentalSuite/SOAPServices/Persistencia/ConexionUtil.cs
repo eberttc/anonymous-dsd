@@ -9,7 +9,7 @@ namespace SOAPServices.Persistencia
     {
         public static string ObtenerCadena()
         {
-            return "Data Source=(local);Initial Catalog=prueba;Integrated Security=SSPI;";
+            return "Data Source=(local);Initial Catalog=DBDentalSuite;Integrated Security=SSPI;";
         }
     }
 }

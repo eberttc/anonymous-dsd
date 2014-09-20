@@ -29,27 +29,30 @@ namespace SOAPServices
         
         public Dominio.Mensaje registrarPaciente(Dominio.Paciente paciente)
         {
+            util = new Utilitario();
             try
             {
+                
                 string codigoGenerado = util.generarCodigo(paciente);
+                Paciente pacienteACrear = new Paciente();
+                //Paciente pacienteACrear = new Paciente()
+                //{
+                    pacienteACrear.Codigo = codigoGenerado;
+                    pacienteACrear.NumeroDocumento = paciente.NumeroDocumento;
+                    pacienteACrear.Nombres = paciente.Nombres;
+                    pacienteACrear.ApePaterno = paciente.ApePaterno;
+                    pacienteACrear.ApeMaterno = paciente.ApeMaterno;
+                    pacienteACrear.Correo = paciente.Correo;
+                    pacienteACrear.Sexo = paciente.Sexo;
+                    pacienteACrear.TipoDocumento = paciente.TipoDocumento;
+                    pacienteACrear.Contrasena = paciente.Contrasena;
 
-                Paciente pacienteACrear = new Paciente()
-                {
-                    Codigo = codigoGenerado,
-                    NumeroDocumento = paciente.NumeroDocumento,
-                    Nombres = paciente.Nombres,
-                    ApePaterno = paciente.ApePaterno,
-                    ApeMaterno = paciente.ApeMaterno,
-                    Correo = paciente.Correo,
-                    Sexo = paciente.Sexo,
-                    TipoDocumento = paciente.TipoDocumento,
-                    Contrasena = paciente.Contrasena,
-
-                };
+                //};
                 //Validaciones
                 //1) Validar complejidad de la clave
-                //bool condicion = validarClave(paciente.Contrasena);
                 bool condicion = util.validarClave(paciente.Contrasena);
+                //bool condicion = util.validarClave(pacienteACrear.Contrasena);
+                //bool condicion = true;
                 if (condicion == false)
                 {
                     //Creamos mensaje de ERROR para enviar
@@ -92,8 +95,10 @@ namespace SOAPServices
 
         public Mensaje modificarPaciente(Paciente paciente)
         {
+            util = new Utilitario();
             try
             {
+                
                 Paciente pacienteAModificar = new Paciente()
                 {
                     Codigo = paciente.Codigo,
