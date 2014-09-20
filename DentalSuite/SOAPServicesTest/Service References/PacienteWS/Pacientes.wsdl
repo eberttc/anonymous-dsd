@@ -25,6 +25,24 @@
   <wsdl:message name="IPacientes_listarPacientes_OutputMessage">
     <wsdl:part name="parameters" element="tns:listarPacientesResponse" />
   </wsdl:message>
+  <wsdl:message name="IUtilitarios_validarClave_InputMessage">
+    <wsdl:part name="parameters" element="tns:validarClave" />
+  </wsdl:message>
+  <wsdl:message name="IUtilitarios_validarClave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validarClaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUtilitarios_crearMensaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearMensaje" />
+  </wsdl:message>
+  <wsdl:message name="IUtilitarios_crearMensaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearMensajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUtilitarios_generarCodigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:generarCodigo" />
+  </wsdl:message>
+  <wsdl:message name="IUtilitarios_generarCodigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:generarCodigoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPacientes">
     <wsdl:operation name="registrarPaciente">
       <wsdl:input wsaw:Action="http://tempuri.org/IPacientes/registrarPaciente" message="tns:IPacientes_registrarPaciente_InputMessage" />
@@ -37,6 +55,20 @@
     <wsdl:operation name="listarPacientes">
       <wsdl:input wsaw:Action="http://tempuri.org/IPacientes/listarPacientes" message="tns:IPacientes_listarPacientes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPacientes/listarPacientesResponse" message="tns:IPacientes_listarPacientes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUtilitarios">
+    <wsdl:operation name="validarClave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUtilitarios/validarClave" message="tns:IUtilitarios_validarClave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUtilitarios/validarClaveResponse" message="tns:IUtilitarios_validarClave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearMensaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUtilitarios/crearMensaje" message="tns:IUtilitarios_crearMensaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUtilitarios/crearMensajeResponse" message="tns:IUtilitarios_crearMensaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="generarCodigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUtilitarios/generarCodigo" message="tns:IUtilitarios_generarCodigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUtilitarios/generarCodigoResponse" message="tns:IUtilitarios_generarCodigo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPacientes" type="tns:IPacientes">
@@ -69,8 +101,41 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IUtilitarios" type="tns:IUtilitarios">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validarClave">
+      <soap:operation soapAction="http://tempuri.org/IUtilitarios/validarClave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMensaje">
+      <soap:operation soapAction="http://tempuri.org/IUtilitarios/crearMensaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarCodigo">
+      <soap:operation soapAction="http://tempuri.org/IUtilitarios/generarCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="Pacientes">
     <wsdl:port name="BasicHttpBinding_IPacientes" binding="tns:BasicHttpBinding_IPacientes">
+      <soap:address location="http://localhost:11056/Pacientes.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IUtilitarios" binding="tns:BasicHttpBinding_IUtilitarios">
       <soap:address location="http://localhost:11056/Pacientes.svc" />
     </wsdl:port>
   </wsdl:service>
