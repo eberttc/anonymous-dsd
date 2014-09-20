@@ -38,10 +38,14 @@
                                         
                                         Sexo:</td>
                                     <td style="vertical-align: bottom" >
-                                        M
-                                    <input type="radio" name="sex" id="m" value="1" runat="server"/>
-                                        F
-                                    <input type="radio" name="sex" id="f" value="2" runat="server"/>
+
+                                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
+                                            RepeatDirection="Horizontal" 
+                                            >
+                                            <asp:ListItem>M</asp:ListItem>
+                                            <asp:ListItem>F</asp:ListItem>
+                                        </asp:RadioButtonList>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -148,7 +152,7 @@
                                     <div style="width:500px;height:50px;position: relative; float: right;">
                                         
                                         <div id="divRegistrarPaciente" style="width:150px;top:30px; left:0px; position: absolute" >
-                                            <input id="Button1" type="button" value="Registrar Paciente"  OnServerClick="RegistrarPaciente_Click" runat="server"/>
+                                            <input id="Button1" type="button" value="Registrar Paciente"   OnServerClick="RegistrarPaciente_Click" runat="server"/>
                                         </div>
                                         <div id="divCancelar" style="width:120px;top:30px; left:200px; position: absolute">
                                         <input id="Button2" type="button" value="Cancelar" />
