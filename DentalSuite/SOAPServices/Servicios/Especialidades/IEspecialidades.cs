@@ -16,6 +16,9 @@ namespace SOAPServices
         RespuestaService<Especialidad> grabarEspecialidad(Especialidad especialidad);
 
         [OperationContract]
+        RespuestaService<Especialidad> modificarEspecialidad(Especialidad especialidad);
+
+        [OperationContract]
         List<Especialidad> listarEspecialidad();
     }
 }

@@ -11,5 +11,13 @@ namespace SOAPServices.Persistencia
         {
             return "Data Source=(local);Initial Catalog=DBDentalSuite;Integrated Security=SSPI;";
         }
+
+        public static string Cadena
+        {
+            get
+            {
+                return "Data Source=(local);Initial Catalog=DBDentalSuite;Integrated Security=SSPI;";
+            }
+        }
     }
 }
