@@ -81,7 +81,7 @@ namespace SOAPServices.Servicios.Pacientes
 
 
                 // Grabamos Paciente
-                PacienteDAO.Crear(pacienteACrear);
+                Paciente pacienteCreado = PacienteDAO.Crear(pacienteACrear);
 
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
 
@@ -90,7 +90,7 @@ namespace SOAPServices.Servicios.Pacientes
                                     "Registro de Paciente",
                                     "IPaciente",
                                     "CrearPaciente",
-                                    pacienteACrear);
+                                    pacienteCreado);
 
                 return mensajePaciente;
             }
@@ -148,7 +148,7 @@ namespace SOAPServices.Servicios.Pacientes
                 }
 
                 // Grabamos Paciente
-                PacienteDAO.Modificar(pacienteAModificar);
+                Paciente pacienteModificado = PacienteDAO.Modificar(pacienteAModificar);
 
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
                 mensajePaciente = new RespuestaService<Paciente>("Paciente modificado correctamente",
@@ -156,7 +156,7 @@ namespace SOAPServices.Servicios.Pacientes
                                     "Modificar Paciente",
                                     "IPaciente",
                                     "ModificarPaciente",
-                                    pacienteAModificar);
+                                    pacienteModificado);
 
                 return mensajePaciente;
             }

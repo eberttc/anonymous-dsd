@@ -48,20 +48,21 @@ namespace SOAPServices
                 //2) Validar paciente no exista por nombre
 
                 //   Especialidad e = EspecialidadDAO.ObtenerEspecialidad();
-                /*    if (PacienteDAO.Obtener(codigoGenerado) != null)
+                    if (EspecialidadDAO.Obtener(especialidad.Nombre.Trim()) != null)
                     {
-                        pacienteACrear.Mensaje = util.crearMensaje("El paciente que esta intentando crear ya existe",
+                        mensajeEspecialidad = new RespuestaService<Especialidad>("La especialidad que esta intentando crear ya existe",
                                              "Advertencia",
-                                             "Registro de Paciente",
-                                             "IPaciente",
-                                             "ValidarPacienteCreado");
+                                             "Registro de Especialidad",
+                                             "IEspecialidad",
+                                             "ValidarEspecialidadCreado",
+                                             especialidadACrear);
 
-                        return pacienteACrear;
-                    }*/
-                EspecialidadDAO.Crear(especialidadACrear);
+                        return mensajeEspecialidad;
+                    }
+                Especialidad especialidadCreado =  EspecialidadDAO.Crear(especialidadACrear);
 
                 mensajeEspecialidad = new RespuestaService<Especialidad>("Especialidad creado correctamente", "Satisfactorio", "Registro de Especialidad",
-                                                                "IEspecialidades","CrearEspecialidad",especialidadACrear);
+                                                                "IEspecialidades", "CrearEspecialidad", especialidadCreado);
 
                  return mensajeEspecialidad;
             }
@@ -70,6 +71,35 @@ namespace SOAPServices
                 mensajeEspecialidad = new RespuestaService<Especialidad>("Error de Sitema :" + ex.ToString(), "Error",
                                                                 "Registro de Especialidad","IEspecialidades",
                                                                 "Excepcion",null);
+
+                return mensajeEspecialidad;
+            }
+        }
+
+        public RespuestaService<Especialidad> modificarEspecialidad(Especialidad especialidad)
+        {
+            util = new Utilitario();
+            try
+            {
+
+                Especialidad especialidadAModificar = new Especialidad()
+                {
+                    Nombre = especialidad.Nombre,
+                    Descripcion = especialidad.Descripcion
+                };
+
+                Especialidad especialidadModificado = EspecialidadDAO.Modificar(especialidadAModificar);
+
+                mensajeEspecialidad = new RespuestaService<Especialidad>("Especialidad modificado correctamente", "Satisfactorio", "Modificar Especialidad",
+                                                                "IEspecialidades", "ModificarEspecialidad", especialidadModificado);
+
+                return mensajeEspecialidad;
+            }
+            catch (Exception ex)
+            {
+                mensajeEspecialidad = new RespuestaService<Especialidad>("Error de Sitema :" + ex.ToString(), "Error",
+                                                                "Modificar Especialidad", "IEspecialidades",
+                                                                "Excepcion", null);
 
                 return mensajeEspecialidad;
             }

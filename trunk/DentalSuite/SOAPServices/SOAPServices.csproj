@@ -79,13 +79,14 @@
     <Compile Include="Dominio\Odontologo.cs" />
     <Compile Include="Dominio\Paciente.cs" />
     <Compile Include="Dominio\RespuestaService.cs" />
+    <Compile Include="Persistencia\EspecialidadDAO.cs" />
     <Compile Include="Servicios\Especialidades\Especialidades.svc.cs">
       <DependentUpon>Especialidades.svc</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Especialidades\IEspecialidades.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
-    <Compile Include="Persistencia\EspecialidadDAO.cs" />
+    <Compile Include="Persistencia\EspecialidadDAOAntes.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\PacienteDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
