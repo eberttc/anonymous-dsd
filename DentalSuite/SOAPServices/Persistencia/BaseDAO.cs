@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using NHibernate;
+using SOAPServices.Dominio;
+using NHibernate.Transform;
 
 namespace SOAPServices.Persistencia
 {
@@ -50,5 +52,22 @@ namespace SOAPServices.Persistencia
                 return busqueda.List<Entidad>();
             }
         }
+
+        // Metodo por probar
+        public Especialidad ObtenerEspecialidad()
+        {
+            using (ISession sesion = NHibernateHelper.ObtenerSesion())
+            {
+                string hql = "select * from TEspecialidad where Nombre='a'";
+
+                IQuery query = sesion.CreateQuery(hql)
+                    .SetResultTransformer(Transformers.AliasToBean<Especialidad>());
+
+               // IList<ProductReport> products = query.List<ProductReport>();
+                Especialidad entidad = (Especialidad)query;
+
+                return entidad;
+            }
+        }        
     }
 }

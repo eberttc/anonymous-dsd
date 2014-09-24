@@ -27,9 +27,6 @@ namespace SOAPServices.Dominio
         public string TipoDocumento { get; set; }
          [DataMember]
         public string Contrasena { get; set; }
-       
-       // public bool EstadoActivo { get; set; }
-
 
     }
 }
