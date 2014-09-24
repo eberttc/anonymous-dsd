@@ -9,27 +9,18 @@ namespace SOAPServices.Reutilizables
 {
     public class Utilitario
     {
+
+        #region "Metodos reutilizables"
+
         public bool validarClave(string contrasena)
         {
             var r = new Regex(@"^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])\S{6,}$");
             return r.Match(contrasena).Success ? true : false;
         }
-
-
-        public Mensaje crearMensaje(string mensajeDescripcion, string tipoMensaje, string titulo, string origen)
-        {
-            Mensaje mensaje = new Mensaje();
-            mensaje.MensajeDescripcion = mensajeDescripcion;
-            mensaje.TipoMensaje = tipoMensaje;
-            mensaje.Titulo = titulo;
-            mensaje.ServicioOrigen = origen;
-
-            return mensaje;
-        }
-
-
+       
         public string generarCodigo(object clase)
         {
+            
             if (clase.GetType() == typeof(Paciente))
             {
 
@@ -40,11 +31,15 @@ namespace SOAPServices.Reutilizables
             }
             else
             {
-                Paciente clasePaciente = (Paciente)clase;
+                Odontologo claseOdontologo = (Odontologo)clase;
               //  string nombres = clasePaciente.Nombres.Replace(" ", "");
               //  return "o" + nombres + clasePaciente.ApePaterno;
-                return "o" + clasePaciente.NumeroDocumento;
+                return "o" + claseOdontologo.NumeroDocumento;
             }
         }
+
+       
+
+        #endregion
     }
 }

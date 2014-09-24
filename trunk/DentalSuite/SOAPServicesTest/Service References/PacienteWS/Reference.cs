@@ -188,15 +188,21 @@ namespace SOAPServicesTest.PacienteWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Mensaje", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaServiceOfPacienteHfBKg5Lh", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio")]
     [System.SerializableAttribute()]
-    public partial class Mensaje : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class RespuestaServiceOfPacienteHfBKg5Lh : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SOAPServicesTest.PacienteWS.Paciente ClaseOrigenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MensajeDescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MetodoOrigenField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ServicioOrigenField;
@@ -218,6 +224,19 @@ namespace SOAPServicesTest.PacienteWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public SOAPServicesTest.PacienteWS.Paciente ClaseOrigen {
+            get {
+                return this.ClaseOrigenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClaseOrigenField, value) != true)) {
+                    this.ClaseOrigenField = value;
+                    this.RaisePropertyChanged("ClaseOrigen");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string MensajeDescripcion {
             get {
                 return this.MensajeDescripcionField;
@@ -226,6 +245,19 @@ namespace SOAPServicesTest.PacienteWS {
                 if ((object.ReferenceEquals(this.MensajeDescripcionField, value) != true)) {
                     this.MensajeDescripcionField = value;
                     this.RaisePropertyChanged("MensajeDescripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MetodoOrigen {
+            get {
+                return this.MetodoOrigenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetodoOrigenField, value) != true)) {
+                    this.MetodoOrigenField = value;
+                    this.RaisePropertyChanged("MetodoOrigen");
                 }
             }
         }
@@ -284,13 +316,13 @@ namespace SOAPServicesTest.PacienteWS {
     public interface IPacientes {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/registrarPaciente", ReplyAction="http://tempuri.org/IPacientes/registrarPacienteResponse")]
-        SOAPServicesTest.PacienteWS.Mensaje registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente);
+        SOAPServicesTest.PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/modificarPaciente", ReplyAction="http://tempuri.org/IPacientes/modificarPacienteResponse")]
-        SOAPServicesTest.PacienteWS.Mensaje modificarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente);
+        SOAPServicesTest.PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh modificarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/listarPacientes", ReplyAction="http://tempuri.org/IPacientes/listarPacientesResponse")]
-        SOAPServicesTest.PacienteWS.Paciente[] listarPacientes();
+        System.Collections.Generic.List<SOAPServicesTest.PacienteWS.Paciente> listarPacientes();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -320,15 +352,15 @@ namespace SOAPServicesTest.PacienteWS {
                 base(binding, remoteAddress) {
         }
         
-        public SOAPServicesTest.PacienteWS.Mensaje registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente) {
+        public SOAPServicesTest.PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh registrarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente) {
             return base.Channel.registrarPaciente(paciente);
         }
         
-        public SOAPServicesTest.PacienteWS.Mensaje modificarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente) {
+        public SOAPServicesTest.PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh modificarPaciente(SOAPServicesTest.PacienteWS.Paciente paciente) {
             return base.Channel.modificarPaciente(paciente);
         }
         
-        public SOAPServicesTest.PacienteWS.Paciente[] listarPacientes() {
+        public System.Collections.Generic.List<SOAPServicesTest.PacienteWS.Paciente> listarPacientes() {
             return base.Channel.listarPacientes();
         }
     }
