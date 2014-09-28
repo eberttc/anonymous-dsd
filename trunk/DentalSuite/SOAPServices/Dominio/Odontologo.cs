@@ -9,6 +9,18 @@ namespace SOAPServices.Dominio
     {
         public string Codigo { get; set; }
         public string NumeroDocumento { get; set; }
+        public string Nombres { get; set; }
+        public string ApePaterno { get; set; }
+        public string MatPaterno { get; set; }
+        public string Sexo { get; set; }
+        public string TipoDocumento { get; set; }
+        public string NroDocumento { get; set; }
+        public string Correo { get; set; }
+        public string Contrasena { get; set; }
+        public string COP { get; set; }
+
+
+
 
         
     }
