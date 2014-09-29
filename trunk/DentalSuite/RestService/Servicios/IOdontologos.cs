@@ -14,16 +14,16 @@ namespace RestService.Servicios
     public interface IOdontologos
     {
         [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "POST", UriTemplate = "Odontologo")]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "POST", UriTemplate = "Odontologos")]
         RespuestaService<Odontologo> Crear(Odontologo OdontologoACrear);
         [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "PUT", UriTemplate = "Odontologo")]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "PUT", UriTemplate = "Odontologos")]
         RespuestaService<Odontologo> Modificar(Odontologo OdontologoAModificar);
         [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET", UriTemplate = "Odontologo/{Codigo}")]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET", UriTemplate = "Odontologos/{Codigo}")]
         RespuestaService<Odontologo> Obtener(string Codigo);
         [OperationContract]
-        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET", UriTemplate = "Odontologo")]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET", UriTemplate = "Odontologos")]
         ICollection<Odontologo> ListarTodos();
     }
 }
