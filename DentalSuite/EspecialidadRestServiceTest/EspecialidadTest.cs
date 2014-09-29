@@ -11,9 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace EspecialidadRestServiceTest
 {
-    /// <summary>
-    /// Summary description for UnitTest1
-    /// </summary>
+   
     [TestClass]
     public class EspecialidadTest
     {
