@@ -1,0 +1,5 @@
+﻿<%@ ServiceHost 
+Language="C#" Debug="true" Service="EspecialidadRestService.Especialidad"
+ CodeBehind="Especialidad.svc.cs"
+   Factory="System.ServiceModel.Activation.WebServiceHostFactory"
+  %>
