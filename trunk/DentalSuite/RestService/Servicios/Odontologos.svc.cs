@@ -133,6 +133,8 @@ namespace RestService.Servicios
         public RespuestaService<Odontologo> Obtener(string Codigo)
         {
             return null;
+            //no coge nada que raro sips ahver bajatelo a tu pc  y pruebalo alli pera, nombre del repositoria
+            //el link no tengo acceso
         }
 
         public ICollection<Dominio.Odontologo> ListarTodos()
