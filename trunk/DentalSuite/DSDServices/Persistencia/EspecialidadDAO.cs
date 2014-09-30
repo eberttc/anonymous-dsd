@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
-using SOAPServices.Dominio;
-using SOAPServices.Persistencia;
+using DSDServices.Dominio;
+using DSDServices.Persistencia;
 
-namespace SOAPServices.Persistencia
+namespace DSDServices.Persistencia
 {
     public class EspecialidadDAO
     {

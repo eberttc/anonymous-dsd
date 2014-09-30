@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="de433776-33fa-48ee-a60c-438d3df3d76e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20001/SOAPServices/Pacientes.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Pacientes.xsd" MetadataType="Schema" ID="a4a3ffd7-613a-425c-a7d0-6c1a41d22958" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Pacientes.svc?xsd=xsd1" />
+    <MetadataFile FileName="Pacientes1.xsd" MetadataType="Schema" ID="f89bf53f-d32e-4013-bc63-c0986550ae0f" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Pacientes.svc?xsd=xsd0" />
+    <MetadataFile FileName="Pacientes.disco" MetadataType="Disco" ID="92b2882e-d7e6-4487-be85-a45f9f9b47c1" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Pacientes.svc?disco" />
+    <MetadataFile FileName="Pacientes.wsdl" MetadataType="Wsdl" ID="c140377a-8375-4143-988c-1843f07d3b91" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Pacientes.svc?wsdl" />
+    <MetadataFile FileName="Pacientes2.xsd" MetadataType="Schema" ID="33cb3486-1f1f-4cf3-a30c-fc78912927e0" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Pacientes.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
