@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SOAPServicesTest.Test
+namespace DSDTest.SOAPTest
 {
     [TestClass]
     public class TestPaciente
     {
-        [TestMethod]
+       
         public void TestGrabarPaciente()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
@@ -26,14 +26,12 @@ namespace SOAPServicesTest.Test
             objPaciente.Contrasena = "123456Aabb11";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
 
             Assert.AreEqual("Satisfactorio", pacienteRespuesta.TipoMensaje);
-
-
         }
 
-        [TestMethod]
+       
         public void TestGrabarModificar()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
@@ -51,13 +49,13 @@ namespace SOAPServicesTest.Test
             objPaciente.Contrasena = "123456Aabb2";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh pacienteRespuesta = pacienteWs.modificarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.modificarPaciente(objPaciente);
 
             Assert.AreEqual("Satisfactorio", pacienteRespuesta.TipoMensaje);
 
         }
 
-        [TestMethod]
+     
         public void TestClaveIncorrecta()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
@@ -74,12 +72,12 @@ namespace SOAPServicesTest.Test
             objPaciente.Contrasena = "123456";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
 
             Assert.AreEqual("Advertencia-ValidarClave", pacienteRespuesta.TipoMensaje + '-' + pacienteRespuesta.MetodoOrigen);
         }
 
-         [TestMethod]
+        [TestMethod]
         public void TestPacienteExistente()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
@@ -96,7 +94,7 @@ namespace SOAPServicesTest.Test
             objPaciente.Contrasena = "123456Aabb11";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaServiceOfPacienteHfBKg5Lh pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
 
             Assert.AreEqual("Advertencia-ValidarPacienteCreado", pacienteRespuesta.TipoMensaje + '-' + pacienteRespuesta.MetodoOrigen);
         }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using NHibernate;
-using SOAPServices.Dominio;
+using DSDServices.Dominio;
 using NHibernate.Transform;
 
-namespace SOAPServices.Persistencia
+namespace DSDServices.Persistencia
 {
     public class BaseDAO<Entidad, Id>
     {

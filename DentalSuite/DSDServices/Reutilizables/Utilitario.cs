@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using SOAPServices.Dominio;
+using DSDServices.Dominio;
 using System.Text.RegularExpressions;
 
-namespace SOAPServices.Reutilizables
+namespace DSDServices.Reutilizables
 {
     public class Utilitario
     {

@@ -67,6 +67,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EspecialidadRestServiceTest", "EspecialidadRestServiceTest\EspecialidadRestServiceTest.csproj", "{5FF1A915-EC68-4AE2-A083-AB5C813766FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSDTest", "DSDTest\DSDTest.csproj", "{F43A48CB-686C-4D77-86F5-F0E16238F8FC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{847DCA68-91EA-4255-9EA4-E888F8BD63A4} = {847DCA68-91EA-4255-9EA4-E888F8BD63A4}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution

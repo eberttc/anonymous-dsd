@@ -4,13 +4,13 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using SOAPServices.Dominio;
-using SOAPServices.Persistencia;
-using SOAPServices.Reutilizables;
+using DSDServices.Persistencia;
+using DSDServices.Reutilizables;
+using DSDServices.Dominio;
 
-namespace SOAPServices.Servicios.Pacientes
+namespace DSDServices.SOAPServices
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Pacientes" en el código, en svc y en el archivo de configuración a la vez.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Pacientes" in code, svc and config file together.
     public class Pacientes : IPacientes
     {
         private PacienteDAO pacienteDAO = null;

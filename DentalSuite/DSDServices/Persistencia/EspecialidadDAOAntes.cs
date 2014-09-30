@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SOAPServices.Dominio;
+using DSDServices.Dominio;
 
-namespace SOAPServices.Persistencia
+namespace DSDServices.Persistencia
 {
     class AEspecialidadDAO : BaseDAO<Especialidad,int>
     {

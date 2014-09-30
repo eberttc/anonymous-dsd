@@ -4,11 +4,11 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using SOAPServices.Dominio;
+using DSDServices.Dominio;
 
-namespace SOAPServices.Servicios.Pacientes
+namespace DSDServices.SOAPServices
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IPacientes" en el código y en el archivo de configuración a la vez.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IPacientes" in both code and config file together.
     [ServiceContract]
     public interface IPacientes
     {
