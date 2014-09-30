@@ -27,6 +27,8 @@ public partial class Dental_Pacientes : System.Web.UI.Page
         //{
             
         //}
+
+
         ListarPacientes();
     }
 
@@ -36,7 +38,7 @@ public partial class Dental_Pacientes : System.Web.UI.Page
         objPaciente.Nombres = this.txtNombre.Value;
         objPaciente.ApePaterno = this.txtApellidoPaterno.Value;
         objPaciente.ApeMaterno = this.txtApellidoMaterno.Value;
-        objPaciente.Sexo = (RadioButtonList1.SelectedValue=="F") ? "F" : "M";
+        objPaciente.Sexo = (RadioButtonList1.SelectedValue == "F") ? "F" : "M";
         objPaciente.TipoDocumento = this.txtTipoDocumento.Value;
         objPaciente.NumeroDocumento = this.txtNroDocumento.Value;
         objPaciente.Correo = (this.txtCorreo.Value == this.txtConfirmarCorreo.Value) ? this.txtCorreo.Value : string.Empty;
@@ -49,7 +51,7 @@ public partial class Dental_Pacientes : System.Web.UI.Page
                 //Registrando un nuevo paciente
                 //PacienteWS.Paciente pacienteCreado = paciente.registrarPaciente(objPaciente);
 
-                WSPacientes.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = WSpaciente.registrarPaciente(objPaciente);
+                WSPacientes.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = WSpaciente.registrarPaciente(objPaciente);
 
 
                 lblMensajeResultado.Text = pacienteRespuesta.TipoMensaje;
@@ -60,27 +62,28 @@ public partial class Dental_Pacientes : System.Web.UI.Page
             {
 
                 //Registrando un nuevo paciente
-                WSPacientes.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = WSpaciente.modificarPaciente(objPaciente);
+                WSPacientes.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = WSpaciente.modificarPaciente(objPaciente);
                 lblMensajeResultado.Text = pacienteRespuesta.TipoMensaje;
                 //if (mensaje.TipoMensaje == "Satisfactorio")
                 //    Limpiar();
             }
         }
-        else {
+        else
+        {
             lblMensajeResultado.Text = "El correo o la contraeña no coinciden";
         }
 
-        
+
         ListarPacientes();
 
     }
     private void ListarPacientes() {
 
-            WSPacientes.Paciente[] listaPacientes;
-            listaPacientes = WSpaciente.listarPacientes();
-            GridView1.DataSource = listaPacientes;
-            GridView1.DataBind();
-            GridView1.Width = 950;
+        WSPacientes.Paciente[] listaPacientes;
+        listaPacientes = WSpaciente.listarPacientes();
+        GridView1.DataSource = listaPacientes;
+        GridView1.DataBind();
+        GridView1.Width = 950;
     }
 
     private void Limpiar() {
