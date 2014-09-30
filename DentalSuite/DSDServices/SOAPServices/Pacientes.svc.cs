@@ -4,13 +4,13 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using DSDServices.Dominio;
-using DSDServices.Persistencia;
-using DSDServices.Reutilizables;
+using SOAPServices.Dominio;
+using SOAPServices.Persistencia;
+using SOAPServices.Reutilizables;
 
-namespace DSDServices.SOAPServices
+namespace SOAPServices.Servicios.Pacientes
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Pacientes" in code, svc and config file together.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Pacientes" en el código, en svc y en el archivo de configuración a la vez.
     public class Pacientes : IPacientes
     {
         private PacienteDAO pacienteDAO = null;
@@ -24,12 +24,11 @@ namespace DSDServices.SOAPServices
             }
         }
 
-
         private Utilitario util = null;
-        Respuesta<Paciente> mensajePaciente = null;
+        RespuestaService<Paciente> mensajePaciente = null;
 
 
-        public Respuesta<Paciente> registrarPaciente(Dominio.Paciente paciente)
+        public RespuestaService<Paciente> registrarPaciente(Dominio.Paciente paciente)
         {
             util = new Utilitario();
             try
@@ -58,7 +57,7 @@ namespace DSDServices.SOAPServices
                 if (condicion == false)
                 {
                     //Creamos mensaje de ERROR para enviar
-                    mensajePaciente = new Respuesta<Paciente>("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
+                    mensajePaciente = new RespuestaService<Paciente>("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
                                           "Advertencia",
                                           "Registro de Paciente",
                                           "IPaciente",
@@ -70,7 +69,7 @@ namespace DSDServices.SOAPServices
                 //2) Validar paciente no exista
                 if (PacienteDAO.Obtener(codigoGenerado) != null)
                 {
-                    mensajePaciente = new Respuesta<Paciente>("El paciente que esta intentando crear ya existe",
+                    mensajePaciente = new RespuestaService<Paciente>("El paciente que esta intentando crear ya existe",
                                          "Advertencia",
                                          "Registro de Paciente",
                                          "IPaciente",
@@ -86,7 +85,7 @@ namespace DSDServices.SOAPServices
 
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
 
-                mensajePaciente = new Respuesta<Paciente>("Paciente creado correctamente. Codigo generado:" + codigoGenerado,
+                mensajePaciente = new RespuestaService<Paciente>("Paciente creado correctamente. Codigo generado:" + codigoGenerado,
                                     "Satisfactorio",
                                     "Registro de Paciente",
                                     "IPaciente",
@@ -97,7 +96,7 @@ namespace DSDServices.SOAPServices
             }
             catch (Exception ex)
             {
-                mensajePaciente = new Respuesta<Paciente>("Error de Sitema :" + ex.ToString(),
+                mensajePaciente = new RespuestaService<Paciente>("Error de Sitema :" + ex.ToString(),
                                     "Error",
                                     "Registro de Paciente",
                                     "IPaciente",
@@ -113,7 +112,7 @@ namespace DSDServices.SOAPServices
             return PacienteDAO.ListarTodos().ToList();
         }
 
-        public Respuesta<Paciente> modificarPaciente(Paciente paciente)
+        public RespuestaService<Paciente> modificarPaciente(Paciente paciente)
         {
             util = new Utilitario();
             try
@@ -138,7 +137,7 @@ namespace DSDServices.SOAPServices
                 if (condicion == false)
                 {
                     //Creamos mensaje de ERROR para enviar
-                    mensajePaciente = new Respuesta<Paciente>("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
+                    mensajePaciente = new RespuestaService<Paciente>("La contraseña debe contener al menos una letra mayuscula, una minúscula, un número y mas de 6 digitos",
                                           "Advertencia",
                                           "Modificar Paciente",
                                           "IPaciente",
@@ -152,7 +151,7 @@ namespace DSDServices.SOAPServices
                 Paciente pacienteModificado = PacienteDAO.Modificar(pacienteAModificar);
 
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
-                mensajePaciente = new Respuesta<Paciente>("Paciente modificado correctamente",
+                mensajePaciente = new RespuestaService<Paciente>("Paciente modificado correctamente",
                                     "Satisfactorio",
                                     "Modificar Paciente",
                                     "IPaciente",
@@ -163,7 +162,7 @@ namespace DSDServices.SOAPServices
             }
             catch (Exception ex)
             {
-                mensajePaciente = new Respuesta<Paciente>("Error de Sitema :" + ex.ToString(),
+                mensajePaciente = new RespuestaService<Paciente>("Error de Sitema :" + ex.ToString(),
                                     "Error",
                                     "Modificar Paciente",
                                     "IPaciente",

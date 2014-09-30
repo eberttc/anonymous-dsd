@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="DSDServices.SOAPServices.Pacientes" CodeBehind="Pacientes.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SOAPServices.Servicios.Pacientes.Pacientes" CodeBehind="Pacientes.svc.cs" %>
