@@ -1,0 +1,3 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="DSDServices.RESTServices.Especialidades" 
+Factory="System.ServiceModel.Activation.WebServiceHostFactory"
+CodeBehind="Especialidades.svc.cs" %>

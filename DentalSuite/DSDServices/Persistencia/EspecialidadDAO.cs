@@ -25,19 +25,20 @@ namespace DSDServices.Persistencia
                     com.ExecuteNonQuery();
                 }
             }
-            espacialidadCreado = Obtener(especialidadACrear.Nombre);
+            espacialidadCreado = Obtener(especialidadACrear.Codigo.ToString());
             return espacialidadCreado;
         }
-        public Especialidad Obtener(string nombre)
+        public Especialidad Obtener(string codigo)
         {
+            int codigoValor =int.Parse(codigo);
             Especialidad especialidadEncontrado = null;
-            string sql = "SELECT * FROM TEspecialidad WHERE Nombre=@nom";
+            string sql = "SELECT * FROM TEspecialidad WHERE codigo=@cod";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@nom", nombre));
+                    com.Parameters.Add(new SqlParameter("@cod", codigoValor));
                     using (SqlDataReader resultado = com.ExecuteReader())
                     {
                         if (resultado.Read())
@@ -70,18 +71,19 @@ namespace DSDServices.Persistencia
                     com.ExecuteNonQuery();
                 }
             }
-            especialidadModificado = Obtener(especialidadAModificar.Nombre);
+            especialidadModificado = Obtener(especialidadAModificar.Codigo.ToString());
             return especialidadModificado;
         }
-        public void Eliminar(Especialidad especialidadAEliminar)
+        public void Eliminar(string codigo)
         {
+            int codigoValor = int.Parse(codigo);
             string sql = "DELETE FROM TEspecialidad WHERE codigo=@cod";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
-                    com.Parameters.Add(new SqlParameter("@cod", especialidadAEliminar.Codigo));
+                    com.Parameters.Add(new SqlParameter("@cod", codigoValor));
                     com.ExecuteNonQuery();
                 }
             }
