@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Especialidades" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:20001/Servicios/Especialidades/Especialidades.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:20001/Servicios/Especialidades/Especialidades.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:20001/Servicios/Especialidades/Especialidades.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Dominio" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEspecialidades_grabarEspecialidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:grabarEspecialidad" />
+  </wsdl:message>
+  <wsdl:message name="IEspecialidades_grabarEspecialidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:grabarEspecialidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEspecialidades_modificarEspecialidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarEspecialidad" />
+  </wsdl:message>
+  <wsdl:message name="IEspecialidades_modificarEspecialidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarEspecialidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEspecialidades_listarEspecialidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarEspecialidad" />
+  </wsdl:message>
+  <wsdl:message name="IEspecialidades_listarEspecialidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarEspecialidadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEspecialidades">
+    <wsdl:operation name="grabarEspecialidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEspecialidades/grabarEspecialidad" message="tns:IEspecialidades_grabarEspecialidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEspecialidades/grabarEspecialidadResponse" message="tns:IEspecialidades_grabarEspecialidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarEspecialidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEspecialidades/modificarEspecialidad" message="tns:IEspecialidades_modificarEspecialidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEspecialidades/modificarEspecialidadResponse" message="tns:IEspecialidades_modificarEspecialidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarEspecialidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEspecialidades/listarEspecialidad" message="tns:IEspecialidades_listarEspecialidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEspecialidades/listarEspecialidadResponse" message="tns:IEspecialidades_listarEspecialidad_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEspecialidades" type="tns:IEspecialidades">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="grabarEspecialidad">
+      <soap:operation soapAction="http://tempuri.org/IEspecialidades/grabarEspecialidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarEspecialidad">
+      <soap:operation soapAction="http://tempuri.org/IEspecialidades/modificarEspecialidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarEspecialidad">
+      <soap:operation soapAction="http://tempuri.org/IEspecialidades/listarEspecialidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Especialidades">
+    <wsdl:port name="BasicHttpBinding_IEspecialidades" binding="tns:BasicHttpBinding_IEspecialidades">
+      <soap:address location="http://localhost:20001/Servicios/Especialidades/Especialidades.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
