@@ -23,7 +23,7 @@ namespace EspecialidadRestServiceTest
                                  "\"Nombre\":\"Pediatra\"," +                                    
                                  "\"Descripcion\":\"primera descripcion\"}"; //JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:1967/Servicios/Especialidad.svc/Especialidades");
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20005/Especialidad.svc/Especialidades");
             req.Method = "POST";
             req.ContentLength = data.Length;
             req.ContentType = "application/json";
