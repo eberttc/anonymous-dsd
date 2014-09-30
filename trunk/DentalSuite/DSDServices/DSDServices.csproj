@@ -60,6 +60,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dominio\Especialidad.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Paciente.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Content Include="Dominio\Paciente.hbml.xml" />
     <Content Include="SOAPServices\Pacientes.svc" />
     <Content Include="Web.config" />
@@ -71,8 +75,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Especialidad.cs" />
+    <Compile Include="Dominio\Odontologo.cs" />
     <Compile Include="Dominio\Paciente.cs" />
     <Compile Include="Dominio\Respuesta.cs" />
+    <Compile Include="Dominio\RespuestaService.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />

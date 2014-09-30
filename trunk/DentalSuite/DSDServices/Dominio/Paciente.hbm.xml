@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="SOAPServices"
+                   namespace="SOAPServices.Dominio"
+                   default-lazy="false">
+  <class name="Paciente" table="TPaciente">
+    <id name="Codigo" column="Codigo">
+      <generator class="assigned" />
+    </id>
+    <property name="NumeroDocumento" column="NumeroDocumento" />
+    <property name="Nombres" column="Nombres" />
+    <property name="ApePaterno" column="ApellidoPaterno" />
+    <property name="ApeMaterno" column="ApellidoMaterno" />
+    <property name="Correo" column="Correo" />
+    <property name="Sexo" column="Sexo" />
+    <property name="TipoDocumento" column="TipoDocumento" />
+    <property name="Contrasena" column="Contrasena" />
+  </class>
+</hibernate-mapping>
