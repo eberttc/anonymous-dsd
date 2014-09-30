@@ -14,10 +14,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Paciente" nillable="true" type="tns:Paciente" />
-  <xs:complexType name="RespuestaOfPacientez_SY3AMPv">
+  <xs:complexType name="RespuestaServiceOfPacientez_SY3AMPv">
     <xs:annotation>
       <xs:appinfo>
-        <GenericType Name="RespuestaOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        <GenericType Name="RespuestaServiceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
           <GenericParameter Name="Paciente" Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" />
         </GenericType>
       </xs:appinfo>
@@ -31,7 +31,7 @@
       <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="RespuestaOfPacientez_SY3AMPv" nillable="true" type="tns:RespuestaOfPacientez_SY3AMPv" />
+  <xs:element name="RespuestaServiceOfPacientez_SY3AMPv" nillable="true" type="tns:RespuestaServiceOfPacientez_SY3AMPv" />
   <xs:complexType name="ArrayOfPaciente">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Paciente" nillable="true" type="tns:Paciente" />

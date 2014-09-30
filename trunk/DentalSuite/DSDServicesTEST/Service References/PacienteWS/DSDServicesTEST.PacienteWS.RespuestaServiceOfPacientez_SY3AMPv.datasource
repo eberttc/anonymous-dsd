@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="RespuestaOfPacientez_SY3AMPv" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>DSDServicesTEST.PacienteWS.RespuestaOfPacientez_SY3AMPv, Service References.PacienteWS.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="RespuestaServiceOfPacientez_SY3AMPv" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>DSDServicesTEST.PacienteWS.RespuestaServiceOfPacientez_SY3AMPv, Service References.PacienteWS.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

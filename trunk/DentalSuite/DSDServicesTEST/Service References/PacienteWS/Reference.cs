@@ -188,9 +188,9 @@ namespace DSDServicesTEST.PacienteWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaOfPacientez_SY3AMPv", Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaServiceOfPacientez_SY3AMPv", Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio")]
     [System.SerializableAttribute()]
-    public partial class RespuestaOfPacientez_SY3AMPv : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class RespuestaServiceOfPacientez_SY3AMPv : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -316,10 +316,10 @@ namespace DSDServicesTEST.PacienteWS {
     public interface IPacientes {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/registrarPaciente", ReplyAction="http://tempuri.org/IPacientes/registrarPacienteResponse")]
-        DSDServicesTEST.PacienteWS.RespuestaOfPacientez_SY3AMPv registrarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente);
+        DSDServicesTEST.PacienteWS.RespuestaServiceOfPacientez_SY3AMPv registrarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/modificarPaciente", ReplyAction="http://tempuri.org/IPacientes/modificarPacienteResponse")]
-        DSDServicesTEST.PacienteWS.RespuestaOfPacientez_SY3AMPv modificarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente);
+        DSDServicesTEST.PacienteWS.RespuestaServiceOfPacientez_SY3AMPv modificarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPacientes/listarPacientes", ReplyAction="http://tempuri.org/IPacientes/listarPacientesResponse")]
         DSDServicesTEST.PacienteWS.Paciente[] listarPacientes();
@@ -352,11 +352,11 @@ namespace DSDServicesTEST.PacienteWS {
                 base(binding, remoteAddress) {
         }
         
-        public DSDServicesTEST.PacienteWS.RespuestaOfPacientez_SY3AMPv registrarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente) {
+        public DSDServicesTEST.PacienteWS.RespuestaServiceOfPacientez_SY3AMPv registrarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente) {
             return base.Channel.registrarPaciente(paciente);
         }
         
-        public DSDServicesTEST.PacienteWS.RespuestaOfPacientez_SY3AMPv modificarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente) {
+        public DSDServicesTEST.PacienteWS.RespuestaServiceOfPacientez_SY3AMPv modificarPaciente(DSDServicesTEST.PacienteWS.Paciente paciente) {
             return base.Channel.modificarPaciente(paciente);
         }
         
