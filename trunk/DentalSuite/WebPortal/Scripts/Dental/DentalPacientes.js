@@ -17,8 +17,11 @@ $(document).ready(function () {
     $("input:button", "#divCancelar").click(function () { limpiarCaja(); });
     //limpiarCaja();
     $("#caja").slideToggle();
+    $('input[id$=txtCodigo]').attr("readonly", "true");
 
-
+    $('input[id$=txtCodigo]').attr("readonly", "true");
+    $('input[id$=txtCodigo]').css({ 'background-color': 'gray' });
+    $('input[id$=txtCodigo]').css({ 'color': 'white' });
 })
 //#endregion
 

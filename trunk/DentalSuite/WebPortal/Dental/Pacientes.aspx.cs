@@ -7,8 +7,11 @@ using System.Web.UI.WebControls;
 
 public partial class Dental_Pacientes : System.Web.UI.Page
 {
-    PacienteWS.PacientesClient paciente = new PacienteWS.PacientesClient();
-    PacienteWS.Paciente objPaciente = new PacienteWS.Paciente();
+    //PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
+    //PacienteWS.Paciente objPaciente =new PacienteWS.Paciente();
+
+    WSPacientes.PacientesClient WSpaciente = new WSPacientes.PacientesClient();
+    WSPacientes.Paciente objPaciente = new WSPacientes.Paciente();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -44,8 +47,12 @@ public partial class Dental_Pacientes : System.Web.UI.Page
             if (this.txtCodigo.Value == "0")
             {
                 //Registrando un nuevo paciente
-                PacienteWS.Mensaje mensaje = paciente.registrarPaciente(objPaciente);
-                lblMensajeResultado.Text = mensaje.MensajeDescripcion;
+                //PacienteWS.Paciente pacienteCreado = paciente.registrarPaciente(objPaciente);
+
+                WSPacientes.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = WSpaciente.registrarPaciente(objPaciente);
+
+
+                lblMensajeResultado.Text = pacienteRespuesta.TipoMensaje;
                 //if (mensaje.TipoMensaje == "Satisfactorio")
                 //    Limpiar();
             }
@@ -53,8 +60,8 @@ public partial class Dental_Pacientes : System.Web.UI.Page
             {
 
                 //Registrando un nuevo paciente
-                PacienteWS.Mensaje mensaje = paciente.modificarPaciente(objPaciente);
-                lblMensajeResultado.Text = mensaje.MensajeDescripcion;
+                WSPacientes.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = WSpaciente.modificarPaciente(objPaciente);
+                lblMensajeResultado.Text = pacienteRespuesta.TipoMensaje;
                 //if (mensaje.TipoMensaje == "Satisfactorio")
                 //    Limpiar();
             }
@@ -69,8 +76,8 @@ public partial class Dental_Pacientes : System.Web.UI.Page
     }
     private void ListarPacientes() {
 
-            PacienteWS.Paciente[] listaPacientes;
-            listaPacientes = paciente.listarPacientes();
+            WSPacientes.Paciente[] listaPacientes;
+            listaPacientes = WSpaciente.listarPacientes();
             GridView1.DataSource = listaPacientes;
             GridView1.DataBind();
             GridView1.Width = 950;

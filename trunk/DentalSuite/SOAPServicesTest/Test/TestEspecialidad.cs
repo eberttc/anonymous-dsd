@@ -13,10 +13,10 @@ namespace SOAPServicesTest.Test
         public void TestGrabarEspecialiad()
         {
             EspecialidadWS.EspecialidadesClient especialidadWs = new EspecialidadWS.EspecialidadesClient();
-
+            //    data = "[{ value: '1', text: 'Endodentista'},{ value: '2', text: 'Cirujano oral'},{ value: '3', text: 'Ortodoncista'},{ value: '4', text: 'PedoDentista'} ,{ value: '5', text: 'PerioDentista'}]";
             EspecialidadWS.Especialidad objEspecialidad = new EspecialidadWS.Especialidad();
-            objEspecialidad.Nombre = "Prueba Nombre";
-            objEspecialidad.Descripcion = "Prueba Descripcion";
+            objEspecialidad.Nombre = "Endodentista";
+            objEspecialidad.Descripcion = "Endodentista";
 
 
             //Registrando un nuevo paciente
