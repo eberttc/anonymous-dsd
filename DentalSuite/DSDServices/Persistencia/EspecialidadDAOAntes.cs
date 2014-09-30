@@ -6,7 +6,7 @@ using SOAPServices.Dominio;
 
 namespace SOAPServices.Persistencia
 {
-    class PacienteDAO : BaseDAO<Paciente,string>
+    class AEspecialidadDAO : BaseDAO<Especialidad,int>
     {
     }
 }
