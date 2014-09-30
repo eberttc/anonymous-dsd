@@ -3,8 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace DSDServicesTEST
+namespace DSDServicesTEST.SOAPTest
 {
     [TestClass]
     public class TestPaciente
@@ -16,24 +15,22 @@ namespace DSDServicesTEST
 
             PacienteWS.Paciente objPaciente = new PacienteWS.Paciente();
             objPaciente.Nombres = "Luis Daniel";
-            objPaciente.ApePaterno = "Ledesma";
-            objPaciente.ApeMaterno = "Zevallos";
+            objPaciente.ApePaterno = "Chumpitaz";
+            objPaciente.ApeMaterno = "Pucllas";
             objPaciente.Sexo = "M";
             objPaciente.TipoDocumento = "DNI";
-            objPaciente.NumeroDocumento = "43453444";
+            objPaciente.NumeroDocumento = "43453955";
             objPaciente.Correo = "chumpisc@gmail.com";
             objPaciente.Codigo = "";
-            objPaciente.Contrasena = "123456Aabb11";
+            objPaciente.Contrasena = "123456Acbb11";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
 
             Assert.AreEqual("Satisfactorio", pacienteRespuesta.TipoMensaje);
-
-
         }
 
-        [TestMethod]
+
         public void TestGrabarModificar()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
@@ -51,13 +48,13 @@ namespace DSDServicesTEST
             objPaciente.Contrasena = "123456Aabb2";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.modificarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.modificarPaciente(objPaciente);
 
             Assert.AreEqual("Satisfactorio", pacienteRespuesta.TipoMensaje);
 
         }
 
-        [TestMethod]
+
         public void TestClaveIncorrecta()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
@@ -74,12 +71,12 @@ namespace DSDServicesTEST
             objPaciente.Contrasena = "123456";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
 
             Assert.AreEqual("Advertencia-ValidarClave", pacienteRespuesta.TipoMensaje + '-' + pacienteRespuesta.MetodoOrigen);
         }
 
-        [TestMethod]
+        
         public void TestPacienteExistente()
         {
             PacienteWS.PacientesClient pacienteWs = new PacienteWS.PacientesClient();
@@ -96,10 +93,9 @@ namespace DSDServicesTEST
             objPaciente.Contrasena = "123456Aabb11";
 
             //Registrando un nuevo paciente
-            PacienteWS.RespuestaOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
+            PacienteWS.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = pacienteWs.registrarPaciente(objPaciente);
 
             Assert.AreEqual("Advertencia-ValidarPacienteCreado", pacienteRespuesta.TipoMensaje + '-' + pacienteRespuesta.MetodoOrigen);
         }
     }
-        
 }
