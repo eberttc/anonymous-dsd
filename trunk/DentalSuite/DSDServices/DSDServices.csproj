@@ -82,6 +82,8 @@
     <Compile Include="Dominio\RespuestaService.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
+    <Compile Include="Persistencia\EspecialidadDAO.cs" />
+    <Compile Include="Persistencia\EspecialidadDAOAntes.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\PacienteDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

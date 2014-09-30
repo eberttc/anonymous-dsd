@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using NHibernate;
-using DSDServices.Dominio;
+using SOAPServices.Dominio;
 using NHibernate.Transform;
-namespace DSDServices.Persistencia
+
+namespace SOAPServices.Persistencia
 {
     public class BaseDAO<Entidad, Id>
     {
@@ -13,10 +14,10 @@ namespace DSDServices.Persistencia
         {
             using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
-                sesion.Save(entidad);
-                sesion.Flush();
+                    sesion.Save(entidad);
+                    sesion.Flush();
             }
-
+              
             return entidad;
         }
         public Entidad Obtener(Id id)
@@ -52,5 +53,21 @@ namespace DSDServices.Persistencia
             }
         }
 
+        // Metodo por probar
+        public Especialidad ObtenerEspecialidad()
+        {
+            using (ISession sesion = NHibernateHelper.ObtenerSesion())
+            {
+                string hql = "select * from TEspecialidad where Nombre='a'";
+
+                IQuery query = sesion.CreateQuery(hql)
+                    .SetResultTransformer(Transformers.AliasToBean<Especialidad>());
+
+               // IList<ProductReport> products = query.List<ProductReport>();
+                Especialidad entidad = (Especialidad)query;
+
+                return entidad;
+            }
+        }        
     }
 }
