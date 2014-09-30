@@ -29,7 +29,7 @@ namespace DSDServices.SOAPServices
         Respuesta<Paciente> mensajePaciente = null;
 
 
-        public Respuesta<Paciente> registrarPaciente(Dominio.Paciente paciente)
+        public RespuestaService<Paciente> registrarPaciente(Dominio.Paciente paciente)
         {
             util = new Utilitario();
             try
@@ -113,7 +113,7 @@ namespace DSDServices.SOAPServices
             return PacienteDAO.ListarTodos().ToList();
         }
 
-        public Respuesta<Paciente> modificarPaciente(Paciente paciente)
+        public RespuestaService<Paciente> modificarPaciente(Paciente paciente)
         {
             util = new Utilitario();
             try
