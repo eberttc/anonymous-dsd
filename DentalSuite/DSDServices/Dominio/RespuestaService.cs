@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Runtime.Serialization;
+using SOAPServices.Persistencia;
+
+namespace SOAPServices.Dominio
+{
+    [DataContract]
+    public class RespuestaService<Entidad>
+    {
+
+        [DataMember]
+        public string MensajeDescripcion {get;set;}
+        [DataMember]
+        public string TipoMensaje { get; set; }
+        [DataMember]
+        public string Titulo { get; set; }
+        [DataMember]
+        public string ServicioOrigen { get; set; }
+        [DataMember]
+        public string MetodoOrigen { get; set; }
+        [DataMember]
+        public Entidad ClaseOrigen  { get; set; }
+
+        public RespuestaService(string mensajeDescripcion, string tipoMensaje, string titulo, string servicioOrigen,
+                       string metodoOrigen , Entidad claseOrigen)
+        {
+            MensajeDescripcion = mensajeDescripcion;
+            TipoMensaje = tipoMensaje;
+            Titulo = titulo;
+            ServicioOrigen = servicioOrigen;
+            MetodoOrigen = metodoOrigen;
+            ClaseOrigen = claseOrigen;
+        }
+
+        
+        
+        
+    }
+}

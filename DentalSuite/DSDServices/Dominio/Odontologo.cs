@@ -7,26 +7,34 @@ using System.Runtime.Serialization;
 namespace SOAPServices.Dominio
 {
     [DataContract]
-    public class Paciente
+    public class Odontologo
     {
         [DataMember]
         public string Codigo { get; set; }
-         [DataMember]
-        public string NumeroDocumento {get;set;}
+        [DataMember]
+        public string NumeroDocumento { get; set; }
          [DataMember]
         public string Nombres { get; set; }
          [DataMember]
         public string ApePaterno { get; set; }
          [DataMember]
-        public string ApeMaterno { get; set; }
-         [DataMember]
-        public string Correo { get; set; }
+        public string MatPaterno { get; set; }
          [DataMember]
         public string Sexo { get; set; }
          [DataMember]
         public string TipoDocumento { get; set; }
          [DataMember]
+        public string NroDocumento { get; set; }
+         [DataMember]
+        public string Correo { get; set; }
+         [DataMember]
         public string Contrasena { get; set; }
+         [DataMember]
+        public string COP { get; set; }
 
+
+
+
+        
     }
 }
