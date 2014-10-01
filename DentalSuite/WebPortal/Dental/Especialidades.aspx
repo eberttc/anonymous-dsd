@@ -11,12 +11,25 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <script src="<%= ResolveClientUrl("~/Scripts/General/grid.locale-es.js") %>" type="text/javascript"></script>
+    <script src="<%= ResolveClientUrl("~/Scripts/General/jquery.jqGrid.min.js") %>" type="text/javascript"></script>
+    <script src="<%= ResolveClientUrl("~/Scripts/General/jquery.autocomplete.min.js") %>" type="text/javascript"></script>
     <script src="<%= ResolveClientUrl("~/Scripts/General/jquery.autocomplete.min.js") %>" type="text/javascript"></script>
     <script src="<%= ResolveClientUrl("~/Scripts/Dental/DentalEspecialidades.js") %>" type="text/javascript"></script>   
 <br />
         <br />
     <div id="caja">
                          <table style="width: 900px">
+                                <tr>
+                                    <td width="90px" >
+                                        Codigo:</td>
+                                    <td width="100px" >
+                                        <input type="text" id="txtCodigo" runat="server" value="0" /></td>
+                                    <td width="50px"  style="vertical-align: bottom" >
+                                        &nbsp;</td>
+                                    <td width="50px"  style="vertical-align: bottom" >
+                                        &nbsp;</td>
+                                </tr>
                                 <tr>
                                     <td width="90px" >
                                         Nombre :&nbsp;
@@ -32,7 +45,7 @@
                                     <td width="90px" >
                                         Descripcion:</td>
                                     <td width="100px" >
-                                        <input type="text" id="txtDescripcion" size="90"  /></td>
+                                        <input type="text" id="txtDescripcion" size="90" runat="server" /></td>
                                     <td style="vertical-align: bottom" >
                                         
                                         &nbsp;</td>
@@ -44,10 +57,11 @@
                                     <td width="90px" >
                                         &nbsp;</td>
                                     <td width="100px" >
-                                        &nbsp;</td>
+                                         <asp:Label ID="lblMensajeResultado" runat="server" Font-Bold="True" 
+                                            ForeColor="#FF3300"></asp:Label></td>
                                     <td style="vertical-align: bottom" >
                                         <div id="divRegistrarEspecialidad" style="width:250px;top:0px; left:0px; position: relative" >
-                                            <input id="Button1" type="button" value="Registrar Especialidad" OnServerClick="AddButton_Click" runat="server"  />
+                                            <input id="Button1" type="button" value="Registrar Especialidad" OnServerClick="RegistrarEspecialidad_Click" runat="server" />
                                         </div></td>
                                     <td style="vertical-align: bottom" >
                                         <div id="divCancelar" style="width:200px;top:0px; left:0px; position: relative">
@@ -69,9 +83,30 @@
                                         </td>
                                 </tr>
                             </table>
-            </div>
 
+<%--          <div id="Seleccion">
+          <table id="GrillaEspecialidad" width="100%" border ="0">
+                </table>
+         </div>
+            </div>--%>
+        <asp:GridView ID="GWEspecialidad" runat="server" AllowSorting="True" AutoGenerateColumns="False" EnableModelValidation="True" >
+            <AlternatingRowStyle BackColor="#999999" BorderColor="Black" 
+                                                BorderStyle="Double" ForeColor="White" />
+            <Columns>
+                <asp:BoundField DataField="codigo" HeaderText="Codigo" />
+                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
+            <asp:TemplateField HeaderText="Editar">
+                                                    <ItemTemplate>
+                                                      <input type="button" onclick="EditarEspecialidad('<%# Eval("codigo")%>','<%# Eval("nombre")%>','<%# Eval("descripcion")%>')" value="Edit" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+            </Columns>
+                                                        <HeaderStyle BackColor="#444751" BorderColor="White" ForeColor="White" />
+                                            <RowStyle BorderStyle="Solid" />
+        </asp:GridView>
 
     <input type="hidden" name="hdnTitulo" id="hdnTitulo" runat="server" />
+    </div>
 </asp:Content>
 
