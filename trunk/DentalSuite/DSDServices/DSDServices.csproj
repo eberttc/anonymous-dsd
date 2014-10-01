@@ -40,6 +40,7 @@
     <Reference Include="NHibernate">
       <HintPath>..\Librerias\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
@@ -66,6 +67,7 @@
     </EmbeddedResource>
     <Content Include="Global.asax" />
     <Content Include="RESTServices\Especialidades.svc" />
+    <Content Include="SOAPServices\Citas.svc" />
     <Content Include="SOAPServices\Pacientes.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -76,6 +78,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Cita.cs" />
     <Compile Include="Dominio\Especialidad.cs" />
     <Compile Include="Dominio\Odontologo.cs" />
     <Compile Include="Dominio\Paciente.cs" />
@@ -85,6 +88,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Persistencia\BaseDAO.cs" />
+    <Compile Include="Persistencia\CitaDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\EspecialidadDAO.cs" />
     <Compile Include="Persistencia\EspecialidadDAOAntes.cs" />
@@ -95,7 +99,12 @@
       <DependentUpon>Especialidades.svc</DependentUpon>
     </Compile>
     <Compile Include="RESTServices\IEspecialidades.cs" />
+    <Compile Include="Reutilizables\Constantes.cs" />
     <Compile Include="Reutilizables\Utilitario.cs" />
+    <Compile Include="SOAPServices\Citas.svc.cs">
+      <DependentUpon>Citas.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SOAPServices\ICitas.cs" />
     <Compile Include="SOAPServices\IPacientes.cs" />
     <Compile Include="SOAPServices\Pacientes.svc.cs">
       <DependentUpon>Pacientes.svc</DependentUpon>

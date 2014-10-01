@@ -38,7 +38,17 @@ namespace DSDServices.Reutilizables
             }
         }
 
-       
+        public int validarRangoHorasCita(DateTime fechaUltimaCita , DateTime fechaCitaActual)
+        {
+            return (fechaCitaActual - fechaUltimaCita).Hours;
+        }
+
+        public int validarDiasAnticipacionCita(DateTime fechaCitaActual)
+        {
+            DateTime fechaActual = DateTime.Now;
+
+            return (fechaCitaActual - fechaActual).Days;
+        }
 
         #endregion
     }
