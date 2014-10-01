@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
         <link href="<%= ResolveClientUrl("~/Styles/General/jqgrid.ui.css") %>" rel="stylesheet" type="text/css" />
         <link href="<%= ResolveClientUrl("~/Styles/General/jquery.autocomplete.css") %>" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            .style1
+            {
+                height: 27px;
+            }
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         <script src="<%= ResolveClientUrl("~/Scripts/General/jquery.autocomplete.min.js") %>" type="text/javascript"></script>
@@ -140,7 +146,7 @@
                                         &nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td width="200px" colspan="5" >
+                                    <td width="200px" colspan="5" class="style1" >
                                         <asp:Label ID="lblMensajeResultado" runat="server" Font-Bold="True" 
                                             ForeColor="#FF3300"></asp:Label>
                                     </td>
