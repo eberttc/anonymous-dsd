@@ -13,7 +13,8 @@ namespace DSDServices.Persistencia
         public Especialidad Crear(Especialidad especialidadACrear)
         {
             Especialidad espacialidadCreado = null;
-            string sql = "INSERT INTO TEspecialidad VALUES (@nom, @des)";
+            int resultado = 0;
+            string sql = "INSERT INTO TEspecialidad VALUES (@nom, @des)  SELECT @@IDENTITY";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
@@ -21,11 +22,18 @@ namespace DSDServices.Persistencia
                 {
                     com.Parameters.Add(new SqlParameter("@nom", especialidadACrear.Nombre));
                     com.Parameters.Add(new SqlParameter("@des", especialidadACrear.Descripcion));
-                   
-                    com.ExecuteNonQuery();
+                
+                   try
+                   {
+                       resultado = Convert.ToInt32(com.ExecuteScalar());
+                   }
+                   catch
+                   {
+                       resultado = 0;
+                   }
                 }
             }
-            espacialidadCreado = Obtener(especialidadACrear.Codigo.ToString());
+            espacialidadCreado = Obtener(resultado.ToString());
             return espacialidadCreado;
         }
         public Especialidad Obtener(string codigo)
