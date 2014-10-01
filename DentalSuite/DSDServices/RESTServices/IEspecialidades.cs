@@ -18,8 +18,8 @@ namespace DSDServices.RESTServices
         Especialidad CrearEspecialidad(Especialidad alumnoACrear);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "Especialidades/{codigo}", ResponseFormat = WebMessageFormat.Json)]
-        Especialidad ObtenerEspecialidad(string codigo);
+        [WebInvoke(Method = "GET", UriTemplate = "Especialidades/{nombre}", ResponseFormat = WebMessageFormat.Json)]
+        Especialidad ObtenerEspecialidad(string nombre);
 
         [OperationContract]
         [WebInvoke(Method = "PUT", UriTemplate = "Especialidades", ResponseFormat = WebMessageFormat.Json)]

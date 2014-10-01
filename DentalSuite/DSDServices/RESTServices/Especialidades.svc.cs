@@ -16,12 +16,23 @@ namespace DSDServices.RESTServices
 
         public Especialidad CrearEspecialidad(Especialidad EspecialidadACrear)
         {
-            return dao.Crear(EspecialidadACrear);
+            Especialidad entidad=new Especialidad();
+            if (dao.ObtenerPorNombre(EspecialidadACrear.Nombre.Trim()) !=null)
+            {
+                entidad.Codigo = 0;
+                entidad.Nombre = "Especialidad ya existe";
+                entidad.Descripcion = string.Empty;
+                return entidad;
+            }
+            else {
+                return dao.Crear(EspecialidadACrear);
+            }
+            
         }
 
-        public Especialidad ObtenerEspecialidad(string codigo)
+        public Especialidad ObtenerEspecialidad(string nombre)
         {
-            return dao.Obtener(codigo);
+            return dao.ObtenerPorNombre(nombre);
         }
 
         public Especialidad ModificarEspecialidad(Especialidad EspecialidadAModificar)
