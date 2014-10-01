@@ -64,10 +64,37 @@ namespace DSDServices.Persistencia
             return especialidadEncontrado;
         }
 
+        public Especialidad ObtenerPorNombre(string nombre)
+        {
+            Especialidad especialidadEncontrado = null;
+            string sql = "SELECT * FROM TEspecialidad WHERE nombre=@nom";
+            using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand(sql, con))
+                {
+                    com.Parameters.Add(new SqlParameter("@nom", nombre));
+                    using (SqlDataReader resultado = com.ExecuteReader())
+                    {
+                        if (resultado.Read())
+                        {
+                            especialidadEncontrado = new Especialidad()
+                            {
+                                Codigo = (int)resultado["Codigo"],
+                                Nombre = (string)resultado["Nombre"],
+                                Descripcion = (string)resultado["Descripcion"],
+                            };
+                        }
+                    }
+                }
+            }
+            return especialidadEncontrado;
+        }
+
         public Especialidad Modificar(Especialidad especialidadAModificar)
         {
             Especialidad especialidadModificado = null;
-            string sql = "UPDATE TEspecialidad SET Nombre=@nom,Descripcion=@des WHERE Nombre=@nom";
+            string sql = "UPDATE TEspecialidad SET Nombre=@nom,Descripcion=@des WHERE codigo=@cod";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
