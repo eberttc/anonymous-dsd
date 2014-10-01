@@ -17,7 +17,7 @@ namespace DSDServicesTEST.RESTTest
         {
 
             //CREATE
-            string postdata = "{\"Nombre\":\"TEST3\",\"Descripcion\":\"TEST3\"}";
+            string postdata = "{\"Nombre\":\"Cirujano Ortodoncista\",\"Descripcion\":\"Cirujano Ortodoncista\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
             req.Method = "POST";
@@ -30,8 +30,8 @@ namespace DSDServicesTEST.RESTTest
             string EspecialidadJson = reader.ReadToEnd();
             JavaScriptSerializer js = new JavaScriptSerializer();
             Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
-            Assert.AreEqual("TEST3", EspecialidadCreado.nombre);
-            Assert.AreEqual("TEST3", EspecialidadCreado.descripcion);
+            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.nombre);
+            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.descripcion);
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace DSDServicesTEST.RESTTest
 
             //modify
             HttpWebRequest req = (HttpWebRequest)WebRequest
-                .Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades/2");
+                .Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades/Ortodoncista");
             req.Method = "GET";
             HttpWebResponse res = (HttpWebResponse)req.GetResponse();
             StreamReader reader = new StreamReader(res.GetResponseStream());
@@ -56,7 +56,7 @@ namespace DSDServicesTEST.RESTTest
         public void TESTModificar()
         {
             //MODIFICAR
-            string postdata = "{\"Codigo\":5,\"Nombre\":\"TEST3\",\"Descripcion\":\"TEST35\"}";
+            string postdata = "{\"Codigo\":5,\"Nombre\":\"Cirujano Ortodoncista\",\"Descripcion\":\"Cirujano Ortodoncista\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
             req.Method = "PUT";
@@ -70,8 +70,8 @@ namespace DSDServicesTEST.RESTTest
             JavaScriptSerializer js = new JavaScriptSerializer();
             Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
             Assert.AreEqual(5, EspecialidadCreado.codigo);
-            Assert.AreEqual("TEST3", EspecialidadCreado.nombre);
-            Assert.AreEqual("TEST35", EspecialidadCreado.descripcion);
+            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.nombre);
+            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.descripcion);
         }
 
         [TestMethod]
