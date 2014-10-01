@@ -24,6 +24,14 @@ namespace DSDServices.RESTServices
                 entidad.Descripcion = string.Empty;
                 return entidad;
             }
+            else if(string.IsNullOrEmpty(EspecialidadACrear.Descripcion) || string.IsNullOrEmpty(EspecialidadACrear.Nombre))
+            {
+                entidad.Codigo = 0;
+                entidad.Nombre = "Nombre o Descripcion en blanco";
+                entidad.Descripcion = string.Empty;
+                return entidad;
+            }
+
             else {
                 return dao.Crear(EspecialidadACrear);
             }
