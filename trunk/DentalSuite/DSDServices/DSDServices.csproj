@@ -64,6 +64,7 @@
     <EmbeddedResource Include="Dominio\Paciente.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Content Include="Global.asax" />
     <Content Include="RESTServices\Especialidades.svc" />
     <Content Include="SOAPServices\Pacientes.svc" />
     <Content Include="Web.config" />
@@ -80,6 +81,9 @@
     <Compile Include="Dominio\Paciente.cs" />
     <Compile Include="Dominio\Respuesta.cs" />
     <Compile Include="Dominio\RespuestaService.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\EspecialidadDAO.cs" />
