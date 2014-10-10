@@ -25,6 +25,18 @@ namespace DSDServices.SOAPServices
             }
         }
 
+        //Horario
+        private HorarioDAO horarioDAO = null;
+        private HorarioDAO HorarioDAO
+        {
+            get
+            {
+                if (horarioDAO == null)
+                    horarioDAO = new HorarioDAO();
+                return horarioDAO;
+            }
+        }
+
 
         private Utilitario util = null;
         RespuestaService<Cita> mensajeCita = null;
@@ -45,17 +57,17 @@ namespace DSDServices.SOAPServices
                 citaACrear.Estado = Constantes.VERDADERO;
 
                 //Validaciones
-                //1) Validar solo puede realizar una cita cada 8 horas
+                //1) Validar solo puede realizar una cita cada 24 horas
 
                 //Obtenenemos ultima fecha de reserva del paciente a registrar
                 Cita citaPrevia = CitaDAO.ObtenerUltimaCitaPaciente(citaACrear);
                 if (citaPrevia != null)
                 {
                     int condicion = util.validarRangoHorasCita(citaPrevia.FechaReserva, citaACrear.FechaReserva);
-                    if (condicion < 8)
+                    if (condicion < 1)
                     {
                         //Creamos mensaje de ADVERTENCIA para enviar
-                        mensajeCita = new RespuestaService<Cita>("Para realizar una Reserva de cita debe pasar 8 horas desde la última que registró",
+                        mensajeCita = new RespuestaService<Cita>("Para realizar una Reserva de cita debe pasar 24 horas desde la última que registró",
                                               "Advertencia",
                                               "Registro de Cita",
                                               "ICitas",
@@ -67,19 +79,19 @@ namespace DSDServices.SOAPServices
                 }
 
                 //Validaciones
-                //2) Validar solo puede realizar una cita con 5 días de anticipación
+                //2) Validar solo puede realizar una cita con 7 días de anticipación
 
-                if(util.validarDiasAnticipacionCita(citaACrear.FechaReserva) > 7 )
+                if (util.validarDiasAnticipacionCita(citaACrear.FechaReserva) > 7)
                 {
-                        //Creamos mensaje de ADVERTENCIA para enviar
-                        mensajeCita = new RespuestaService<Cita>("Solo puede reservar una cita con 5 días de anticipación.",
-                                              "Advertencia",
-                                              "Registro de Cita",
-                                              "ICitas",
-                                              "validarDiasAnticipacionCita",
-                                              citaACrear);
+                    //Creamos mensaje de ADVERTENCIA para enviar
+                    mensajeCita = new RespuestaService<Cita>("Solo puede reservar una cita con 7 días de anticipación.",
+                                          "Advertencia",
+                                          "Registro de Cita",
+                                          "ICitas",
+                                          "validarDiasAnticipacionCita",
+                                          citaACrear);
 
-                        return mensajeCita;
+                    return mensajeCita;
                 }
 
                 // Grabamos Paciente
@@ -114,7 +126,7 @@ namespace DSDServices.SOAPServices
             try
             {
                 Cita citaAModificar = new Cita();
-                
+
                 citaAModificar.Codigo = cita.Codigo;
                 citaAModificar.FechaReserva = cita.FechaReserva;
                 citaAModificar.CodigoEspecialidad = cita.CodigoEspecialidad;
@@ -123,11 +135,11 @@ namespace DSDServices.SOAPServices
                 citaAModificar.Estado = Constantes.VERDADERO;
 
                 //Validaciones
-                //1) Validar solo puede realizar una cita con 5 días de anticipación
+                //1) Validar solo puede realizar una cita con 7 días de anticipación
                 if (util.validarDiasAnticipacionCita(citaAModificar.FechaReserva) > 7)
                 {
                     //Creamos mensaje de ADVERTENCIA para enviar
-                    mensajeCita = new RespuestaService<Cita>("Solo puede reservar una cita con 5 días de anticipación.",
+                    mensajeCita = new RespuestaService<Cita>("Solo puede reservar una cita con 7 días de anticipación.",
                                           "Advertencia",
                                           "Registro de Cita",
                                           "ICitas",
@@ -164,10 +176,10 @@ namespace DSDServices.SOAPServices
 
         public List<Cita> listarCitas()
         {
-           return CitaDAO.ListarTodos();
+            return CitaDAO.ListarTodos();
         }
 
-        public void  cancelarCita(Cita cita)
+        public void cancelarCita(Cita cita)
         {
             CitaDAO.LiberarCita(cita);
         }
@@ -178,28 +190,28 @@ namespace DSDServices.SOAPServices
             if (!MessageQueue.Exists(rutaCola))
                 MessageQueue.Create(rutaCola);
             MessageQueue cola = new MessageQueue(rutaCola);
-            cola.Formatter  = new XmlMessageFormatter(new Type[] {typeof(Cita)});
+            cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(Cita) });
             Message mensaje = cola.Receive();
 
             Cita cita = (Cita)mensaje.Body;
 
             return CitaDAO.ListarRolPacienteAdministrador(cita);
-           
-        
 
-          /*  Cita respuesta = CitaDAO.Obtener(3);
 
-            mensaje.Body = new Cita()
-            {
-                Codigo = respuesta.Codigo,
-                FechaReserva = respuesta.FechaReserva,
-                CodigoEspecialidad = respuesta.CodigoEspecialidad,
-                CodigoPaciente = respuesta.CodigoPaciente,
-                CodigoHorarioOdontologo = respuesta.CodigoHorarioOdontologo,
-                Estado = respuesta.Estado
-            };
 
-            cola.Send(mensaje);*/
+            /*  Cita respuesta = CitaDAO.Obtener(3);
+
+              mensaje.Body = new Cita()
+              {
+                  Codigo = respuesta.Codigo,
+                  FechaReserva = respuesta.FechaReserva,
+                  CodigoEspecialidad = respuesta.CodigoEspecialidad,
+                  CodigoPaciente = respuesta.CodigoPaciente,
+                  CodigoHorarioOdontologo = respuesta.CodigoHorarioOdontologo,
+                  Estado = respuesta.Estado
+              };
+
+              cola.Send(mensaje);*/
         }
     }
 }
