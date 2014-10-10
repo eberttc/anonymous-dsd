@@ -18,7 +18,7 @@ namespace DSDServices.RESTServices
             Especialidad entidad=new Especialidad();
             if (dao.ObtenerPorNombre(EspecialidadACrear.Nombre.Trim()) !=null)
             {
-                entidad.estadoEntidad = "la especialidad que esta intentando crear ya existe";
+                entidad.estadoEntidad = "La especialidad que esta intentando crear ya existe";
                 return entidad;
             }
             else if(string.IsNullOrEmpty(EspecialidadACrear.Descripcion) || string.IsNullOrEmpty(EspecialidadACrear.Nombre))

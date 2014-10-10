@@ -34,7 +34,7 @@ namespace DSDServices.Persistencia
                 }
             }
             espacialidadCreado = Obtener(resultado.ToString());
-            espacialidadCreado.estadoEntidad = "Satisfactorio";
+            espacialidadCreado.estadoEntidad =string.Format("Satisfactorio {0}",espacialidadCreado.Codigo);
             return espacialidadCreado;
         }
         public Especialidad Obtener(string codigo)
