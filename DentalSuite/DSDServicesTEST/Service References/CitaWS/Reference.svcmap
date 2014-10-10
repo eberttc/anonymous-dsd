@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4c840ec4-4bf9-4ced-aad6-4ec82f4e9af5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20001/SOAPServices/Citas.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Citas.xsd" MetadataType="Schema" ID="595979b2-7804-482e-99bf-b656609defbd" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?xsd=xsd0" />
+    <MetadataFile FileName="Citas1.xsd" MetadataType="Schema" ID="cd207d29-652e-489d-8ef5-e6ca7dcc053e" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?xsd=xsd2" />
+    <MetadataFile FileName="Citas.disco" MetadataType="Disco" ID="68b85369-03e0-45a2-aa9c-c156694734e3" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?disco" />
+    <MetadataFile FileName="Citas.wsdl" MetadataType="Wsdl" ID="c4812cca-b1c6-440b-af6b-46c29befb8ab" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?wsdl" />
+    <MetadataFile FileName="Citas2.xsd" MetadataType="Schema" ID="f076eaa9-d096-4ba4-a75a-fd4d08541ef0" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

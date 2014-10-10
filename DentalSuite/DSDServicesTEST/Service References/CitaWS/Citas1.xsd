@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Cita">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoEspecialidad" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoHorarioOdontologo" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoPaciente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FechaReserva" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cita" nillable="true" type="tns:Cita" />
+  <xs:complexType name="RespuestaServiceOfCitaz_SY3AMPv">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="RespuestaServiceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Cita" Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClaseOrigen" nillable="true" type="tns:Cita" />
+      <xs:element minOccurs="0" name="MensajeDescripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MetodoOrigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServicioOrigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoMensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaServiceOfCitaz_SY3AMPv" nillable="true" type="tns:RespuestaServiceOfCitaz_SY3AMPv" />
+  <xs:complexType name="ArrayOfCita">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cita" nillable="true" type="tns:Cita" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCita" nillable="true" type="tns:ArrayOfCita" />
+</xs:schema>

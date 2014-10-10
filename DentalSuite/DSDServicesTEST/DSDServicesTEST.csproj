@@ -57,11 +57,17 @@
     <Compile Include="Dominio\Especialidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTTest\TestEspecialidad.cs" />
+    <Compile Include="Service References\CitaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PacienteWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SOAPTest\TestCita.cs" />
     <Compile Include="SOAPTest\TestPaciente.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +75,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\CitaWS\Citas.wsdl" />
+    <None Include="Service References\CitaWS\Citas.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CitaWS\Citas1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CitaWS\Citas2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CitaWS\DSDServicesTEST.CitaWS.Cita.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CitaWS\DSDServicesTEST.CitaWS.RespuestaServiceOfCitaz_SY3AMPv.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PacienteWS\DSDServicesTEST.PacienteWS.Paciente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -86,8 +108,8 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CitaWS\" />
     <WCFMetadataStorage Include="Service References\PacienteWS\" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +123,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\PacienteWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CitaWS\Citas.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CitaWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CitaWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CitaWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

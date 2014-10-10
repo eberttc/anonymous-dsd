@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Dominio\Cita.cs" />
     <Compile Include="Dominio\Especialidad.cs" />
+    <Compile Include="Dominio\Horario.cs" />
     <Compile Include="Dominio\Odontologo.cs" />
     <Compile Include="Dominio\Paciente.cs" />
     <Compile Include="Dominio\RespuestaService.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\CitaDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
+    <Compile Include="Persistencia\HorarioDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\PacienteDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
