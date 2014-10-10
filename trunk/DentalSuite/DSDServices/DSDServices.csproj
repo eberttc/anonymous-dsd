@@ -90,7 +90,6 @@
     <Compile Include="Persistencia\BaseDAO.cs" />
     <Compile Include="Persistencia\CitaDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
-    <Compile Include="Persistencia\EspecialidadDAO.cs" />
     <Compile Include="Persistencia\EspecialidadDAOAntes.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\PacienteDAO.cs" />
