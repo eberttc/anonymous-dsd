@@ -84,6 +84,7 @@
     <Compile Include="Dominio\Paciente.cs" />
     <Compile Include="Dominio\Respuesta.cs" />
     <Compile Include="Dominio\RespuestaService.cs" />
+    <Compile Include="Persistencia\EspecialidadDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
