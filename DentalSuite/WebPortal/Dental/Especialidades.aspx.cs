@@ -40,8 +40,8 @@ public partial class Dental_Especialidades : System.Web.UI.Page
         entidad.Codigo =int.Parse(this.txtCodigo.Value);
         entidad.Nombre = this.txtNombre.Value;
         entidad.Descripcion = this.txtDescripcion.Value;
-        if (!string.IsNullOrEmpty(entidad.Nombre) && !string.IsNullOrEmpty(entidad.Descripcion))
-        {
+        //if (!string.IsNullOrEmpty(entidad.Nombre) && !string.IsNullOrEmpty(entidad.Descripcion))
+        //{
             if (this.txtCodigo.Value == "0")
             {
                 //Registrando un nuevo paciente
@@ -107,11 +107,11 @@ public partial class Dental_Especialidades : System.Web.UI.Page
                 else
                     lblMensajeResultado.Text = "Error";
             }
-        }
-        else
-        {
-            lblMensajeResultado.Text = "Debe llenar todos las cajas de texto.";
-        }
+        //}
+        //else
+        //{
+        //    lblMensajeResultado.Text = "Debe llenar todos las cajas de texto.";
+        //}
 
 
         ListarEspecialidad();
