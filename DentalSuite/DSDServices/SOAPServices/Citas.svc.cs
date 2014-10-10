@@ -53,7 +53,9 @@ namespace DSDServices.SOAPServices
                 citaACrear.FechaReserva = cita.FechaReserva;
                 citaACrear.CodigoEspecialidad = cita.CodigoEspecialidad;
                 citaACrear.CodigoPaciente = cita.CodigoPaciente;
-                citaACrear.CodigoHorarioOdontologo = cita.CodigoHorarioOdontologo;
+              //  citaACrear.CodigoHorarioOdontologo = cita.CodigoHorarioOdontologo;
+                citaACrear.CodigoHorario = cita.CodigoHorario;
+                citaACrear.CodigoOdontologo = cita.CodigoOdontologo;
                 citaACrear.Estado = Constantes.VERDADERO;
 
                 //Validaciones
@@ -94,8 +96,11 @@ namespace DSDServices.SOAPServices
                     return mensajeCita;
                 }
 
-                // Grabamos Paciente
+                // Grabamos una cita
                 Cita citaCreado = CitaDAO.Crear(citaACrear);
+
+                //Actualizamos el estado del horario para que no pueda ser elegido
+                HorarioDAO.ActualizarEstado(citaCreado,false);
 
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
                 mensajeCita = new RespuestaService<Cita>("Cita registrada correctamente. Codigo generado:" + cita.Codigo + " Fecha:" + citaCreado.FechaReserva,
@@ -104,6 +109,8 @@ namespace DSDServices.SOAPServices
                                     "ICitas",
                                     "CrearCita",
                                     citaCreado);
+
+                enviarDatosACola(citaCreado);
 
                 return mensajeCita;
             }
@@ -120,6 +127,23 @@ namespace DSDServices.SOAPServices
             }
         }
 
+        private void enviarDatosACola(Cita cita)
+        {
+            // 1. Enviamos la nota original vía la cola de entrada del servidor (In)
+            string rutaColaIn = @".\private$\CitasClinica";
+            if (!MessageQueue.Exists(rutaColaIn))
+                MessageQueue.Create(rutaColaIn);
+            MessageQueue colaIn = new MessageQueue(rutaColaIn);
+            Message mensajeIn = new Message();
+            mensajeIn.Label = "Cita";
+            mensajeIn.Body = new Cita() { Codigo =cita.Codigo, CodigoPaciente = cita.CodigoPaciente, FechaReserva = cita.FechaReserva , CodigoEspecialidad=cita.CodigoEspecialidad,
+                                          CodigoOdontologo =cita.CodigoOdontologo,CodigoHorario=cita.CodigoHorario,Estado=cita.Estado};
+            colaIn.Send(mensajeIn);
+
+        }
+
+            
+
         public RespuestaService<Cita> modificarCita(Cita cita)
         {
             util = new Utilitario();
@@ -131,7 +155,9 @@ namespace DSDServices.SOAPServices
                 citaAModificar.FechaReserva = cita.FechaReserva;
                 citaAModificar.CodigoEspecialidad = cita.CodigoEspecialidad;
                 citaAModificar.CodigoPaciente = cita.CodigoPaciente;
-                citaAModificar.CodigoHorarioOdontologo = cita.CodigoHorarioOdontologo;
+               // citaAModificar.CodigoHorarioOdontologo = cita.CodigoHorarioOdontologo;
+                citaAModificar.CodigoHorario = cita.CodigoHorario;
+                citaAModificar.CodigoOdontologo = cita.CodigoOdontologo;
                 citaAModificar.Estado = Constantes.VERDADERO;
 
                 //Validaciones
@@ -148,9 +174,19 @@ namespace DSDServices.SOAPServices
 
                     return mensajeCita;
                 }
-
+                Cita citaActual = CitaDAO.Obtener(citaAModificar.Codigo);
                 Cita citaModificado = CitaDAO.Modificar(citaAModificar);
+                
 
+                if (citaActual.CodigoHorario != citaAModificar.CodigoHorario ||
+                    citaActual.CodigoOdontologo != citaAModificar.CodigoOdontologo)
+                {
+                    //cambiado de horario u odontologo  - Liberar el horario u odontologo
+                    HorarioDAO.ActualizarEstado(citaActual, true);
+                    HorarioDAO.ActualizarEstado(citaModificado, false);
+                }
+               
+               
                 //Retornar Clase Mensaje con los datos a mostrar - Flujo Correcto
                 mensajeCita = new RespuestaService<Cita>("Cita modificada correctamente. Codigo generado:" + cita.Codigo + " Nueva Fecha: " + citaModificado.FechaReserva,
                                     "Satisfactorio",
@@ -184,34 +220,6 @@ namespace DSDServices.SOAPServices
             CitaDAO.LiberarCita(cita);
         }
 
-        public List<Cita> listarCitasPacienteAdministrador()
-        {
-            string rutaCola = @".\private$\ListaReservaCitas";
-            if (!MessageQueue.Exists(rutaCola))
-                MessageQueue.Create(rutaCola);
-            MessageQueue cola = new MessageQueue(rutaCola);
-            cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(Cita) });
-            Message mensaje = cola.Receive();
-
-            Cita cita = (Cita)mensaje.Body;
-
-            return CitaDAO.ListarRolPacienteAdministrador(cita);
-
-
-
-            /*  Cita respuesta = CitaDAO.Obtener(3);
-
-              mensaje.Body = new Cita()
-              {
-                  Codigo = respuesta.Codigo,
-                  FechaReserva = respuesta.FechaReserva,
-                  CodigoEspecialidad = respuesta.CodigoEspecialidad,
-                  CodigoPaciente = respuesta.CodigoPaciente,
-                  CodigoHorarioOdontologo = respuesta.CodigoHorarioOdontologo,
-                  Estado = respuesta.Estado
-              };
-
-              cola.Send(mensaje);*/
-        }
+       
     }
 }

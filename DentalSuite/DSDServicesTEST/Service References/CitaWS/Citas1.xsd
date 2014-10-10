@@ -4,7 +4,8 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" type="xs:int" />
       <xs:element minOccurs="0" name="CodigoEspecialidad" type="xs:int" />
-      <xs:element minOccurs="0" name="CodigoHorarioOdontologo" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoHorario" type="xs:int" />
+      <xs:element minOccurs="0" name="CodigoOdontologo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CodigoPaciente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Estado" type="xs:boolean" />
       <xs:element minOccurs="0" name="FechaReserva" type="xs:dateTime" />
