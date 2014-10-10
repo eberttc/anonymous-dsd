@@ -70,7 +70,7 @@
                                         &nbsp;</td>
                                     <td style="vertical-align: bottom" >
                                         
-                                        CMP</td>
+                                        COP</td>
                                     <td style="vertical-align: bottom" >
                                         
                                         <input type="text" id="txtCMP"  /></td>
@@ -121,10 +121,55 @@
                                         &nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td valign="top" width="100px">
+                                    <td width="200px" >
+                                        &nbsp;</td>
+                                    <td width="100px" >
+                                        &nbsp;</td>
+                                    <td style="vertical-align: bottom" >
+                                        
+                                        &nbsp;</td>
+                                    <td style="vertical-align: bottom" >
+                                        
+                                        &nbsp;</td>
+                                    <td style="vertical-align: bottom" >
+                                        
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td width="200px" colspan="2" style="width: 300px" >
+                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                                            <Columns>
+                                                <asp:BoundField DataField="dia" HeaderText="Dia">
+                                                <HeaderStyle BackColor="#999999" BorderColor="Black" BorderStyle="Solid" 
+                                                    BorderWidth="2px" ForeColor="White" />
+                                                <ItemStyle BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" />
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="desde" HeaderText="Desde">
+                                                <HeaderStyle BackColor="#999999" BorderColor="Black" BorderStyle="Solid" 
+                                                    BorderWidth="2px" ForeColor="White" />
+                                                <ItemStyle BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" />
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="hasta" HeaderText="Hasta">
+                                                <HeaderStyle BackColor="#999999" BorderColor="Black" BorderStyle="Solid" 
+                                                    BorderWidth="2px" ForeColor="White" />
+                                                <ItemStyle BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" />
+                                                </asp:BoundField>
+                                            </Columns>
+                                        </asp:GridView>
+                                    </td>
+                                    <td style="vertical-align: bottom" >
+                                        <div style="width:100px;height:100px;position: relative; float: right;">
+                                        <div id="divAgregar" style="width:100px;top:0px; left:0px; position: absolute" >
+                                            <input type="button" value="Agregar"  />
+                                        </div>
+                                        <div id="divQuitar" style="width:100px;top:60px; left:0px; position: absolute" >
+                                            <input type="button" value="Quitar"  />
+                                        </div>
+                                        </div>
                                         </td>
-                                    <td class="tblFiltroCeldaValor" colspan="4">
-                                    <div style="width:500px;height:50px;position: relative; float: right;">
+                                    <td style="vertical-align: bottom" colspan="2" >
+                                        
+                                                                            <div style="width:500px;height:50px;position: relative; float: right;">
                                         
                                         <div id="divRegistrarOdontologo" style="width:150px;top:30px; left:0px; position: absolute" >
                                             <input type="button" value="Registrar Odontologo"  />
@@ -132,7 +177,13 @@
                                         <div id="divCancelar" style="width:120px;top:30px; left:200px; position: absolute">
                                         <input type="button" value="Cancelar"  />
                                             </div>
-                                    </div>
+                                    </div></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" width="100px">
+                                        </td>
+                                    <td class="tblFiltroCeldaValor" colspan="4">
+
                                         
                                         </td>
                                 </tr>
