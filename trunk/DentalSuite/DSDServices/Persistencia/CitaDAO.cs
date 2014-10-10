@@ -11,8 +11,10 @@ namespace DSDServices.Persistencia
     {
         public Cita Crear(Cita citaACrear)
         {
+            int codigo = 0;
             Cita citaCreado = null;
-            string sql = "INSERT INTO TReservaCita VALUES (@fecha, @codEps,@codPac,@codHor,@estado)  SELECT @@IDENTITY";
+           // string sql = "INSERT INTO TReservaCita VALUES (@fecha, @codEps,@codPac,@codHor,@estado)  SELECT @@IDENTITY";
+            string sql = "INSERT INTO TReservaCita VALUES (@fecha, @codEps,@codPac,@codHor,@codOdont,@estado)  SELECT @@IDENTITY";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
@@ -21,12 +23,13 @@ namespace DSDServices.Persistencia
                     com.Parameters.Add(new SqlParameter("@fecha", citaACrear.FechaReserva));
                     com.Parameters.Add(new SqlParameter("@codEps", citaACrear.CodigoEspecialidad));
                     com.Parameters.Add(new SqlParameter("@codPac", citaACrear.CodigoPaciente));
-                    com.Parameters.Add(new SqlParameter("@codHor", citaACrear.CodigoHorarioOdontologo));
+                    com.Parameters.Add(new SqlParameter("@codHor", citaACrear.CodigoHorario));
+                    com.Parameters.Add(new SqlParameter("@codOdont", citaACrear.CodigoOdontologo));
                     com.Parameters.Add(new SqlParameter("@estado", citaACrear.Estado));
-                    com.ExecuteNonQuery();
+                    codigo = Int32.Parse(com.ExecuteScalar().ToString());
                 }
             }
-            citaCreado = Obtener(citaACrear.Codigo);
+            citaCreado = Obtener(codigo);
             return citaCreado;
         }
         public Cita Obtener(int codigo)
@@ -49,7 +52,9 @@ namespace DSDServices.Persistencia
                                 FechaReserva = (DateTime)resultado["FechaReserva"],
                                 CodigoEspecialidad = (int)resultado["CodigoEspecialidad"],
                                 CodigoPaciente = (string)resultado["CodigoPaciente"],
-                                CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                               // CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                                CodigoHorario = (int)resultado["CodigoHorario"],
+                                CodigoOdontologo = (string)resultado["CodigoOdontologo"],
                                 Estado = (bool)resultado["Estado"],
                             };
                         }
@@ -59,10 +64,45 @@ namespace DSDServices.Persistencia
             return citaEncontrado;
         }
 
+        public Cita ObtenerPorFechaYPaciente(Cita cita)
+        {
+            Cita citaEncontrado = null;
+            string sql = "SELECT * FROM TReservaCita WHERE where FechaReserva = @fecha  and CodigoPaciente = @codpac";
+            using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand(sql, con))
+                {
+                    com.Parameters.Add(new SqlParameter("@cod", cita.FechaReserva));
+                    com.Parameters.Add(new SqlParameter("@cod", cita.CodigoPaciente));
+                    using (SqlDataReader resultado = com.ExecuteReader())
+                    {
+                        if (resultado.Read())
+                        {
+                            citaEncontrado = new Cita()
+                            {
+                                Codigo = (int)resultado["Codigo"],
+                                FechaReserva = (DateTime)resultado["FechaReserva"],
+                                CodigoEspecialidad = (int)resultado["CodigoEspecialidad"],
+                                CodigoPaciente = (string)resultado["CodigoPaciente"],
+                              //  CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                                CodigoHorario = (int)resultado["CodigoHorario"],
+                                CodigoOdontologo = (string)resultado["CodigoOdontologo"],
+                                Estado = (bool)resultado["Estado"],
+                            };
+                        }
+                    }
+                }
+            }
+            return citaEncontrado;
+        }
+
+
         public Cita Modificar(Cita citaAModificar)
         {
             Cita citaModificado = null;
-            string sql = "UPDATE TReservaCita SET FechaReserva=@fecha,CodigoEspecialidad=@codEsp,CodigoHorarioOdontologo=@codHor WHERE Codigo=@cod";
+          //  string sql = "UPDATE TReservaCita SET FechaReserva=@fecha,CodigoEspecialidad=@codEsp,CodigoHorarioOdontologo=@codHor WHERE Codigo=@cod";
+            string sql = "UPDATE TReservaCita SET FechaReserva=@fecha,CodigoEspecialidad=@codEsp,CodigoHorario=@codHor,CodigoOdontologo=@codOdont WHERE Codigo=@cod";
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
             {
                 con.Open();
@@ -71,7 +111,9 @@ namespace DSDServices.Persistencia
                     com.Parameters.Add(new SqlParameter("@cod", citaAModificar.Codigo));
                     com.Parameters.Add(new SqlParameter("@fecha", citaAModificar.FechaReserva));
                     com.Parameters.Add(new SqlParameter("@codEsp", citaAModificar.CodigoEspecialidad));
-                    com.Parameters.Add(new SqlParameter("@codHor", citaAModificar.CodigoHorarioOdontologo));
+                    com.Parameters.Add(new SqlParameter("@codHor", citaAModificar.CodigoHorario));
+                    com.Parameters.Add(new SqlParameter("@codOdont", citaAModificar.CodigoOdontologo));
+                  
                     com.ExecuteNonQuery();
                 }
             }
@@ -99,7 +141,9 @@ namespace DSDServices.Persistencia
                                 FechaReserva = (DateTime)resultado["FechaReserva"],
                                 CodigoEspecialidad = (int)resultado["CodigoEspecialidad"],
                                 CodigoPaciente = (string)resultado["CodigoPaciente"],
-                                CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                                CodigoHorario = (int)resultado["CodigoHorario"],
+                                CodigoOdontologo = (string)resultado["CodigoOdontologo"],
+                            //    CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
                                 Estado = (bool)resultado["Estado"],
                             };
                         }
@@ -129,7 +173,9 @@ namespace DSDServices.Persistencia
                                 FechaReserva = (DateTime)resultado["FechaReserva"],
                                 CodigoEspecialidad = (int)resultado["CodigoEspecialidad"],
                                 CodigoPaciente = (string)resultado["CodigoPaciente"],
-                                CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                                //  CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                                CodigoHorario = (int)resultado["CodigoHorario"],
+                                CodigoOdontologo = (string)resultado["CodigoOdontologo"],
                                 Estado = (bool)resultado["Estado"],
                             };
                             citasEncontrados.Add(citaEncontrado);
@@ -176,7 +222,9 @@ namespace DSDServices.Persistencia
                                 FechaReserva = (DateTime)resultado["FechaReserva"],
                                 CodigoEspecialidad = (int)resultado["CodigoEspecialidad"],
                                 CodigoPaciente = (string)resultado["CodigoPaciente"],
-                                CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                                //  CodigoHorarioOdontologo = (int)resultado["CodigoHorarioOdontologo"],
+                                CodigoHorario = (int)resultado["CodigoHorario"],
+                                CodigoOdontologo = (string)resultado["CodigoOdontologo"],
                                 Estado = (bool)resultado["Estado"],
                             };
                             citasEncontrados.Add(citaEncontrado);
@@ -186,6 +234,5 @@ namespace DSDServices.Persistencia
             }
             return citasEncontrados;
         }
-
     }
 }

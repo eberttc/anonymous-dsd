@@ -29,7 +29,10 @@ namespace DSDServicesTEST.CitaWS {
         private int CodigoEspecialidadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CodigoHorarioOdontologoField;
+        private int CodigoHorarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoOdontologoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CodigoPacienteField;
@@ -77,14 +80,27 @@ namespace DSDServicesTEST.CitaWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CodigoHorarioOdontologo {
+        public int CodigoHorario {
             get {
-                return this.CodigoHorarioOdontologoField;
+                return this.CodigoHorarioField;
             }
             set {
-                if ((this.CodigoHorarioOdontologoField.Equals(value) != true)) {
-                    this.CodigoHorarioOdontologoField = value;
-                    this.RaisePropertyChanged("CodigoHorarioOdontologo");
+                if ((this.CodigoHorarioField.Equals(value) != true)) {
+                    this.CodigoHorarioField = value;
+                    this.RaisePropertyChanged("CodigoHorario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoOdontologo {
+            get {
+                return this.CodigoOdontologoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoOdontologoField, value) != true)) {
+                    this.CodigoOdontologoField = value;
+                    this.RaisePropertyChanged("CodigoOdontologo");
                 }
             }
         }

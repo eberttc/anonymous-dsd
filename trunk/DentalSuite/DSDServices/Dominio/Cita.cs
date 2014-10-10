@@ -17,8 +17,11 @@ namespace DSDServices.Dominio
         public int CodigoEspecialidad { get; set; }
         [DataMember]
         public string CodigoPaciente { get; set; }
+
         [DataMember]
-        public int CodigoHorarioOdontologo { get; set; }
+        public int CodigoHorario { get; set; }
+        [DataMember]
+        public string CodigoOdontologo { get; set; }
         [DataMember]
         public bool Estado { get; set; }
       

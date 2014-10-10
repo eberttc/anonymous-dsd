@@ -24,7 +24,6 @@ namespace DSDServices.SOAPServices
         [OperationContract]
         List<Cita> listarCitas();
 
-        [OperationContract]
-        List<Cita> listarCitasPacienteAdministrador();
+       
     }
 }

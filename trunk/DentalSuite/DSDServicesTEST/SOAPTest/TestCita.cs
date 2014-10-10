@@ -21,11 +21,31 @@ namespace DSDServicesTEST.SOAPTest
             objCita.FechaReserva = fecha;
             objCita.CodigoEspecialidad = 1;
             objCita.CodigoPaciente = "p46079567";
-            objCita.CodigoHorarioOdontologo = 1;
+            objCita.CodigoHorario = 1;
+            objCita.CodigoOdontologo = "O43411111";
 
-
-            //Registrando un nuevo paciente
             CitaWS.RespuestaServiceOfCitaz_SY3AMPv citaRespuesta = citaWs.registrarCita(objCita);
+
+            Assert.AreEqual("Satisfactorio", citaRespuesta.TipoMensaje);
+        }
+
+        [TestMethod]
+        public void TestModificarCita()
+        {
+            CitaWS.CitasClient citaWs = new CitaWS.CitasClient();
+
+
+            DateTime fecha = DateTime.Now;
+
+            CitaWS.Cita objCita = new CitaWS.Cita();
+            objCita.Codigo = 1;
+            objCita.FechaReserva = fecha;
+            objCita.CodigoEspecialidad = 8;
+            objCita.CodigoPaciente = "p46079567";
+            objCita.CodigoHorario = 5;
+            objCita.CodigoOdontologo = "O43411111";
+
+            CitaWS.RespuestaServiceOfCitaz_SY3AMPv citaRespuesta = citaWs.modificarCita(objCita);
 
             Assert.AreEqual("Satisfactorio", citaRespuesta.TipoMensaje);
         }
@@ -41,9 +61,9 @@ namespace DSDServicesTEST.SOAPTest
             objCita.FechaReserva = fecha;
             objCita.CodigoEspecialidad = 1;
             objCita.CodigoPaciente = "p46079567";
-            objCita.CodigoHorarioOdontologo = 1;
+            objCita.CodigoHorario = 1;
+            objCita.CodigoOdontologo = "O43411111";
 
-            //Registrando un nuevo paciente
             CitaWS.RespuestaServiceOfCitaz_SY3AMPv citaRespuesta = citaWs.registrarCita(objCita);
 
             Assert.AreEqual("Advertencia-validarRangoHorasCita", citaRespuesta.TipoMensaje + '-' + citaRespuesta.MetodoOrigen);
@@ -60,9 +80,9 @@ namespace DSDServicesTEST.SOAPTest
             objCita.FechaReserva = fecha;
             objCita.CodigoEspecialidad = 1;
             objCita.CodigoPaciente = "p46079567";
-            objCita.CodigoHorarioOdontologo = 1;
+            objCita.CodigoHorario = 1;
+            objCita.CodigoOdontologo = "O43411111";
 
-            //Registrando un nuevo paciente
             CitaWS.RespuestaServiceOfCitaz_SY3AMPv citaRespuesta = citaWs.registrarCita(objCita);
 
             Assert.AreEqual("Advertencia-validarDiasAnticipacionCita", citaRespuesta.TipoMensaje + '-' + citaRespuesta.MetodoOrigen);
