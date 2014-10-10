@@ -15,5 +15,13 @@ namespace DSDServices.Dominio
         public string Nombre { get; set; }
         [DataMember]
         public string Descripcion { get; set; }
+        [DataMember]
+        public string estadoEntidad { get; set; }
+
+        public Especialidad() {
+            Nombre = string.Empty;
+            Descripcion = string.Empty;
+            estadoEntidad = string.Empty;
+        }
     }
 }
