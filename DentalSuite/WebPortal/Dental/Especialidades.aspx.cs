@@ -16,6 +16,7 @@ public partial class Dental_Especialidades : System.Web.UI.Page
         public int Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public string estadoEntidad { get; set; }
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -44,12 +45,6 @@ public partial class Dental_Especialidades : System.Web.UI.Page
         {
             if (this.txtCodigo.Value == "0")
             {
-                //Registrando un nuevo paciente
-                //PacienteWS.Paciente pacienteCreado = paciente.registrarPaciente(objPaciente);
-
-                //WSPacientes.RespuestaServiceOfPacientez_SY3AMPv pacienteRespuesta = WSpaciente.registrarPaciente(objPaciente);
-
-
                 string postdata ="{\"Nombre\":\""+entidad.Nombre+"\",\"Descripcion\":\""+entidad.Descripcion+"\"}";
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
@@ -64,16 +59,19 @@ public partial class Dental_Especialidades : System.Web.UI.Page
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Especialidad EspecialidadCreado = new Especialidad();
                 EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
-                if (EspecialidadCreado.Codigo == 0)
-                {
-                    lblMensajeResultado.Text = EspecialidadCreado.Nombre;
-                }
-                else {
-                    if (!string.IsNullOrEmpty(EspecialidadCreado.Codigo.ToString()))
-                        lblMensajeResultado.Text = "Satisfactorio, codigo " + EspecialidadCreado.Codigo.ToString();
-                    else
-                        lblMensajeResultado.Text = "Error";
-                }
+
+                lblMensajeResultado.Text = EspecialidadCreado.estadoEntidad;
+
+                //if (EspecialidadCreado.Codigo == 0)
+                //{
+                //    lblMensajeResultado.Text = EspecialidadCreado.Nombre;
+                //}
+                //else {
+                //    if (!string.IsNullOrEmpty(EspecialidadCreado.Codigo.ToString()))
+                //        lblMensajeResultado.Text = "Satisfactorio, codigo " + EspecialidadCreado.Codigo.ToString();
+                //    else
+                //        lblMensajeResultado.Text = "Error";
+                //}
                 
                 //if (mensaje.TipoMensaje == "Satisfactorio")
                 //    Limpiar();
@@ -102,10 +100,14 @@ public partial class Dental_Especialidades : System.Web.UI.Page
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
 
-                if (!string.IsNullOrEmpty(EspecialidadCreado.Codigo.ToString()))
-                    lblMensajeResultado.Text = "Actualizado, codigo " + EspecialidadCreado.Codigo.ToString();
-                else
-                    lblMensajeResultado.Text = "Error";
+                lblMensajeResultado.Text = EspecialidadCreado.estadoEntidad;
+
+                //if (!string.IsNullOrEmpty(EspecialidadCreado.Codigo.ToString()))
+                //    lblMensajeResultado.Text = "Actualizado, codigo " + EspecialidadCreado.Codigo.ToString();
+                //else
+                //    lblMensajeResultado.Text = "Error";
+
+
             }
         }
         else

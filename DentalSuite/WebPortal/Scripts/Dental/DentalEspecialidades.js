@@ -124,6 +124,8 @@ function EditarEspecialidad(codigo, nombre, descripcion) {
     $('input[id$=txtCodigo]').val(codigo);
     $('input[id$=txtNombre]').val(nombre);
     $('input[id$=txtDescripcion]').val(descripcion);
+    $('input[id$=btnRegistrar]').val("Actualizar");
+
     //    if (sexo == 'm') {
 
     //        $('input:radio[[id$=name=sex}]')['m'].checked = true;

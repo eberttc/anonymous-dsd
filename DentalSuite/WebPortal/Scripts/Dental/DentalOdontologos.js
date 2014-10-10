@@ -16,6 +16,10 @@ $(document).ready(function () {
 
     $("input:button", "#divCancelar").button();
 
+    $("input:button", "#divAgregar").button();
+
+    $("input:button", "#divQuitar").button();
+
     CargarTipoDocumento();
     CargarEspecialidad();
 

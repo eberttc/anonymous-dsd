@@ -28,7 +28,6 @@ public partial class Dental_Pacientes : System.Web.UI.Page
             
         //}
 
-
         ListarPacientes();
     }
 

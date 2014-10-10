@@ -44,14 +44,8 @@
                                 <tr>
                                     <td width="90px" >
                                         Descripcion:</td>
-                                    <td width="100px" >
+                                    <td width="100px" colspan="3" >
                                         <input type="text" id="txtDescripcion" size="90" runat="server" /></td>
-                                    <td style="vertical-align: bottom" >
-                                        
-                                        &nbsp;</td>
-                                    <td style="vertical-align: bottom" >
-                                        
-                                        &nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td width="90px" >
