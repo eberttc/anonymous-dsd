@@ -34,6 +34,7 @@ namespace DSDServices.Persistencia
                 }
             }
             espacialidadCreado = Obtener(resultado.ToString());
+            espacialidadCreado.estadoEntidad = "Satisfactorio";
             return espacialidadCreado;
         }
         public Especialidad Obtener(string codigo)
@@ -56,6 +57,7 @@ namespace DSDServices.Persistencia
                                 Codigo = (int)resultado["Codigo"],
                                 Nombre = (string)resultado["Nombre"],
                                 Descripcion = (string)resultado["Descripcion"],
+                                estadoEntidad = "Existente",
                             };
                         }
                     }
@@ -94,19 +96,28 @@ namespace DSDServices.Persistencia
         public Especialidad Modificar(Especialidad especialidadAModificar)
         {
             Especialidad especialidadModificado = null;
-            string sql = "UPDATE TEspecialidad SET Nombre=@nom,Descripcion=@des WHERE codigo=@cod";
-            using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
+            try
             {
-                con.Open();
-                using (SqlCommand com = new SqlCommand(sql, con))
+                string sql = "UPDATE TEspecialidad SET Nombre=@nom,Descripcion=@des WHERE codigo=@cod";
+                using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
                 {
-                    com.Parameters.Add(new SqlParameter("@cod", especialidadAModificar.Codigo));
-                    com.Parameters.Add(new SqlParameter("@nom", especialidadAModificar.Nombre));
-                    com.Parameters.Add(new SqlParameter("@des", especialidadAModificar.Descripcion));
-                    com.ExecuteNonQuery();
+                    con.Open();
+                    using (SqlCommand com = new SqlCommand(sql, con))
+                    {
+                        com.Parameters.Add(new SqlParameter("@cod", especialidadAModificar.Codigo));
+                        com.Parameters.Add(new SqlParameter("@nom", especialidadAModificar.Nombre));
+                        com.Parameters.Add(new SqlParameter("@des", especialidadAModificar.Descripcion));
+                        com.ExecuteNonQuery();
+                    }
                 }
+                especialidadModificado = Obtener(especialidadAModificar.Codigo.ToString());
+                especialidadModificado.estadoEntidad = "Actualizado OK";
             }
-            especialidadModificado = Obtener(especialidadAModificar.Codigo.ToString());
+            catch (Exception)
+            {
+                especialidadModificado.estadoEntidad = "ERROR";
+            }
+
             return especialidadModificado;
         }
         public void Eliminar(string codigo)

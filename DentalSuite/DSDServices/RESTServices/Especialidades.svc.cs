@@ -13,22 +13,17 @@ namespace DSDServices.RESTServices
     public class Especialidades : IEspecialidades
     {
         private EspecialidadDAO dao = new EspecialidadDAO();
-
         public Especialidad CrearEspecialidad(Especialidad EspecialidadACrear)
         {
             Especialidad entidad=new Especialidad();
             if (dao.ObtenerPorNombre(EspecialidadACrear.Nombre.Trim()) !=null)
             {
-                entidad.Codigo = 0;
-                entidad.Nombre = "Especialidad ya existe";
-                entidad.Descripcion = string.Empty;
+                entidad.estadoEntidad = "la especialidad que esta intentando crear ya existe";
                 return entidad;
             }
             else if(string.IsNullOrEmpty(EspecialidadACrear.Descripcion) || string.IsNullOrEmpty(EspecialidadACrear.Nombre))
             {
-                entidad.Codigo = 0;
-                entidad.Nombre = "Nombre o Descripcion en blanco";
-                entidad.Descripcion = string.Empty;
+                entidad.estadoEntidad = "El nombre o descripcion debe contener valores";
                 return entidad;
             }
 
@@ -57,5 +52,6 @@ namespace DSDServices.RESTServices
         {
             return dao.ListarTodos();
         }
+
     }
 }
