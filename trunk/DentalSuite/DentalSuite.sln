@@ -7,7 +7,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal\", "
 		SccAuxPath = "Svn"
 		SccLocalPath = "Svn"
 		SccProvider = "SubversionScc"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = ""
 		Debug.AspNetCompiler.VirtualPath = "/WebPortal"
 		Debug.AspNetCompiler.PhysicalPath = "WebPortal\"
@@ -32,21 +32,13 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebPortal", "WebPortal\", "
 		Svn.Uri = WebPortal/
 	EndProjectSection
 	ProjectSection(ProjectDependencies) = postProject
-		{4707D748-FAAD-4A25-8107-E05C5CDA9136} = {4707D748-FAAD-4A25-8107-E05C5CDA9136}
 		{847DCA68-91EA-4255-9EA4-E888F8BD63A4} = {847DCA68-91EA-4255-9EA4-E888F8BD63A4}
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServices", "SOAPServices\SOAPServices.csproj", "{4707D748-FAAD-4A25-8107-E05C5CDA9136}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{5A080222-D583-48BC-B17D-0CBD228572C8}"
 	ProjectSection(SolutionItems) = preProject
 		Librerias\Iesi.Collections.dll = Librerias\Iesi.Collections.dll
 		Librerias\NHibernate.dll = Librerias\NHibernate.dll
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPServicesTest", "SOAPServicesTest\SOAPServicesTest.csproj", "{5EAEA062-E23B-45D5-87F8-1CD8177E4CEC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{4707D748-FAAD-4A25-8107-E05C5CDA9136} = {4707D748-FAAD-4A25-8107-E05C5CDA9136}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{82B9730B-0317-49C9-B22C-2407382C9158}"
@@ -58,18 +50,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSDServices", "DSDServices\DSDServices.csproj", "{847DCA68-91EA-4255-9EA4-E888F8BD63A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestService", "RestService\RestService.csproj", "{8E631585-341A-4283-8BFF-0C8C78C342B7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestServiceTest", "RestServiceTest\RestServiceTest.csproj", "{E5C981A9-3CDE-494E-92A5-14A34FF25C0A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EspecialidadRestService", "EspecialidadRestService\EspecialidadRestService.csproj", "{FF163666-0DDF-4C39-A0E3-D52E9A4F5027}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EspecialidadRestServiceTest", "EspecialidadRestServiceTest\EspecialidadRestServiceTest.csproj", "{5FF1A915-EC68-4AE2-A083-AB5C813766FD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSDTest", "DSDTest\DSDTest.csproj", "{F43A48CB-686C-4D77-86F5-F0E16238F8FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSDServicesTEST", "DSDServicesTEST\DSDServicesTEST.csproj", "{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{847DCA68-91EA-4255-9EA4-E888F8BD63A4} = {847DCA68-91EA-4255-9EA4-E888F8BD63A4}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSDTest", "DSDTest\DSDTest.csproj", "{F43A48CB-686C-4D77-86F5-F0E16238F8FC}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -88,34 +74,14 @@ Global
 		{9C82D878-F086-49F1-BB57-E7BD347B0A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C82D878-F086-49F1-BB57-E7BD347B0A49}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C82D878-F086-49F1-BB57-E7BD347B0A49}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4707D748-FAAD-4A25-8107-E05C5CDA9136}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5EAEA062-E23B-45D5-87F8-1CD8177E4CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EAEA062-E23B-45D5-87F8-1CD8177E4CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EAEA062-E23B-45D5-87F8-1CD8177E4CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EAEA062-E23B-45D5-87F8-1CD8177E4CEC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{847DCA68-91EA-4255-9EA4-E888F8BD63A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{847DCA68-91EA-4255-9EA4-E888F8BD63A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{847DCA68-91EA-4255-9EA4-E888F8BD63A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{847DCA68-91EA-4255-9EA4-E888F8BD63A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E631585-341A-4283-8BFF-0C8C78C342B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E631585-341A-4283-8BFF-0C8C78C342B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E631585-341A-4283-8BFF-0C8C78C342B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E631585-341A-4283-8BFF-0C8C78C342B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5C981A9-3CDE-494E-92A5-14A34FF25C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5C981A9-3CDE-494E-92A5-14A34FF25C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5C981A9-3CDE-494E-92A5-14A34FF25C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5C981A9-3CDE-494E-92A5-14A34FF25C0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF163666-0DDF-4C39-A0E3-D52E9A4F5027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF163666-0DDF-4C39-A0E3-D52E9A4F5027}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF163666-0DDF-4C39-A0E3-D52E9A4F5027}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF163666-0DDF-4C39-A0E3-D52E9A4F5027}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FF1A915-EC68-4AE2-A083-AB5C813766FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FF1A915-EC68-4AE2-A083-AB5C813766FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FF1A915-EC68-4AE2-A083-AB5C813766FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FF1A915-EC68-4AE2-A083-AB5C813766FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F43A48CB-686C-4D77-86F5-F0E16238F8FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F43A48CB-686C-4D77-86F5-F0E16238F8FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F43A48CB-686C-4D77-86F5-F0E16238F8FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
