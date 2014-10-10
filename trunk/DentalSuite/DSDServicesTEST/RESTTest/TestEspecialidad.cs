@@ -17,7 +17,7 @@ namespace DSDServicesTEST.RESTTest
         {
 
             //CREATE
-            string postdata = "{\"Nombre\":\"Cirujano Ortodoncista\",\"Descripcion\":\"Cirujano Ortodoncista\"}";
+            string postdata = "{\"Nombre\":\"Cirujano Ortodoncista5\",\"Descripcion\":\"Cirujano Ortodoncista5\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
             req.Method = "POST";
@@ -32,6 +32,48 @@ namespace DSDServicesTEST.RESTTest
             Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
             Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.nombre);
             Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.descripcion);
+        }
+
+        [TestMethod]
+        public void TESTCrearConRepeticion()
+        {
+
+            //CREATE
+            string postdata = "{\"Nombre\":\"PedoDentista\",\"Descripcion\":\"PedoDentista\"}";
+            byte[] data = Encoding.UTF8.GetBytes(postdata);
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
+            req.Method = "POST";
+            req.ContentLength = data.Length;
+            req.ContentType = "application/json";
+            var reqStream = req.GetRequestStream();
+            reqStream.Write(data, 0, data.Length);
+            var res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string EspecialidadJson = reader.ReadToEnd();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
+            Assert.AreEqual("Especialidad ya existe", EspecialidadCreado.nombre);
+        }
+
+        [TestMethod]
+        public void TESTCrearConDescripcionEnBlanco()
+        {
+
+            //CREATE
+            string postdata = "{\"Nombre\":\"PRUEBA\",\"Descripcion\":\"\"}";
+            byte[] data = Encoding.UTF8.GetBytes(postdata);
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
+            req.Method = "POST";
+            req.ContentLength = data.Length;
+            req.ContentType = "application/json";
+            var reqStream = req.GetRequestStream();
+            reqStream.Write(data, 0, data.Length);
+            var res = (HttpWebResponse)req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            string EspecialidadJson = reader.ReadToEnd();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
+            Assert.AreEqual("Descripcion en blanco", EspecialidadCreado.nombre);
         }
 
         [TestMethod]
@@ -87,13 +129,13 @@ namespace DSDServicesTEST.RESTTest
             string EspecialidadJson = reader.ReadToEnd();
             JavaScriptSerializer js = new JavaScriptSerializer();
             List<Especialidad> ListaEspecialidadsObtenidos = js.Deserialize<List<Especialidad>>(EspecialidadJson);
-            Assert.AreEqual(5, ListaEspecialidadsObtenidos.Count);
+            Assert.AreEqual(15, ListaEspecialidadsObtenidos.Count);
         }
 
         [TestMethod]
         public void TESTEliminar()
         {
-            string codigoAEliminar = "3";
+            string codigoAEliminar = "4";
             //ELIMINAR
             HttpWebRequest req = (HttpWebRequest)WebRequest
                             .Create(string.Format("http://localhost:20001/RESTServices/Especialidades.svc/especialidades/{0}", codigoAEliminar));
@@ -116,5 +158,12 @@ namespace DSDServicesTEST.RESTTest
             Assert.IsNull(EspecialidadObtenido.descripcion);
 
         }
+
+
+
+
+
+
+
     }
 }
