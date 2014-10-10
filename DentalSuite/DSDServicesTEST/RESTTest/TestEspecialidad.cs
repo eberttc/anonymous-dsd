@@ -17,7 +17,7 @@ namespace DSDServicesTEST.RESTTest
         {
 
             //CREATE
-            string postdata = "{\"Nombre\":\"Cirujano Ortodoncista5\",\"Descripcion\":\"Cirujano Ortodoncista5\"}";
+            string postdata = "{\"Nombre\":\"TEST\",\"Descripcion\":\"TEST\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
             req.Method = "POST";
@@ -30,8 +30,8 @@ namespace DSDServicesTEST.RESTTest
             string EspecialidadJson = reader.ReadToEnd();
             JavaScriptSerializer js = new JavaScriptSerializer();
             Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
-            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.nombre);
-            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.descripcion);
+            Assert.AreEqual("TEST", EspecialidadCreado.nombre);
+            Assert.AreEqual("TEST", EspecialidadCreado.descripcion);
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace DSDServicesTEST.RESTTest
         {
 
             //CREATE
-            string postdata = "{\"Nombre\":\"PedoDentista\",\"Descripcion\":\"PedoDentista\"}";
+            string postdata = "{\"Nombre\":\"TEST\",\"Descripcion\":\"TEST\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
             req.Method = "POST";
@@ -52,7 +52,7 @@ namespace DSDServicesTEST.RESTTest
             string EspecialidadJson = reader.ReadToEnd();
             JavaScriptSerializer js = new JavaScriptSerializer();
             Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
-            Assert.AreEqual("Especialidad ya existe", EspecialidadCreado.nombre);
+            Assert.AreEqual("la especialidad que esta intentando crear ya existe", EspecialidadCreado.estadoEntidad);
         }
 
         [TestMethod]
@@ -60,7 +60,7 @@ namespace DSDServicesTEST.RESTTest
         {
 
             //CREATE
-            string postdata = "{\"Nombre\":\"PRUEBA\",\"Descripcion\":\"\"}";
+            string postdata = "{\"Nombre\":\"\",\"Descripcion\":\"\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
             req.Method = "POST";
@@ -73,7 +73,7 @@ namespace DSDServicesTEST.RESTTest
             string EspecialidadJson = reader.ReadToEnd();
             JavaScriptSerializer js = new JavaScriptSerializer();
             Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
-            Assert.AreEqual("Descripcion en blanco", EspecialidadCreado.nombre);
+            Assert.AreEqual("El nombre o descripcion debe contener valores", EspecialidadCreado.estadoEntidad);
         }
 
         [TestMethod]
@@ -98,7 +98,7 @@ namespace DSDServicesTEST.RESTTest
         public void TESTModificar()
         {
             //MODIFICAR
-            string postdata = "{\"Codigo\":5,\"Nombre\":\"Cirujano Ortodoncista\",\"Descripcion\":\"Cirujano Ortodoncista\"}";
+            string postdata = "{\"Codigo\":25,\"Nombre\":\"TEST3\",\"Descripcion\":\"TEST2\"}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:20001/RESTServices/Especialidades.svc/especialidades");
             req.Method = "PUT";
@@ -111,9 +111,7 @@ namespace DSDServicesTEST.RESTTest
             string EspecialidadJson = reader.ReadToEnd();
             JavaScriptSerializer js = new JavaScriptSerializer();
             Especialidad EspecialidadCreado = js.Deserialize<Especialidad>(EspecialidadJson);
-            Assert.AreEqual(5, EspecialidadCreado.codigo);
-            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.nombre);
-            Assert.AreEqual("Cirujano Ortodoncista", EspecialidadCreado.descripcion);
+            Assert.AreEqual("Actualizado OK", EspecialidadCreado.estadoEntidad);
         }
 
         [TestMethod]
