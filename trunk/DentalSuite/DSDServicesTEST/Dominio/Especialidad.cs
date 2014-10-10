@@ -10,5 +10,11 @@ namespace DSDServicesTEST.Dominio
         public int codigo { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
+        public string estadoEntidad { get; set; }
+        public Especialidad() {
+            nombre = string.Empty;
+            descripcion = string.Empty;
+            estadoEntidad = string.Empty;
+        }
     }
 }
