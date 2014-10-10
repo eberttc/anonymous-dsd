@@ -1,0 +1,7 @@
+E:\UPC\VII CICLO\Sistemas Distribuidos\ProyectoDSD\DentalSuite\DSDServices\bin\DSDServices.dll
+E:\UPC\VII CICLO\Sistemas Distribuidos\ProyectoDSD\DentalSuite\DSDServices\bin\DSDServices.pdb
+E:\UPC\VII CICLO\Sistemas Distribuidos\ProyectoDSD\DentalSuite\DSDServices\bin\Iesi.Collections.dll
+E:\UPC\VII CICLO\Sistemas Distribuidos\ProyectoDSD\DentalSuite\DSDServices\bin\NHibernate.dll
+E:\UPC\VII CICLO\Sistemas Distribuidos\ProyectoDSD\DentalSuite\DSDServices\obj\Debug\DSDServices.dll
+E:\UPC\VII CICLO\Sistemas Distribuidos\ProyectoDSD\DentalSuite\DSDServices\obj\Debug\DSDServices.pdb
+E:\UPC\VII CICLO\Sistemas Distribuidos\ProyectoDSD\DentalSuite\DSDServices\obj\Debug\DSDServices.csprojResolveAssemblyReference.cache
