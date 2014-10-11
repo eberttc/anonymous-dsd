@@ -24,13 +24,14 @@ public partial class Dental_reservaCitas : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             listarEspecialidades();
+            listarOdontologos();
         }
     }
 
     protected void Buscar_Click(object sender, EventArgs e)
     {
 
-        lblMensajeResultado.Text = ddlEspecialidad.SelectedValue;
+        lblMensajeResultado.Text = ddlOdontologo.SelectedValue;
     }
 
     protected void Reservar_Click(object sender, EventArgs e)
@@ -38,6 +39,9 @@ public partial class Dental_reservaCitas : System.Web.UI.Page
 
 
     }
+
+
+    #region Especialidades
     public class Especialidad
     {
         public int Codigo { get; set; }
@@ -45,8 +49,6 @@ public partial class Dental_reservaCitas : System.Web.UI.Page
         public string Descripcion { get; set; }
         public string estadoEntidad { get; set; }
     }
-
-    #region Especialidades
     private void listarEspecialidades()
     {
         List<Especialidad> listaResultado = new List<Especialidad>();
@@ -67,10 +69,43 @@ public partial class Dental_reservaCitas : System.Web.UI.Page
     #endregion
 
 
-
-
-    protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+    #region Odontologos
+    public class Odontologo
     {
-
+        public string Codigo { get; set; }
+        public string NumeroDocumento { get; set; }
+        public string Nombres { get; set; }
+        public string ApePaterno { get; set; }
+        public string MatPaterno { get; set; }
+        public string Sexo { get; set; }
+        public string TipoDocumento { get; set; }
+        public string NroDocumento { get; set; }
+        public string Correo { get; set; }
+        public string Contrasena { get; set; }
+        public string COP { get; set; }
+        public string NombreCompleto { get; set; }
     }
+
+    private void listarOdontologos()
+    {
+        List<Odontologo> listaResultado = new List<Odontologo>();
+        HttpWebRequest req = (HttpWebRequest)WebRequest
+.Create("http://localhost:20001/RESTServices/OdontologoHorario.svc/Odontologos");
+        req.Method = "GET";
+        HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+        StreamReader reader = new StreamReader(res.GetResponseStream());
+        string OdontologoJson = reader.ReadToEnd();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        listaResultado = js.Deserialize<List<Odontologo>>(OdontologoJson);
+
+        ddlOdontologo.DataSource = listaResultado;
+        ddlOdontologo.DataValueField = "Codigo";
+        ddlOdontologo.DataTextField = "NombreCompleto";
+        ddlOdontologo.DataBind();
+    }
+    #endregion
+
+    #region Horarios
+
+    #endregion
 }
