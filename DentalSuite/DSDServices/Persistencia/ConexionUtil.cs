@@ -9,14 +9,14 @@ namespace DSDServices.Persistencia
     {
         public static string ObtenerCadena()
         {
-            return "Data Source=CP090102\\SQLEXPRESS;Initial Catalog=DBDentalSuite;Integrated Security=SSPI;";
+            return "Data Source=.;Initial Catalog=DBDentalSuite;Integrated Security=SSPI;";
         }
 
         public static string Cadena
         {
             get
             {
-                return "Data Source=CP090102\\SQLEXPRESS;Initial Catalog=DBDentalSuite;Integrated Security=SSPI;";
+                return "Data Source=.;Initial Catalog=DBDentalSuite;Integrated Security=SSPI;";
             }
         }
     }
