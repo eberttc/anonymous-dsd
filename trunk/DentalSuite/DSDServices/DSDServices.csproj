@@ -82,6 +82,7 @@
     <Compile Include="Dominio\Cita.cs" />
     <Compile Include="Dominio\Especialidad.cs" />
     <Compile Include="Dominio\Horario.cs" />
+    <Compile Include="Dominio\HorarioDetalle.cs" />
     <Compile Include="Dominio\Odontologo.cs" />
     <Compile Include="Dominio\Paciente.cs" />
     <Compile Include="Dominio\RespuestaService.cs" />
