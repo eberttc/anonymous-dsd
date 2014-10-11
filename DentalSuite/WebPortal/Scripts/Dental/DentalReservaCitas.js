@@ -10,7 +10,16 @@ $(document).ready(function () {
     $('#divMasterTitle H1').html(titulo);
     //#endregion
 
+    $('#txtFecha').datepicker();
+    $('#txtFecha').datepicker('option', 'dateFormat', 'dd/mm/yy');
+    $('#txtFecha').datepicker('setDate', new Date());
 
+
+    $("input:button", "#divBuscar").button();
+
+    $("input:button", "#divReservar").button();
+
+    $("#caja").slideToggle();
 })
 //#endregion
 

@@ -67,6 +67,7 @@
     </EmbeddedResource>
     <Content Include="Global.asax" />
     <Content Include="RESTServices\Especialidades.svc" />
+    <Content Include="RESTServices\OdontologoHorario.svc" />
     <Content Include="SOAPServices\Citas.svc" />
     <Content Include="SOAPServices\Pacientes.svc" />
     <Content Include="Web.config" />
@@ -93,12 +94,17 @@
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\HorarioDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
+    <Compile Include="Persistencia\OdontologoDAO.cs" />
     <Compile Include="Persistencia\PacienteDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTServices\Especialidades.svc.cs">
       <DependentUpon>Especialidades.svc</DependentUpon>
     </Compile>
     <Compile Include="RESTServices\IEspecialidades.cs" />
+    <Compile Include="RESTServices\IOdontologoHorario.cs" />
+    <Compile Include="RESTServices\OdontologoHorario.svc.cs">
+      <DependentUpon>OdontologoHorario.svc</DependentUpon>
+    </Compile>
     <Compile Include="Reutilizables\Constantes.cs" />
     <Compile Include="Reutilizables\Utilitario.cs" />
     <Compile Include="SOAPServices\Citas.svc.cs">

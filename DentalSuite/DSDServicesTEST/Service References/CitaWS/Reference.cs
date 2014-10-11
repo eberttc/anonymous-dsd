@@ -294,9 +294,6 @@ namespace DSDServicesTEST.CitaWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICitas/listarCitas", ReplyAction="http://tempuri.org/ICitas/listarCitasResponse")]
         System.Collections.Generic.List<DSDServicesTEST.CitaWS.Cita> listarCitas();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICitas/listarCitasPacienteAdministrador", ReplyAction="http://tempuri.org/ICitas/listarCitasPacienteAdministradorResponse")]
-        System.Collections.Generic.List<DSDServicesTEST.CitaWS.Cita> listarCitasPacienteAdministrador();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -340,10 +337,6 @@ namespace DSDServicesTEST.CitaWS {
         
         public System.Collections.Generic.List<DSDServicesTEST.CitaWS.Cita> listarCitas() {
             return base.Channel.listarCitas();
-        }
-        
-        public System.Collections.Generic.List<DSDServicesTEST.CitaWS.Cita> listarCitasPacienteAdministrador() {
-            return base.Channel.listarCitasPacienteAdministrador();
         }
     }
 }
