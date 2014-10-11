@@ -220,6 +220,9 @@ namespace DSDServices.SOAPServices
             CitaDAO.LiberarCita(cita);
         }
 
-       
+        public List<ConsultaCita> consultarCitas(string fecha,int especialidad,string odontologo)
+        {
+            return CitaDAO.ConsultarCitas(fecha,especialidad,odontologo);
+        }
     }
 }

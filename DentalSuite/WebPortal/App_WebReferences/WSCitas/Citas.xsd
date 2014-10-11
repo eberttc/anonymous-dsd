@@ -53,4 +53,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="consultarCitas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fecha" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="especialidad" type="xs:int" />
+        <xs:element minOccurs="0" name="odontologo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consultarCitasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DSDServices.Dominio" minOccurs="0" name="consultarCitasResult" nillable="true" type="q7:ArrayOfConsultaCita" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

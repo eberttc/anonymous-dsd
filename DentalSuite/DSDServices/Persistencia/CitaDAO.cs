@@ -234,5 +234,49 @@ namespace DSDServices.Persistencia
             }
             return citasEncontrados;
         }
+
+        public List<ConsultaCita> ConsultarCitas(string fecha, int especialidad,string odontologo)
+        {
+            List<ConsultaCita> citasEncontrados = new List<ConsultaCita>();
+            ConsultaCita citaEncontrado = null;
+            string sql = "select a.Codigo cita,CONVERT(char(8),FechaReserva,112) fecha, "
+                    +"b.Nombre especialidad,"
+                    +"d.ApellidoPaterno+' '+d.ApellidoMaterno+', '+d.Nombres odontologo,"
+                    +"c.ApellidoPaterno+' '+c.ApellidoMaterno+', '+c.Nombres paciente,"
+                     +"e.HoraInicio+'-'+e.HoraTermino horario "
+                    +"from TReservaCita a "
+                    +"inner join TEspecialidad b on a.CodigoEspecialidad=b.Codigo "
+                    +"inner join TPaciente c on a.CodigoPaciente=c.Codigo "
+                    +"inner join TOdontologo d on a.CodigoOdontologo=d.Codigo "
+                    +"inner join THorario e on a.CodigoHorario=e.Codigo "
+                    + "where a.CodigoOdontologo='O43411111' AND a.CodigoEspecialidad=1 "
+                    +"and CONVERT(char(8),FechaReserva,112)='20141010' "
+                        +"order by e.HoraInicio,e.HoraTermino";
+
+            using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand(sql, con))
+                {
+                    using (SqlDataReader resultado = com.ExecuteReader())
+                    {
+                        while (resultado.Read())
+                        {
+                            citaEncontrado = new ConsultaCita()
+                            {
+                                cita = (int)resultado["cita"],
+                                fecha = (string)resultado["fecha"],
+                                especialidad = (string)resultado["especialidad"],
+                                odontologo = (string)resultado["odontologo"],
+                                paciente = (string)resultado["paciente"],
+                                horario = (string)resultado["horario"],
+                            };
+                            citasEncontrados.Add(citaEncontrado);
+                        }
+                    }
+                }
+            }
+            return citasEncontrados;
+        }
     }
 }
