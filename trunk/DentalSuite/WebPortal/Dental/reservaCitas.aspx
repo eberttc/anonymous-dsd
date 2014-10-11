@@ -45,8 +45,8 @@
                                     <td width="200px" >
                                         Especialidad:</td>
                                     <td width="100px" >
-                                        <asp:DropDownList ID="ddlEspecialidad" runat="server" 
-                                            onselectedindexchanged="ddlEspecialidad_SelectedIndexChanged">
+                                        <asp:DropDownList ID="ddlEspecialidad" runat="server" Height="21px" 
+                                            Width="166px" >
                                         </asp:DropDownList>
                                     </td>
                                     <td style="vertical-align: bottom" >
@@ -60,7 +60,9 @@
                                     <td width="200px" >
                                         Odontologo:</td>
                                     <td width="100px" >
-                                        <input type="text" id="txtOdontologo"  runat="server"/></td>
+                                        <asp:DropDownList ID="ddlOdontologo" runat="server" Height="27px" Width="299px">
+                                        </asp:DropDownList>
+                                    </td>
                                     <td style="vertical-align: bottom" >
                                         
                                         &nbsp;</td>

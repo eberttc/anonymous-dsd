@@ -31,6 +31,8 @@ namespace DSDServices.Dominio
         public string Contrasena { get; set; }
          [DataMember]
         public string COP { get; set; }
+        [DataMember]
+         public string nombreCompleto { get; set; }
 
 
 

@@ -35,6 +35,7 @@ namespace DSDServices.Persistencia
                                 Correo =(string)resultado["Correo"],
                                 Contrasena =(string)resultado["Contrasena"],
                                 COP =(string)resultado["COP"],
+                                nombreCompleto = string.Format("{0} {1}, {2}", (string)resultado["ApellidoPaterno"], (string)resultado["ApellidoMaterno"], (string)resultado["Nombres"])
                             };
                             odontologosEncontrados.Add(odontologoEncontrado);
                         }
