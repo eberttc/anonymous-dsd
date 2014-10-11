@@ -36,4 +36,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCita" nillable="true" type="tns:ArrayOfCita" />
+  <xs:complexType name="ArrayOfConsultaCita">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsultaCita" nillable="true" type="tns:ConsultaCita" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConsultaCita" nillable="true" type="tns:ArrayOfConsultaCita" />
+  <xs:complexType name="ConsultaCita">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cita" type="xs:int" />
+      <xs:element minOccurs="0" name="especialidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="odontologo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="paciente" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultaCita" nillable="true" type="tns:ConsultaCita" />
 </xs:schema>

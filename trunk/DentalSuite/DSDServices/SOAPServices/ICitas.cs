@@ -24,6 +24,8 @@ namespace DSDServices.SOAPServices
         [OperationContract]
         List<Cita> listarCitas();
 
-       
+        [OperationContract]
+        List<ConsultaCita> consultarCitas(string fecha,int especialidad,string odontologo);
+
     }
 }

@@ -75,9 +75,11 @@ function CargarMenu() {
             "<a href=\"#\">Mantenimientos</a></h2></li><li>"+
             "<a href=\"http://localhost:20000/WebPortal/Dental/Pacientes.aspx?Config=0&amp;Titulo=Pacientes\">Pacientes</a></li><li>"+
             "<a href=\"http://localhost:20000/WebPortal/Dental/Odontologos.aspx?Config=0&amp;Titulo=Odontologos\">Odontologos</a></li><li>"+
-            "<a href=\"http://localhost:20000/WebPortal/Dental/Especialidades.aspx?Config=0&amp;Titulo=Especialidades\">Especialidades</a></li></ul><ul style='width: 180px;'><li><h2><a href=\"#\">" +
-            "Procesos</a></h2></li><li><a href=\"http://localhost:20000/WebPortal/Dental/reservaCitas.aspx?Config=0&Titulo=Reserva de Citas\" class=\"item-link\">" +
-                "Reserva de Citas</a></li></ul></div></div></li></ul>";
+            "<a href=\"http://localhost:20000/WebPortal/Dental/Especialidades.aspx?Config=0&amp;Titulo=Especialidades\">Especialidades</a></li></ul>"+
+            "<ul style='width: 180px;'><li><h2><a href=\"#\">" +
+            "Procesos</a></h2></li>"+
+            "<li><a href=\"http://localhost:20000/WebPortal/Dental/reservaCitas.aspx?Config=0&Titulo=Reserva de Citas\" class=\"item-link\">Reserva de Citas</a></li>" +
+            "<li><a href=\"http://localhost:20000/WebPortal/Dental/consultaCitas.aspx?Config=0&Titulo=Consulta de Citas\" class=\"item-link\">Consulta de Citas</a></li></ul></div></div></li></ul>";
     $("#divMenu").html(data);
     CargaEventos();
 
