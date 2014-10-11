@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5f537f76-56a9-4f63-8af9-77e2573c81aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20001/SOAPServices/Citas.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Citas.xsd" MetadataType="Schema" ID="9d4e43db-45d3-4f68-975f-cca009d267ac" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?xsd=xsd0" />
+    <MetadataFile FileName="Citas1.xsd" MetadataType="Schema" ID="f35c4a08-f8a8-4413-8d19-4f64efb56ca5" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?xsd=xsd2" />
+    <MetadataFile FileName="Citas.disco" MetadataType="Disco" ID="f43e047c-b0ed-4cd0-9bd5-b984ea84db3d" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?disco" />
+    <MetadataFile FileName="Citas.wsdl" MetadataType="Wsdl" ID="ad43562d-c22e-4eb7-8978-aa8c6489b3af" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?wsdl" />
+    <MetadataFile FileName="Citas2.xsd" MetadataType="Schema" ID="c3adb27d-fa36-4138-8287-9fd49d15dd51" SourceId="1" SourceUrl="http://localhost:20001/SOAPServices/Citas.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

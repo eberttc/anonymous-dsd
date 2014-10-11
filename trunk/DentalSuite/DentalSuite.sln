@@ -55,8 +55,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSDServicesTEST", "DSDServi
 		{847DCA68-91EA-4255-9EA4-E888F8BD63A4} = {847DCA68-91EA-4255-9EA4-E888F8BD63A4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSDTest", "DSDTest\DSDTest.csproj", "{F43A48CB-686C-4D77-86F5-F0E16238F8FC}"
-EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -82,10 +80,6 @@ Global
 		{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6D6E5D6-4693-46C5-9DBC-BAE6B307E1FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F43A48CB-686C-4D77-86F5-F0E16238F8FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F43A48CB-686C-4D77-86F5-F0E16238F8FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F43A48CB-686C-4D77-86F5-F0E16238F8FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F43A48CB-686C-4D77-86F5-F0E16238F8FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
