@@ -33,10 +33,17 @@ public partial class Dental_ConsultaCitas : System.Web.UI.Page
     {
         WSCitas.CitasClient cliente = new WSCitas.CitasClient();
         List<WSCitas.ConsultaCita> lista = new List<WSCitas.ConsultaCita>();
-        lista= cliente.consultarCitas(Calendar1.SelectedDate.ToString("yyMMdd"),int.Parse(ddlEspecialidad.SelectedValue),ddlOdontologo.SelectedValue).ToList();
+        lista= cliente.consultarCitas(Calendar1.SelectedDate.ToString("yyyMMdd"),int.Parse(ddlEspecialidad.SelectedValue),ddlOdontologo.SelectedValue).ToList();
         GridView1.DataSource = lista;
         GridView1.DataBind();
         GridView1.Width = 950;
+    }
+
+    protected void EnviarCorreo_Click(object sender, EventArgs e)
+    {
+        WSCitas.CitasClient cliente = new WSCitas.CitasClient();
+        lblResultado.Text = cliente.enviarPromociones();
+
     }
 
     #region Especialidades

@@ -43,7 +43,11 @@
                                         &nbsp;</td>
                                     <td style="vertical-align: bottom" >
                                         
-                                        &nbsp;</td>
+                                        <div id="divEnviarCorreo" style="width:150px;top:0px; left:0px; position: relative">
+                                            <input id="btnCorreo" runat="server" onserverclick="EnviarCorreo_Click" type="button" 
+                                                value="Enviar Promociones" />
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td width="200px" >
@@ -61,7 +65,8 @@
                                 </tr>
                                 <tr>
                                     <td width="200px" >
-                                        &nbsp;</td>
+                                        <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                                    </td>
                                     <td width="100px" >
                                         &nbsp;</td>
                                     <td style="vertical-align: bottom" >
@@ -74,6 +79,9 @@
                                 <tr>
                                     <td width="200px" colspan="4" class="style1" >
                                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                                        
+                                            <AlternatingRowStyle BackColor="#999999" BorderColor="Black" 
+                                                BorderStyle="Double" ForeColor="White" />
                                             <Columns>
                                                 <asp:BoundField DataField="cita" HeaderText="cita" />
                                                 <asp:BoundField DataField="fecha" HeaderText="fecha" />
@@ -82,6 +90,8 @@
                                                 <asp:BoundField DataField="paciente" HeaderText="paciente" />
                                                 <asp:BoundField DataField="horario" HeaderText="horario" />
                                             </Columns>
+                                            <HeaderStyle BackColor="#444751" BorderColor="White" ForeColor="White" />
+                                            <RowStyle BorderStyle="Solid" />
                                         </asp:GridView>
                                     </td>
                                 </tr>
