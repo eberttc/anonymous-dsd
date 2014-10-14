@@ -279,6 +279,131 @@ namespace DSDServicesTEST.CitaWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConsultaCita", Namespace="http://schemas.datacontract.org/2004/07/DSDServices.Dominio")]
+    [System.SerializableAttribute()]
+    public partial class ConsultaCita : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int citaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string especialidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fechaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string horarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string odontologoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pacienteField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cita {
+            get {
+                return this.citaField;
+            }
+            set {
+                if ((this.citaField.Equals(value) != true)) {
+                    this.citaField = value;
+                    this.RaisePropertyChanged("cita");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string especialidad {
+            get {
+                return this.especialidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.especialidadField, value) != true)) {
+                    this.especialidadField = value;
+                    this.RaisePropertyChanged("especialidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fecha {
+            get {
+                return this.fechaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fechaField, value) != true)) {
+                    this.fechaField = value;
+                    this.RaisePropertyChanged("fecha");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string horario {
+            get {
+                return this.horarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.horarioField, value) != true)) {
+                    this.horarioField = value;
+                    this.RaisePropertyChanged("horario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string odontologo {
+            get {
+                return this.odontologoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.odontologoField, value) != true)) {
+                    this.odontologoField = value;
+                    this.RaisePropertyChanged("odontologo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string paciente {
+            get {
+                return this.pacienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.pacienteField, value) != true)) {
+                    this.pacienteField = value;
+                    this.RaisePropertyChanged("paciente");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CitaWS.ICitas")]
     public interface ICitas {
@@ -294,6 +419,12 @@ namespace DSDServicesTEST.CitaWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICitas/listarCitas", ReplyAction="http://tempuri.org/ICitas/listarCitasResponse")]
         System.Collections.Generic.List<DSDServicesTEST.CitaWS.Cita> listarCitas();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICitas/consultarCitas", ReplyAction="http://tempuri.org/ICitas/consultarCitasResponse")]
+        System.Collections.Generic.List<DSDServicesTEST.CitaWS.ConsultaCita> consultarCitas(string fecha, int especialidad, string odontologo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICitas/enviarPromociones", ReplyAction="http://tempuri.org/ICitas/enviarPromocionesResponse")]
+        string enviarPromociones();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -337,6 +468,14 @@ namespace DSDServicesTEST.CitaWS {
         
         public System.Collections.Generic.List<DSDServicesTEST.CitaWS.Cita> listarCitas() {
             return base.Channel.listarCitas();
+        }
+        
+        public System.Collections.Generic.List<DSDServicesTEST.CitaWS.ConsultaCita> consultarCitas(string fecha, int especialidad, string odontologo) {
+            return base.Channel.consultarCitas(fecha, especialidad, odontologo);
+        }
+        
+        public string enviarPromociones() {
+            return base.Channel.enviarPromociones();
         }
     }
 }
