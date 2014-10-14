@@ -37,6 +37,12 @@
   <wsdl:message name="ICitas_consultarCitas_OutputMessage">
     <wsdl:part name="parameters" element="tns:consultarCitasResponse" />
   </wsdl:message>
+  <wsdl:message name="ICitas_enviarPromociones_InputMessage">
+    <wsdl:part name="parameters" element="tns:enviarPromociones" />
+  </wsdl:message>
+  <wsdl:message name="ICitas_enviarPromociones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:enviarPromocionesResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICitas">
     <wsdl:operation name="registrarCita">
       <wsdl:input wsaw:Action="http://tempuri.org/ICitas/registrarCita" message="tns:ICitas_registrarCita_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="consultarCitas">
       <wsdl:input wsaw:Action="http://tempuri.org/ICitas/consultarCitas" message="tns:ICitas_consultarCitas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICitas/consultarCitasResponse" message="tns:ICitas_consultarCitas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="enviarPromociones">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICitas/enviarPromociones" message="tns:ICitas_enviarPromociones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICitas/enviarPromocionesResponse" message="tns:ICitas_enviarPromociones_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICitas" type="tns:ICitas">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="consultarCitas">
       <soap:operation soapAction="http://tempuri.org/ICitas/consultarCitas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarPromociones">
+      <soap:operation soapAction="http://tempuri.org/ICitas/enviarPromociones" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -8,7 +8,7 @@ using DSDServices.Persistencia;
 using DSDServices.Dominio;
 using DSDServices.Reutilizables;
 using System.Messaging;
-
+using System.Net;
 namespace DSDServices.SOAPServices
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Citas" in code, svc and config file together.
@@ -142,8 +142,39 @@ namespace DSDServices.SOAPServices
 
         }
 
-            
 
+
+        public string enviarPromociones() {
+            string resultado = string.Empty;
+            try
+            {
+                
+                string rutaCola = @".\private$\CitasClinica";
+                if (!MessageQueue.Exists(rutaCola))
+                    MessageQueue.Create(rutaCola);
+                MessageQueue cola = new MessageQueue(rutaCola);
+                cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(Cita) });
+
+                foreach (var msj in cola.GetAllMessages())
+                {
+                    Message mensaje = cola.Receive();
+                    Cita citaBE = (Cita)mensaje.Body;
+                    enviarCorreo(citaBE);
+                }
+                resultado = "Se envio las promociones OK";
+            }
+            catch (Exception)
+            {
+                resultado = "No se enviaron las promociones";
+            }
+            return resultado;
+        }
+
+
+        private string enviarCorreo(Cita citaBE) {
+            return "CORREO ENVIADO OK";
+
+        }
         public RespuestaService<Cita> modificarCita(Cita cita)
         {
             util = new Utilitario();

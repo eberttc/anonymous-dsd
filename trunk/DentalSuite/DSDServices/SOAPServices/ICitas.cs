@@ -27,5 +27,7 @@ namespace DSDServices.SOAPServices
         [OperationContract]
         List<ConsultaCita> consultarCitas(string fecha,int especialidad,string odontologo);
 
+        [OperationContract]
+        string enviarPromociones();
     }
 }

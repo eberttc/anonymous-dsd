@@ -249,8 +249,8 @@ namespace DSDServices.Persistencia
                     +"inner join TPaciente c on a.CodigoPaciente=c.Codigo "
                     +"inner join TOdontologo d on a.CodigoOdontologo=d.Codigo "
                     +"inner join THorario e on a.CodigoHorario=e.Codigo "
-                    + "where a.CodigoOdontologo='O43411111' AND a.CodigoEspecialidad=1 "
-                    +"and CONVERT(char(8),FechaReserva,112)='20141010' "
+                    + "where (a.CodigoOdontologo=@odontologo OR a.CodigoEspecialidad=@especialidad) "
+                    + "and CONVERT(char(8),FechaReserva,112)=@fecha "
                         +"order by e.HoraInicio,e.HoraTermino";
 
             using (SqlConnection con = new SqlConnection(ConexionUtil.Cadena))
@@ -258,6 +258,9 @@ namespace DSDServices.Persistencia
                 con.Open();
                 using (SqlCommand com = new SqlCommand(sql, con))
                 {
+                    com.Parameters.Add(new SqlParameter("@fecha", fecha));
+                    com.Parameters.Add(new SqlParameter("@especialidad", especialidad));
+                    com.Parameters.Add(new SqlParameter("@odontologo", odontologo));
                     using (SqlDataReader resultado = com.ExecuteReader())
                     {
                         while (resultado.Read())
