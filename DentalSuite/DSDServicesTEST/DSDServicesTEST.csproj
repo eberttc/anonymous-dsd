@@ -88,6 +88,9 @@
     <None Include="Service References\CitaWS\DSDServicesTEST.CitaWS.Cita.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\CitaWS\DSDServicesTEST.CitaWS.ConsultaCita.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\CitaWS\DSDServicesTEST.CitaWS.RespuestaServiceOfCitaz_SY3AMPv.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

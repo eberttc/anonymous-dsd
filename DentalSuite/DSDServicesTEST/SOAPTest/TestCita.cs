@@ -18,11 +18,12 @@ namespace DSDServicesTEST.SOAPTest
             DateTime fecha = DateTime.Now;
 
             CitaWS.Cita objCita = new CitaWS.Cita();
-            objCita.FechaReserva = fecha;
-            objCita.CodigoEspecialidad = 1;
-            objCita.CodigoPaciente = "p46079567";
-            objCita.CodigoHorario = 1;
-            objCita.CodigoOdontologo = "O43411111";
+            objCita.FechaReserva = Convert.ToDateTime("2014-10-11");
+            //objCita.FechaReserva = fecha;
+            objCita.CodigoEspecialidad = 9;
+            objCita.CodigoPaciente = "p43454555";
+            objCita.CodigoHorario = 3;
+            objCita.CodigoOdontologo = "O43411113";
 
             CitaWS.RespuestaServiceOfCitaz_SY3AMPv citaRespuesta = citaWs.registrarCita(objCita);
 
@@ -60,8 +61,8 @@ namespace DSDServicesTEST.SOAPTest
             CitaWS.Cita objCita = new CitaWS.Cita();
             objCita.FechaReserva = fecha;
             objCita.CodigoEspecialidad = 1;
-            objCita.CodigoPaciente = "p46079567";
-            objCita.CodigoHorario = 1;
+            objCita.CodigoPaciente = "p11111111";
+            objCita.CodigoHorario = 19;
             objCita.CodigoOdontologo = "O43411111";
 
             CitaWS.RespuestaServiceOfCitaz_SY3AMPv citaRespuesta = citaWs.registrarCita(objCita);
@@ -87,6 +88,11 @@ namespace DSDServicesTEST.SOAPTest
 
             Assert.AreEqual("Advertencia-validarDiasAnticipacionCita", citaRespuesta.TipoMensaje + '-' + citaRespuesta.MetodoOrigen);
         }
-        
+        [TestMethod]
+        public void TestEnviarPromociones() {
+            CitaWS.CitasClient cita = new CitaWS.CitasClient();
+            string respuesta=cita.enviarPromociones();
+            Assert.AreEqual("Se envio las promociones OK", respuesta);
+        }
     }
 }
